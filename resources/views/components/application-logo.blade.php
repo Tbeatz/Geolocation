@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-.animate-charcter {
-    text-transform: uppercase;
-    background-image: linear-gradient(
-        -225deg,
-        #231557 0%,
-        #44107a 29%,
-        #ff1361 67%,
-        #fff800 100%
-    );
-    background-size: auto auto;
-    background-clip: border-box;
-    background-size: 200% auto;
-    color: #fff;
-    background-clip: text;
-    text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textclip 2s linear infinite;
-    display: inline-block;
-    font-size: 40px;
-}
-@keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
-}
-</style>
-<h3 class="animate-charcter">Welcome User</h3>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        h1 {
+            color: hsl(0, 0%, 28%);
+            font-family: Brush Script MT;
+            letter-spacing: 5px;
+            cursor: pointer;
+        }
+
+        h1 span {
+            transition: 0.5s ease-out;
+        }
+        h1:hover span:nth-child(1) {
+
+        }
+        h1:hover span:nth-child(2) {
+
+        }
+        h1:hover span {
+            color: #fff;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-4xl font-semibold "><span>Geolocation</span></h1>
+</body>
 </html>

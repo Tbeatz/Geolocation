@@ -25,10 +25,10 @@
                 transition: 0.5s ease-out;
             }
             h1:hover span:nth-child(1) {
-                margin-right: 5px;
+
             }
             h1:hover span:nth-child(2) {
-                margin-left: 30px;
+
             }
             h1:hover span {
                 color: #fff;
