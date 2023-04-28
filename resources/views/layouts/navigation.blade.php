@@ -12,8 +12,14 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link class="navstyle" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Company Profile') }}
+                    </x-nav-link>
+                    <x-nav-link class="navstyle">
+                        {{ __('Geo Data') }}
+                    </x-nav-link>
+                    <x-nav-link class="navstyle">
+                        {{ __('View Data') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -23,7 +29,9 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div>
+                                <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-blue-500" src="{{'storage/'.Auth::user()->avatar}}" alt="">
+                            </div>
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

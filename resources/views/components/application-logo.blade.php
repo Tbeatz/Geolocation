@@ -4,7 +4,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         h1 {
-            color: hsl(0, 0%, 28%);
+            color: hsl(0, 0%, 86%);
             font-family: Brush Script MT;
             letter-spacing: 5px;
             cursor: pointer;
