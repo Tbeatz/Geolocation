@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('regions', function (Blueprint $table) {
             $table->id();
-            $table->varchar('name');
-            $table->varchar('name_mm');
+            $table->string('name');
+            $table->string('name_mm');
             $table->timestamps();
         });
     }

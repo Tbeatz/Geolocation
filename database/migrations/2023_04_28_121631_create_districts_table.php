@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('districts', function (Blueprint $table) {
             $table->id();
-            $table->varchar('name');
-            $table->varchar('name_mm');
+            $table->string('name');
+            $table->string('name_mm');
             // $table->foreignId('region_id')->constrained();
             $table->unsignedBigInteger('region_id');
             $table->foreign('region_id')->references('id')->on('regions');
