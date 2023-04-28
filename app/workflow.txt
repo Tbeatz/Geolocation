@@ -1,0 +1,9 @@
+__User__
+1. Register
+2. Login
+3. Fill Profile data
+    3.1 Save
+    3.2 Submit
+        3.2.1 Admin Approve
+            3.2.1.1 Fill Location Data
+        3.2.2 Admin Reject => 3.
