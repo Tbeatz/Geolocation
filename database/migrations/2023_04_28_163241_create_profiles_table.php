@@ -23,10 +23,10 @@ return new class extends Migration
             $table->double('local_invest')->nullable();
             $table->double('foreign_invest')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('permit_type_id');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->unsignedBigInteger('permit_type_id')->nullable();
             $table->foreign('permit_type_id')->references('id')->on('permit_types');
-            $table->unsignedBigInteger('form_of_invest_id');
+            $table->unsignedBigInteger('form_of_invest_id')->nullable();
             $table->foreign('form_of_invest_id')->references('id')->on('form_of_invests');
             $table->timestamps();
         });

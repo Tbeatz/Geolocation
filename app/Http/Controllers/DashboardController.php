@@ -54,9 +54,7 @@ class DashboardController extends Controller
      */
     public function update(DashboardUpdateRequest $request)
     {
-        $profile = Profile::firstOrCreate([
-            'user_id' => auth()->id(),
-        ]);
+        $profile = $request->user()->profile();
 
         $profile->update($request->validated());
 

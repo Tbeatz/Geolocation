@@ -22,6 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'avatar',
+        'active',
+        'is_admin',
     ];
 
     /**
@@ -42,4 +44,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
+    }
 }

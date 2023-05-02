@@ -262,19 +262,8 @@
                     <x-welcome-style class="w-20 h-20 fill-current text-gray-500" />
                 </a>
             </div>
-
-            <div class="mt-6">
-                <div class='light x1'></div>
-                <div class='light x2'></div>
-                <div class='light x3'></div>
-                <div class='light x4'></div>
-                <div class='light x5'></div>
-                <div class='light x6'></div>
-                <div class='light x7'></div>
-                <div class='light x8'></div>
-                <div class='light x9'></div>
+            <div class="mt-2">
                 {{ $slot }}
             </div>
-        </div>
     </body>
 </html>
