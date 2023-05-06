@@ -26,6 +26,6 @@
     </style>
 </head>
 <body>
-    <h1 class="text-4xl font-semibold "><span>Geolocation</span></h1>
+    <h1 class="text-3xl font-semibold "><span>Geolocation</span></h1>
 </body>
 </html>

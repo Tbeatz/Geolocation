@@ -27,7 +27,7 @@ Route::get('/', function () {
 Route::get('/users', function(){
     $users = User::where('is_admin', false)->where('active',false)->with('profile')->get();
     return view('users', compact('users'));
-});
+})->name('users');
 Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.approve');
 Route::delete('/users/{user}',[UserController::class, 'destroy'])->name('users.reject');
 

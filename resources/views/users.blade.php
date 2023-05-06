@@ -1,35 +1,35 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="textanime font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Company Information') }}
+            {{ __('Registered Companies') }}
         </h2>
     </x-slot>
 
     <div class="">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-4 sm:p-4 bg-neutral-200 shadow sm:rounded-lg border-2 border-neutral-300">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <section>
                         <header>
-                            <h2 class="text-lg font-semibold text-dark-900 dark:text-dark-100 mb-1">
+                            <h2 class="text-lg font-semibold text-gray-700 uppercase dark:text-dark-100 mb-1">
                                 {{ __('ADMIN') }}
                             </h2>
-                            <p style="color:#3b82f6; font-family: arial;"
-                                class="mb-4 font-semibold text-sm text-gray-600 dark:text-gray-400">
+                            <p style="font-family: arial;"
+                                class="mb-4 font-semibold text-sm text-green-600 dark:text-green-600">
                                 {{ __('Approve the company') }}
                             </p>
                         </header>
                         @if (session('message'))
-                            <div class="text-red-500">
+                            <div style="font-family:arial;" class="text-red-500 font-semibold">
                                 {{ session('message') }}
                             </div>
                         @endif
                         <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-6 space-y-6">
-                            <table class="w-full text-sm text-left text-white-500 dark:text-white-400 text-center">
+                            <table style="font-family:arial;" class="w-full text-sm text-white-200 dark:text-white-200 text-center">
                                 <thead
-                                    class="text-xs text-white-700 uppercase bg-blue-50 dark:bg-blue-700 dark:text-white-400">
+                                    class="text-gray-200 uppercase bg-gray-50 dark:bg-gray-900 dark:text-gray-00">
                                     <tr>
-                                        <td>No.</td>
+                                        <td class="py-3">No.</td>
                                         <td>Company Name</td>
                                         <td>Company Registration No.</td>
                                         <td>Permit No.</td>
@@ -40,7 +40,7 @@
                                 <tbody>
                                     @foreach ($users as $user)
                                         <tr
-                                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            class="bg-white border-b dark:bg-green-600 dark:border-gray-200 hover:bg-green-50 dark:hover:bg-green-500">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $user->profile->company_name }}</td>
                                             <td>{{ $user->profile->company_reg_no }}</td>
@@ -54,7 +54,7 @@
                                                         @method('patch')
                                                         <button
                                                             onclick="return confirm('Are you sure you want to approve?')"
-                                                            class="bg-blue-600 hover:bg-blue-400 text-white-800 font-semibold py-2 px-2 rounded-l">
+                                                            class="bg-gray-900 hover:bg-gray-400 text-white-800 font-semibold py-2 px-2 rounded-l">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor"
                                                                 class="bi bi-check" viewBox="0 0 16 16">
@@ -69,7 +69,7 @@
                                                         @method('delete')
                                                         <button
                                                             onclick="return confirm('Are you sure you want to reject?')"
-                                                            class="bg-green-600 hover:bg-green-400 text-white-800 font-semibold py-2 px-2 rounded-r">
+                                                            class="bg-red-600 hover:bg-red-400 text-white-800 font-semibold py-2 px-2 rounded-r">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor" class="bi bi-x"
                                                                 viewBox="0 0 16 16">

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profile;
+use App\Mail\UserApproved;
+use App\Mail\UserRejected;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -13,13 +14,15 @@ class UserController extends Controller
         $user->update([
             'active' => true,
         ]);
+        Mail::to($user->email)->send(new UserApproved($user));
         return back()->with('message', 'Approved Successfully!');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
+        Mail::to($user->email)->send(new UserRejected($user));
         return back()->with('message', 'Rejected Successfully!');
     }
-    // todo: send email
+    // todo: send email error fix
 }

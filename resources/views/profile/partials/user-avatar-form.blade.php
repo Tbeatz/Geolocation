@@ -1,15 +1,15 @@
 <section>
     <header>
-        <h2 class="text-lg font-semibold text-dark-900 dark:text-dark-100 mb-1">
-            {{ __('USER AVATAR') }}
+        <h2 class="text-lg font-semibold text-gray-700 uppercase dark:text-dark-100 mb-1">
+            {{ __('Avatar') }}
         </h2>
-        <p style="color:#3b82f6; font-family: arial;" class="mb-4 font-semibold text-sm text-gray-600 dark:text-gray-400">
-            {{ __("Add or update your avatar!") }}
+        <p style="font-family: arial;" class="mb-4 font-semibold text-sm text-green-600 dark:text-green-600">
+            {{ __("Create or Update") }}
         </p>
-        <img class="w-20 h-20 p-1 rounded-full ring-2 ring-gray-300 dark:ring-dark-500" src="{{"/storage/$user->avatar"}}" alt="">
+        <img class="w-20 h-20 rounded-full ring-1 ring-green-600 dark:ring-green-600" src="{{"/storage/$user->avatar"}}" alt="">
     </header>
     @if (session('message'))
-        <div class="text-red-500">
+        <div class="text-red-600 font-semibold">
             {{session('message')}}
         </div>
     @endif
@@ -17,13 +17,13 @@
         @csrf
         @method('patch')
         <div>
-            <x-input-label for="avatar" :value="__('Avatar')" />
-            <input id="avatar" name="avatar" type="file" class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 mt-1" id="default_size" :value="old('avatar', $user->avatar)" required autofocus autocomplete="avatar" />
+            <label for="avatar" class="text-green-600 font-bold text-sm">Avatar</label>
+            <input id="avatar" name="avatar" type="file" class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-200 focus:outline-none dark:bg-green-600 dark:border-gray-200 dark:placeholder-gray-400 mt-1" id="default_size" :value="old('avatar', $user->avatar)" required autofocus autocomplete="avatar" />
             <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <button type="submit" class="inline-flex items-center px-4 py-2 font-medium bg-green-500 uppercase text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
         </div>
     </form>
 </section>

@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        <h2 class="text-lg font-semibold text-gray-700 uppercase dark:text-dark-100 mb-1">
             {{ __('Profile Information') }}
         </h2>
 
-        <p style="color:#3b82f6;" class="mb-4 font-medium text-sm text-gray-600 dark:text-gray-400">
+        <p style="font-family: arial;" class="mb-4 font-semibold text-sm text-green-600 dark:text-green-600">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
@@ -17,27 +17,27 @@
         @csrf
         @method('patch')
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <label for="name" class="text-green-600 font-bold text-sm">Name</label>
             <div class="flex">
-                <span class="inline-flex items-center px-3 mx-1 text-sm bg-gray-200 border border-gray-300 rounded-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600 mt-1 block">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                <span class="inline-flex items-center px-3 mx-1 text-sm bg-gray-200 border border-gray-300 rounded-md dark:bg-gray-900 dark:text-gray-700 dark:border-gray-700 mt-1 block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-person" viewBox="0 0 16 16">
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                     </svg>
                 </span>
-                <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+                <input type="text" id="name" name="name" class="mt-1 block w-full dark:border-gray-200 dark:bg-green-600 dark:text-gray-200 dark:focus:border-lime-400 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" value="{{old('name', $user->name)}}" required autofocus autocomplete="name" />
             </div>
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <label for="email" class="text-green-600 font-bold text-sm">Email</label>
             <div class="flex">
-                <span class="inline-flex items-center px-3 mx-1 text-sm bg-gray-200 border border-r-0 border-gray-300 rounded-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600 mt-1 block">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                <span class="inline-flex items-center px-3 mx-1 text-sm bg-gray-200 border border-gray-300 rounded-md dark:bg-gray-900 dark:text-gray-700 dark:border-gray-700 mt-1 block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-envelope" viewBox="0 0 16 16">
                         <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
                     </svg>
                 </span>
-                <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
+                <input type="text" id="email" name="email" class="mt-1 block w-full dark:border-gray-200 dark:bg-green-600 dark:text-gray-200 dark:focus:border-lime-400 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" value="{{old('name', $user->email)}}" required autofocus autocomplete="username" />
             </div>
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
@@ -61,7 +61,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <button type="submit" class="inline-flex items-center px-4 py-2 font-medium bg-green-500 uppercase text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
 
             @if (session('status') === 'profile-updated')
                 <p

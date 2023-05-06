@@ -12,6 +12,9 @@ class AppLayout extends Component
      */
     public function render(): View
     {
+        if (request()->user()->is_admin == true) {
+            return view('layouts.admin');
+        }
         return view('layouts.app');
     }
 }

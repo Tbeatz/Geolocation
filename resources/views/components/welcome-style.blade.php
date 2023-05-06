@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html lang="en">
         <style>
-            .animate-charcter {
+            /* .animate-charcter {
                 text-transform: uppercase;
                 background-image: linear-gradient(
                     -225deg,
@@ -27,7 +27,7 @@
                 {
                     background-position: 200% center;
                 }
-            }
+            } */
         </style>
-    <h3 class="animate-charcter">Welcome User</h3>
+    <h3 class="text-white text-lg font-semibold uppercase hover:text-gray-300">Welcome User</h3>
 </html>
