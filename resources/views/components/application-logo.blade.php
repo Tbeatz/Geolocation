@@ -6,7 +6,7 @@
         h1 {
             color: hsl(0, 0%, 86%);
             font-family: Brush Script MT;
-            letter-spacing: 5px;
+            letter-spacing: 2px;
             cursor: pointer;
         }
 

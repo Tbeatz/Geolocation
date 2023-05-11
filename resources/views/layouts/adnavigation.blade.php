@@ -12,11 +12,14 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link class="navstyle" :href="route('users')" :active="request()->routeIs('users')">
+                    <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('users')" :active="request()->routeIs('users')">
                         {{ __('Users') }}
                     </x-nav-link>
-                    <x-nav-link class="navstyle" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('map')" :active="request()->routeIs('map')">
                         {{ __('Map') }}
+                    </x-nav-link>
+                    <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('userdata')" :active="request()->routeIs('userdata')">
+                        {{ __('User Data') }}
                     </x-nav-link>
                 </div>
             </div>

@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="textanime font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        {{-- <h2 class="textanime font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Registered Companies') }}
-        </h2>
+        </h2> --}}
     </x-slot>
 
     <div class="">
@@ -12,7 +12,7 @@
                     <section>
                         <header>
                             <h2 class="text-lg font-semibold text-gray-700 uppercase dark:text-dark-100 mb-1">
-                                {{ __('ADMIN') }}
+                                {{ __('Registered Companies') }}
                             </h2>
                             <p style="font-family: arial;"
                                 class="mb-4 font-semibold text-sm text-green-600 dark:text-green-600">
