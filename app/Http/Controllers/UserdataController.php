@@ -18,12 +18,11 @@ class UserdataController extends Controller
     public function index(Request $request)
     {
         $search = $request->searchInput;
-        $userdatas = Userdata::where([
-            ['investor_name', 'LIKE', '%'.$search.'%'],
-            ['company_name', 'LIKE', '%'.$search.'%'],
-            ['company_reg_no', 'LIKE', '%'.$search.'%'],
-            ['permit_no', 'LIKE', '%'.$search.'%'],
-        ])->get();
+        $userdatas = Userdata::paginate(5);
+        // $userdatas = Userdata::orwhere('investor_name', 'LIKE', '%'.$search.'%')
+        //     ->orwhere('company_name', 'LIKE', '%'.$search.'%')
+        //     ->orwhere('company_reg_no', 'LIKE', '%'.$search.'%')
+        //     ->orwhere('permit_no', 'LIKE', '%'.$search.'%')->get();
         return view('userdata', compact('userdatas'));
     }
 
