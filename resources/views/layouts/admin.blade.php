@@ -658,4 +658,29 @@
     }
 }
 </script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
+<script type="text/javascript">
+     //pagination
+    $(document).on('click','.pagination a', function(e){
+      e.preventDefault();
+      let page = $(this).attr('href').split('page=')[1]
+      record(page)
+    })
+
+    function record(page){
+        $.ajax({
+            url: "{{ route('userdata.index') }}?page=" + page,
+            success:function(res){
+                $('.table-data').html(res);
+            }
+        })
+    }
+
+</script>
 

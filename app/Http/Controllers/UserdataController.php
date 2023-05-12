@@ -18,14 +18,22 @@ class UserdataController extends Controller
     public function index(Request $request)
     {
         $search = $request->searchInput;
-        $userdatas = Userdata::paginate(5);
+        if($request->ajax()){
+            $userdatas = Userdata::paginate(5);
+            return view('paginationdata',compact('userdatas'))->render();
+        }else{
+            $userdatas = Userdata::paginate(5);
+            return view('userdata', compact('userdatas'));
+        }
         // $userdatas = Userdata::orwhere('investor_name', 'LIKE', '%'.$search.'%')
         //     ->orwhere('company_name', 'LIKE', '%'.$search.'%')
         //     ->orwhere('company_reg_no', 'LIKE', '%'.$search.'%')
         //     ->orwhere('permit_no', 'LIKE', '%'.$search.'%')->get();
-        return view('userdata', compact('userdatas'));
     }
-
+    public function paginate(Request $request){
+        $userdatas = Userdata::paginate(5);
+        return view('paginationdata',compact('userdatas'))->render();
+    }
     /**
      * Show the form for creating a new resource.
      */
