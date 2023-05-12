@@ -18,7 +18,7 @@
                     <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('map')" :active="request()->routeIs('map')">
                         {{ __('Map') }}
                     </x-nav-link>
-                    <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('userdata')" :active="request()->routeIs('userdata')">
+                    <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('userdata.index')" :active="request()->routeIs('userdata.index')">
                         {{ __('User Data') }}
                     </x-nav-link>
                 </div>
@@ -30,7 +30,7 @@
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-500 dark:text-green-400 bg-white dark:bg-green-600 hover:text-green-700 dark:hover:text-green-300 focus:outline-none transition ease-in-out duration-150">
                             <div>
-                                <img class="w-10 h-10 rounded-full ring-2 ring-gray-400 dark:ring-gray-300" src="{{'storage/'.Auth::user()?->avatar}}" alt="">
+                                <img class="w-10 h-10 rounded-full ring-2 ring-gray-400 dark:ring-gray-300" src="{{asset('storage/'.Auth::user()?->avatar)}}" alt="">
                             </div>
 
                             <div class="ml-1">

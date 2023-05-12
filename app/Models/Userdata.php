@@ -18,7 +18,7 @@ class Userdata extends Model
         return $this->hasOne(Country::class, 'id', 'country_id');
     }
 
-    public function section(){
-        return $this->hasOne(Section::class, 'id', 'section_id');
+    public function sector(){
+        return $this->hasOne(Sector::class, 'id', 'sector_id');
     }
 }

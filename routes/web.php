@@ -9,6 +9,7 @@ use App\Models\FormOfInvest;
 use App\Models\PermitType;
 use App\Models\Profile;
 use App\Models\User;
+use App\Models\Userdata;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -26,29 +27,32 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//Users
 Route::get('/users', function(){
     $users = User::where('is_admin', false)->where('active',false)->with('profile')->get();
     return view('users', compact('users'));
 })->name('users');
-Route::get('/map', function(){
-    return view('map');
-})->name('map');
-Route::patch('/userdata',[UserdataController::class,'update'])->name('userdata.update');
 Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.approve');
 Route::delete('/users/{user}',[UserController::class, 'destroy'])->name('users.reject');
 
+//Map
+Route::get('/map', function(){
+    return view('map');
+})->name('map');
+
+//UserData
+Route::resource('userdata', UserdataController::class)->parameters(['userdata' => "userdata"]);
+
+//Dashboard
 Route::get('/dashboard', function () {
     $profile = Profile::where('user_id', '=', auth()->id())->first();
     $permit_types = PermitType::all();
     $form_of_invests = FormOfInvest::all();
     return view('dashboard', compact('profile','permit_types','form_of_invests'));
 })->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('userdata', function () {
-    return view('userdata');
-})->name('userdata');
 Route::patch('/dashboard',[DashboardController::class, 'update'])->name('dashboard.update');
 
+//Auth
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
