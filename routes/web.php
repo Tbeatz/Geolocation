@@ -23,15 +23,13 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/', function () {
     return view('welcome');
 });
-
-//UserData
-Route::resource('userdata', UserdataController::class)->parameters(['userdata' => "userdata"]);
-
-//Investor
-Route::get('/dashboard',[DashboardController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::patch('/dashboard',[DashboardController::class, 'update'])->name('dashboard.update');
-Route::get('/geolocation',[GeolocationController::class, 'index'])->name('geolocation');
-Route::patch('/geolocation', [GeolocationController::class, 'update'])->name('geolocation.update');
+Route::middleware(['auth', 'user'])->group(function () {
+     //Investor
+     Route::get('/dashboard',[DashboardController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
+     Route::patch('/dashboard',[DashboardController::class, 'update'])->name('dashboard.update');
+     Route::get('/geolocation',[GeolocationController::class, 'index'])->name('geolocation');
+     Route::patch('/geolocation', [GeolocationController::class, 'update'])->name('geolocation.update');
+});
 
 //Auth
 Route::middleware('auth')->group(function () {
@@ -39,11 +37,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::patch('/profile/avatar',[AvatarController::class, 'update'])->name('profile.avatar');
-    //Admin
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    // Admin
     Route::get('/users',[UserController::class, 'index'])->name('users');
     Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.approve');
     Route::delete('/users/{user}',[UserController::class, 'destroy'])->name('users.reject');
     Route::get('users-paginate',[UserController::class, 'paginate'])->name('users.paginate');
+    //UserData
+    Route::resource('userdata', UserdataController::class)->parameters(['userdata' => "userdata"]);
     //Map
     Route::get('/map', function(){
         return view('map');
