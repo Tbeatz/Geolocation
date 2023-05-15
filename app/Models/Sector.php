@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Sector extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'name_mm'];
+    protected $fillable = ['name', 'name_mm', 'icon'];
 }
