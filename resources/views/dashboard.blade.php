@@ -80,9 +80,9 @@
                                     <div class="w-full">
                                         <x-input-label for="permit_type_id" :value="__('Permit Type')" />
                                         <select style="width: 98%; font-family:arial;" id="permit_type_id" name="permit_type_id" class="mt-1 border border-gray-300 rounded-md block p-2 dark:bg-gray-100 dark:border-gray-200 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-lime-600 dark:focus:border-blue-500" required>
-                                            <option value="" @if (!$profile->permit_type_id) selected @endif>Select an Option</option>
+                                            <option value="" @if (!$profile?->permit_type_id) selected @endif>Select an Option</option>
                                             @foreach ($permit_types as $permit_type)
-                                                <option value="{{$permit_type->id}}" @if ($profile->permit_type_id == $permit_type->id) selected @endif>{{$permit_type->name}}</option>
+                                                <option value="{{$permit_type?->id}}" @if ($profile?->permit_type_id == $permit_type?->id) selected @endif>{{$permit_type?->name}}</option>
                                             @endforeach
                                         </select>
                                         <x-input-error class="mt-2" :messages="$errors->get('permit_type_id')" />
@@ -90,9 +90,9 @@
                                     <div class="w-full">
                                         <x-input-label for="form_of_invest_id" :value="__('Form Of Investment')" />
                                         <select style="width: 98%; font-family:arial;" name="form_of_invest_id" id="form_of_invest_id" class="mt-1 border border-gray-300 text-gray-200 rounded-md block p-2 dark:bg-gray-100 dark:border-gray-200 dark:placeholder-gray-200 dark:text-gray-900 dark:focus:ring-lime-600 dark:focus:border-blue-200" required>
-                                            <option value="" @if (!$profile->form_of_invest_id) selected @endif>Select an Option</option>
+                                            <option value="" @if (!$profile?->form_of_invest_id) selected @endif>Select an Option</option>
                                             @foreach ($form_of_invests as $form_of_invest)
-                                                <option value="{{$form_of_invest->id}}" @if ($profile->form_of_invest_id == $form_of_invest->id) selected @endif>{{$form_of_invest->name}}</option>
+                                                <option value="{{$form_of_invest?->id}}" @if ($profile?->form_of_invest_id == $form_of_invest?->id) selected @endif>{{$form_of_invest->name}}</option>
                                             @endforeach
                                         </select>
                                         <x-input-error class="mt-2" :messages="$errors->get('form_of_invest_id')" />

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\DashboardUpdateRequest;
+use App\Models\FormOfInvest;
+use App\Models\PermitType;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +16,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        $profile = Profile::where('user_id', '=', auth()->id())->first();
+        $permit_types = PermitType::all();
+        $form_of_invests = FormOfInvest::all();
+        return view('dashboard', compact('profile','permit_types','form_of_invests'));
     }
 
     /**

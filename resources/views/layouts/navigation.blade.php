@@ -15,6 +15,9 @@
                     <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('COMPANY PROFILE') }}
                     </x-nav-link>
+                    <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('geolocation')" :active="request()->routeIs('geolocation')">
+                        {{ __('Geolocation') }}
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -28,6 +28,15 @@ return new class extends Migration
             $table->foreign('permit_type_id')->references('id')->on('permit_types');
             $table->unsignedBigInteger('form_of_invest_id')->nullable();
             $table->foreign('form_of_invest_id')->references('id')->on('form_of_invests');
+            //geolocation
+            $table->unsignedBigInteger('sector_id')->nullable();
+            $table->foreign('sector_id')->references('id')->on('sectors');
+            $table->unsignedBigInteger('country_id')->nullable();
+            $table->foreign('country_id')->references('id')->on('countries');
+            $table->text('contact_information')->nullable();
+            $table->text('businesstype_detail')->nullable();
+            $table->json('geolocation')->nullable();
+            $table->boolean('type')->default(false);
             $table->timestamps();
         });
     }
