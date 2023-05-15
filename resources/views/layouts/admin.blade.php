@@ -13,7 +13,7 @@
         <!-- leaflet css -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
-        <link rel="stylesheet" href="/leaflet-search-master/dist/leaflet-search.src.css"/>
+        <link rel="stylesheet" href="/lib/leaflet-search-master/dist/leaflet-search.src.css"/>
         <link rel="stylesheet" href="/lib/L.Control.SlideMenu.css">
         <!-- bootstrap css -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -127,7 +127,7 @@
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 <script src="/lib/leaflet.browser.print.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
-<script src="/leaflet-search-master/dist/leaflet-search.src.js"></script>
+<script src="/lib/leaflet-search-master/dist/leaflet-search.src.js"></script>
 <script src="/lib/L.Control.SlideMenu.js"></script>
 <script src="https://unpkg.com/geojson-vt@3.2.0/geojson-vt.js"></script>
 <script src="/lib/leaflet-geojson-vt.js"></script>
