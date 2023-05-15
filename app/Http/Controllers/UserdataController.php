@@ -20,7 +20,7 @@ class UserdataController extends Controller
         $search = $request->searchInput;
         if($request->ajax()){
             $userdatas = Userdata::paginate(5);
-            return view('paginationdata',compact('userdatas'))->render();
+            return view('companydatatable',compact('userdatas'))->render();
         }else{
             $userdatas = Userdata::paginate(5);
             return view('userdata', compact('userdatas'));
@@ -29,10 +29,6 @@ class UserdataController extends Controller
         //     ->orwhere('company_name', 'LIKE', '%'.$search.'%')
         //     ->orwhere('company_reg_no', 'LIKE', '%'.$search.'%')
         //     ->orwhere('permit_no', 'LIKE', '%'.$search.'%')->get();
-    }
-    public function paginate(Request $request){
-        $userdatas = Userdata::paginate(5);
-        return view('paginationdata',compact('userdatas'))->render();
     }
     /**
      * Show the form for creating a new resource.

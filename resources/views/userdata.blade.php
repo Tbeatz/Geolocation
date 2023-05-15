@@ -31,7 +31,7 @@
                                 <span class="sr-only">Search</span>
                             </button>
                         </div>
-                        @include('paginationdata')
+                        @include('companydatatable')
                     </section>
 
                 </div>
