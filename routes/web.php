@@ -27,16 +27,6 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/', function () {
     return view('welcome');
 });
-//Users
-Route::get('/users',[UserController::class, 'index'])->name('users');
-Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.approve');
-Route::delete('/users/{user}',[UserController::class, 'destroy'])->name('users.reject');
-Route::get('users-paginate',[UserController::class, 'paginate'])->name('users.paginate');
-
-//Map
-Route::get('/map', function(){
-    return view('map');
-})->name('map');
 
 //UserData
 Route::resource('userdata', UserdataController::class)->parameters(['userdata' => "userdata"]);
@@ -56,6 +46,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::patch('/profile/avatar',[AvatarController::class, 'update'])->name('profile.avatar');
+    //Users
+    Route::get('/users',[UserController::class, 'index'])->name('users');
+    Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.approve');
+    Route::delete('/users/{user}',[UserController::class, 'destroy'])->name('users.reject');
+    Route::get('users-paginate',[UserController::class, 'paginate'])->name('users.paginate');
+    //Map
+    Route::get('/map', function(){
+        return view('map');
+    })->name('map');
 });
 
 require __DIR__.'/auth.php';

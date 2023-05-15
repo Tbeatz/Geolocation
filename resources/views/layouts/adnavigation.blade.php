@@ -12,13 +12,13 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('users')" :active="request()->routeIs('users')">
+                    <x-nav-link style="font-family: arial;" class="font-semibold uppercase" :href="route('users')" :active="request()->routeIs('users')">
                         {{ __('Users') }}
                     </x-nav-link>
-                    <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('map')" :active="request()->routeIs('map')">
+                    <x-nav-link style="font-family: arial;" class="font-semibold uppercase" :href="route('map')" :active="request()->routeIs('map')">
                         {{ __('Map') }}
                     </x-nav-link>
-                    <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('userdata.index')" :active="request()->routeIs('userdata.index')">
+                    <x-nav-link style="font-family: arial;" class="font-semibold uppercase" :href="route('userdata.index')" :active="request()->routeIs('userdata.index')">
                         {{ __('User Data') }}
                     </x-nav-link>
                 </div>

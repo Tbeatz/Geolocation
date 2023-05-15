@@ -41,6 +41,9 @@
     width: 200px;
     border-radius: 2px !important;
     background: #ece1e1 !important;
+    color: black !important;
+    font-family: arial !important;
+    font-size: 14px !important;
 }
 .search-cancel{
     right: 0px !important;
