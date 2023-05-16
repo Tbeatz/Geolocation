@@ -16,7 +16,7 @@ class UserMiddleware
     public function handle(Request $request, Closure $next)
     {
         if ($request->user() && $request->user()->is_admin) {
-            return redirect()->route('users');
+            return back();
         }
 
         return $next($request);

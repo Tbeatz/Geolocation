@@ -6,6 +6,7 @@ use App\Http\Controllers\Profile\AvatarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserdataController;
 use App\Http\Controllers\GeolocationController;
+use App\Http\Controllers\SectorController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -45,8 +46,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.approve');
     Route::delete('/users/{user}',[UserController::class, 'destroy'])->name('users.reject');
     Route::get('users-paginate',[UserController::class, 'paginate'])->name('users.paginate');
-    //UserData
     Route::resource('userdata', UserdataController::class)->parameters(['userdata' => "userdata"]);
+    Route::get('/sectors',[SectorController::class, 'index'])->name('sector');
+    Route::patch('/sectors/icon',[SectorController::class, 'update'])->name('sector.update');
     //Map
     Route::get('/map', function(){
         return view('map');

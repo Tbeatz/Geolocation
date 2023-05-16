@@ -21,6 +21,9 @@
                     <x-nav-link style="font-family: arial;" class="font-semibold uppercase" :href="route('userdata.index')" :active="request()->routeIs('userdata.index')">
                         {{ __('User Data') }}
                     </x-nav-link>
+                    <x-nav-link style="font-family: arial;" class="font-semibold uppercase" :href="route('sector')" :active="request()->routeIs('sector')">
+                        {{ __('Sectors') }}
+                    </x-nav-link>
                 </div>
             </div>
 
