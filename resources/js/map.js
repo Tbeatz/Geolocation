@@ -2,7 +2,7 @@
 var map = L.map('map',{
     preferCanvas: true,
     selectArea: true
-}).setView([16.8409, 96.1735], 11);
+}).setView([16.8409, 96.1735], 13);
 
 // Tile Layers
 var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
@@ -104,7 +104,7 @@ $("#sel3").change(function(){
     });
     sel4.loadOptions();
 });
-
+var clustermarkers = L.markerClusterGroup();
 let _id = 0;
 var factoryGroup = L.geoJSON(factoryjson, {
     pointToLayer: function(feature, latlng){
@@ -152,6 +152,8 @@ var factoryGroup = L.geoJSON(factoryjson, {
         feature.properties.searchFactories = feature.properties.name + ', ' + feature.properties.sector+ ', ' + feature.properties.type+ ', ' + feature.properties.area;
     }
 });
+clustermarkers.addLayer(factoryGroup);
+map.addLayer(clustermarkers);
 
 
 //layerGroup
@@ -283,7 +285,7 @@ $('#Clear').on('click', function(){
 });
 
 $('#Reset').on('click', function(){
-    map.setView([16.8409, 96.1735], 11);
+    map.setView([16.8409, 96.1735], 13);
     myClick.remove();
     event.stopPropagation();
     map.doubleClickZoom.disable();

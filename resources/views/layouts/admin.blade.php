@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
         <link rel="stylesheet" href="/lib/leaflet-search-master/dist/leaflet-search.src.css"/>
         <link rel="stylesheet" href="/lib/L.Control.SlideMenu.css">
+        <link rel="stylesheet" href="/lib/Leaflet.markercluster-1.4.1/dist/MarkerCluster.css"/>
+        <link rel="stylesheet" href="/lib/Leaflet.markercluster-1.4.1/dist/MarkerCluster.Default.css"/>
         <!-- bootstrap css -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
         <!-- custom css -->
@@ -128,6 +130,8 @@
 <script src="https://unpkg.com/rbush@3.0.1/rbush.js"></script>
 <!-- lib js -->
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script src="/lib/Leaflet.markercluster-1.4.1/dist/leaflet.markercluster-src.js"></script>
+{{-- <script src="/lib/Leaflet.markercluster-1.4.1/src/MarkerCluster.js"></script> --}}
 <script src="/lib/multiselect-dropdown.js"></script>
 <script src="/lib/leaflet.browser.print.min.js"></script>
 <script src="/lib/leaflet-search-master/dist/leaflet-search.src.js"></script>
