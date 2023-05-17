@@ -145,3 +145,4 @@
 <script src="/data/stateandregionlayer.js"></script>
 <script src="/data/townshiplayer.js"></script>
 <script src="/data/factory.js"></script>
+<script src="/data/geofactory.js"></script>

@@ -36,6 +36,7 @@ return new class extends Migration
             $table->text('contact_information')->nullable();
             $table->text('businesstype_detail')->nullable();
             $table->json('geolocation')->nullable();
+            $table->string('cover')->nullable();
             $table->boolean('type')->default(false);
             $table->timestamps();
         });

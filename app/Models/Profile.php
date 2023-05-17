@@ -14,6 +14,9 @@ class Profile extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function sector(){
+        return $this->hasOne(Sector::class, 'id', 'sector_id');
+    }
     public function country(){
         return $this->hasOne(Country::class, 'id', 'country_id');
     }

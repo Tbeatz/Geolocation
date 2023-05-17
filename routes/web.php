@@ -6,6 +6,7 @@ use App\Http\Controllers\Profile\AvatarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserdataController;
 use App\Http\Controllers\GeolocationController;
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\SectorController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -50,9 +51,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/sectors',[SectorController::class, 'index'])->name('sector');
     Route::patch('/sectors/icon',[SectorController::class, 'update'])->name('sector.update');
     //Map
-    Route::get('/map', function(){
-        return view('map');
-    })->name('map');
+    Route::get('/map', [MapController::class, 'index'])->name('map');
 });
 
 require __DIR__.'/auth.php';

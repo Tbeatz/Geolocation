@@ -5,6 +5,7 @@
     <div id="map">
         <div class="leaflet-control coordinate"></div>
         <div class="wrapper">
+            <div id="geoprofile" class="hidden">{{ json_encode($profiles) }}</div>
             <div class="leaflet-control p-7 bg-neutral-200 shadow sm:rounded-lg border-2 border-neutral-300 multisearch w-4/5 mx-auto hidden">
                 <div class="selectContainer vertical-center">
                     <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-900" for="">Type</label>

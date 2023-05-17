@@ -23,7 +23,7 @@
                                 {{session('message')}}
                             </div>
                         @endif
-                        <form method="post" action="{{ route('geolocation.update') }}" class="p-4 sm:p-8 bg-green-600 shadow sm:rounded-lg border-2 border-gray-300">
+                        <form method="post" action="{{ route('geolocation.update') }}" class="p-4 sm:p-8 bg-green-600 shadow sm:rounded-lg border-2 border-gray-300" enctype="multipart/form-data">
                             @csrf
                             @method('patch')
                             <div>
@@ -35,6 +35,15 @@
                                 </p>
                             </div>
                             <div class="m-auto w-3/4">
+                                <x-input-label for="cover" :value="__('Cover Preview')" />
+                                <img class="w40 h-40 rounded-lg ring-1 ring-green-600 dark:ring-green-600 mt-2" src="{{"/storage/$profile->cover"}}" alt="">
+                                <div class="flex flex-row mt-2">
+                                    <div class="w-full">
+                                        <x-input-label for="cover" :value="__('Cover')" />
+                                        <input id="cover" style="width:99%;" name="cover" type="file" class="block mb-3 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-900 font-arial focus:outline-none dark:bg-gray-100 dark:border-gray-200 dark:placeholder-gray-400 mt-1" id="default_size" :value="old('cover', $profiles->cover)" autofocus autocomplete="cover" />
+                                        <x-input-error class="mt-2" :messages="$errors->get('cover')" />
+                                    </div>
+                                </div>
                                 <div class="flex flex-row mt-2">
                                     <div class="w-full">
                                         <x-input-label for="country_id" :value="__('Country')" />
@@ -75,7 +84,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="sector_id" :value="__('Sector')" />
-                                        <select style="width: 98%; font-family:arial;" id="sector_id" name="sector_id" class="mt-1 border border-gray-300 rounded-md block p-2 dark:bg-gray-100 dark:border-gray-200 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-lime-600 dark:focus:border-blue-500" required>
+                                        <select style="width: 98%;" id="sector_id" name="sector_id" class="mt-1 font-arial border border-gray-300 rounded-md block p-2 dark:bg-gray-100 dark:border-gray-200 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-lime-600 dark:focus:border-blue-500" required>
                                             <option value="" @if (!$profile->sector_id) selected @endif>Select an Option</option>
                                             @foreach ($sectors as $sector)
                                                 <option value="{{$sector->id}}" @if ($profile->sector_id == $sector->id) selected @endif>{{$sector->name}}</option>
@@ -90,7 +99,6 @@
                             </div>
                         </form>
                     </section>
-
                 </div>
             </div>
         </div>
