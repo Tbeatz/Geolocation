@@ -12,16 +12,16 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link style="font-family: arial;" class="font-semibold uppercase" :href="route('users')" :active="request()->routeIs('users')">
+                    <x-nav-link class="font-semibold font-arial" :href="route('users')" :active="request()->routeIs('users')">
                         {{ __('Users') }}
                     </x-nav-link>
-                    <x-nav-link style="font-family: arial;" class="font-semibold uppercase" :href="route('map')" :active="request()->routeIs('map')">
+                    <x-nav-link class="font-semibold font-arial" :href="route('map')" :active="request()->routeIs('map')">
                         {{ __('Map') }}
                     </x-nav-link>
-                    <x-nav-link style="font-family: arial;" class="font-semibold uppercase" :href="route('userdata.index')" :active="request()->routeIs('userdata.index')">
+                    <x-nav-link class="font-semibold font-arial" :href="route('userdata.index')" :active="request()->routeIs('userdata.index')">
                         {{ __('User Data') }}
                     </x-nav-link>
-                    <x-nav-link style="font-family: arial;" class="font-semibold uppercase" :href="route('sector')" :active="request()->routeIs('sector')">
+                    <x-nav-link class="font-semibold font-arial" :href="route('sector')" :active="request()->routeIs('sector')">
                         {{ __('Sectors') }}
                     </x-nav-link>
                 </div>
@@ -33,7 +33,11 @@
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-500 dark:text-green-400 bg-white dark:bg-green-600 hover:text-green-700 dark:hover:text-green-300 focus:outline-none transition ease-in-out duration-150">
                             <div>
-                                <img class="w-10 h-10 rounded-full ring-2 ring-gray-400 dark:ring-gray-300" src="{{asset('storage/'.Auth::user()?->avatar)}}" alt="">
+                                @if (Auth::user()->avatar)
+                                    <img class="w-10 h-10 rounded-full ring-2 ring-gray-400 dark:ring-gray-300" src="{{asset('storage/'.Auth::user()?->avatar)}}" alt="">
+                                @elseif(!Auth::user()->avatar)
+                                    <img class="w-10 h-10 rounded-full ring-1 ring-green-600 dark:ring-green-600" src="img/user.png" alt="">
+                                @endif
                             </div>
 
                             <div class="ml-1">

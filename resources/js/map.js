@@ -2,7 +2,7 @@
 var map = L.map('map',{
     preferCanvas: true,
     selectArea: true
-}).setView([16.8409, 96.1735], 13);
+}).setView([16.8409, 96.1735], 11);
 
 // Tile Layers
 var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
@@ -90,20 +90,6 @@ var township = L.geoJSON(townshiplayer, {
     }
 });
 
-$("#sel3").change(function(){
-    dt = [];
-    $.each($("#sel3 option:selected"), function(){
-        dt.push($(this).val());
-    });
-    $('#sel4 option').remove();
-    township.eachLayer(function(layer){
-        if(dt.includes(layer.feature.properties.DT))
-        {
-            $('#sel4').append(`<option value='${layer.feature.properties.TS}'>${layer.feature.properties.TS}</option>`);
-        }
-    });
-    sel4.loadOptions();
-});
 var clustermarkers = L.markerClusterGroup();
 let _id = 0;
 var factoryGroup = L.geoJSON(geofactoryjson, {
@@ -142,13 +128,12 @@ var factoryGroup = L.geoJSON(geofactoryjson, {
                 background: "transparent",
                 fillOpacity: 0.1
             }
-        }).addTo(map);
+        });
         feature.properties.searchFactories = feature.properties.name + ', ' + feature.properties.sector+ ', ' + feature.properties.type+ ', ' + feature.properties.company_reg_no;
     }
 });
 clustermarkers.addLayer(factoryGroup);
 map.addLayer(clustermarkers);
-
 
 //layerGroup
 // var allFactories = L.featureGroup([industries, agriculture, mining]);
@@ -279,7 +264,12 @@ $('#Clear').on('click', function(){
 });
 
 $('#Reset').on('click', function(){
-    map.setView([16.8409, 96.1735], 13);
+    map.setView([16.8409, 96.1735], 11);
+    if (!myClick) {
+        event.stopPropagation();
+        map.doubleClickZoom.disable();
+        return;
+    }
     myClick.remove();
     event.stopPropagation();
     map.doubleClickZoom.disable();
@@ -292,26 +282,30 @@ $('#ScreenSize').on('click', function(){
     map.doubleClickZoom.disable();
 });
 
-document.addEventListener('keydown', function(event) {
-    if (event.ctrlKey) {
-        map.off('click');
-    }
+$("#sel3").change(function(){
+    dt = [];
+    $.each($("#sel3 option:selected"), function(){
+        dt.push($(this).val());
+    });
+    $('#sel4 option').remove();
+    township.eachLayer(function(layer){
+        if(dt.includes(layer.feature.properties.DT))
+        {
+            $('#sel4').append(`<option value='${layer.feature.properties.TS}'>${layer.feature.properties.TS}</option>`);
+        }
+    });
+    sel4.loadOptions();
 });
 
-document.addEventListener('keyup', function(event) {
-    if (event.ctrlKey == false) {
-        addClickEventHandler();
-    }
-});
 var myClick;
-function addClickEventHandler(){
-    map.on('click', function(e){
-        myClick && map.removeLayer(myClick);
-        myClick = L.marker([e.latlng.lat, e.latlng.lng], {draggable:true});
-        myClick.bindPopup('<strong>Location: </strong>' + myClick.getLatLng()).addTo(map);
-    });
-}
-addClickEventHandler();
+map.on('click', function(e){
+    if (e.originalEvent.ctrlKey) {
+        return;
+    }
+    myClick && map.removeLayer(myClick);
+    myClick = L.marker([e.latlng.lat, e.latlng.lng], {draggable:true});
+    myClick.bindPopup('<strong>Location: </strong>' + myClick.getLatLng()).addTo(map);
+});
 
 var filteredMarkers;
 map.on('areaselected', (e) => {
@@ -425,13 +419,29 @@ L.control.locate().addTo(map);
 map.attributionControl.setPrefix(false);
 
 //Search
-map.addControl(new L.Control.Search({
+// Custom Search control
+var CustomSearchControl = L.Control.Search.extend({
+    onAdd: function(map) {
+        // Create the search control but don't add the layer initially
+        var searchControl = L.Control.Search.prototype.onAdd.call(this, map);
+        // Remove the layer from the map
+        map.removeLayer(this.options.layer);
+
+        return searchControl;
+    }
+});
+
+// Create the custom search control instance
+var customSearchControl = new CustomSearchControl({
     layer: factoryGroup,
     zoom: '15',
     propertyName: 'searchFactories',
     hideMarkerOnCollapse: true,
     initial: false,
-}));
+});
+
+// Add the custom search control to the map
+map.addControl(customSearchControl);
 
 //Side Menu
 var slideMenu = L.control.slideMenu('',{

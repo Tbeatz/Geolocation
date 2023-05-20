@@ -27,7 +27,11 @@
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-500 dark:text-green-400 bg-white dark:bg-green-600 hover:text-green-700 dark:hover:text-green-300 focus:outline-none transition ease-in-out duration-150">
                             <div>
-                                <img class="w-10 h-10 rounded-full ring-2 ring-gray-400 dark:ring-gray-300" src="{{'storage/'.Auth::user()?->avatar}}" alt="">
+                                @if (Auth::user()->avatar)
+                                    <img class="w-10 h-10 rounded-full ring-2 ring-gray-400 dark:ring-gray-300" src="{{'storage/'.Auth::user()?->avatar}}" alt="">
+                                @else
+                                    <img class="w-10 h-10 rounded-full ring-1 ring-green-600 dark:ring-green-600" src="img/user.png" alt="">
+                                @endif
                             </div>
 
                             <div class="ml-1">

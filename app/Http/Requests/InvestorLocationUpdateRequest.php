@@ -28,7 +28,7 @@ class InvestorLocationUpdateRequest extends FormRequest
             'businesstype_detail'=>'required',
             'geolocation'=>'required|json',
             'type'=>'required',
-            'cover'=>'required|image',
+            'cover'=>'image',
         ];
     }
 }

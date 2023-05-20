@@ -9,9 +9,14 @@ use Illuminate\Support\Facades\Storage;
 
 class SectorController extends Controller
 {
-    public function index(){
-        $sectors = Sector::all();
-        return view('sector', compact('sectors'));
+    public function index(Request $request){
+        if($request->ajax()){
+            $sectors = Sector::paginate(6);
+            return view('sectortable',compact('sectors'))->render();
+        }else{
+            $sectors = Sector::paginate(6);
+            return view('sector', compact('sectors'));
+        }
     }
     public function update(IconUpdateRequest $request){
         $filtersector = Sector::find($request->sector_id);

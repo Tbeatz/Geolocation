@@ -20,6 +20,7 @@ profilesData.forEach(function(profile) {
     var sectorIcon = L.icon({
         iconSize: [50, 50],
         iconUrl: '/storage/'+profile.sector.icon,
+        iconAnchor: [25, 25],
     });
     var feature = {
         "type": "Feature",
