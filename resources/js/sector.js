@@ -19,6 +19,82 @@ function record(page){
         }
     })
 }
+
+//ajax edit
+$(document).on('click','.open-btn', function(){
+    var sector_id = $(this).val();
+    $.ajax({
+        method: 'GET',
+        url: '/sectors/' + sector_id,
+        success:function(res){ //res is the return value from controller
+            $('.sector_name').html(res.name);
+            $('.sector_icon').prop('src', '/storage/'+res.icon);
+            $('#sectoricon_save').val(res.id);
+            $('#my-modal').show();
+        }
+    })
+});
+$('#sectoricon_save').on('click', function(){
+    var sector_id = $(this).val();
+    var form = document.getElementById('sector_form_id');
+    var formData = new FormData(form);
+    $.ajax({
+        method: 'POST',
+        url: '/sectors/'+ sector_id,
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response) {
+            $('#sector_message').html(response.message);
+            sectionRender();
+        },
+    });
+});
+function sectionRender(){
+    $.ajax({
+        method: 'GET',
+        url: '/fetch-sectors',
+        success: function(res){
+            console.log(res);
+            var tbody = document.querySelector('#sector-table tbody'); //$('#sector-table tbody');
+            var row = '';
+            res.forEach(function(rowData, index) {
+                console.log(rowData);
+                row += `<tr class="bg-white border-b h-12 dark:bg-white dark:border-gray-200 hover:bg-green-50 dark:hover:bg-gray-100 dark:text-gray-900">
+                <td>${index+1}</td>
+                <td class="flex justify-center items-center py-3">
+                    <img class="w-16 h-16 rounded-full ring-1 ring-gray-200 dark:ring-gray-200" src="${'/storage/'+rowData.icon}" alt="">
+                </td>
+                <td>${rowData.name}</td>
+                <td>
+                    <div class="inline-flex">
+                        <button value="${rowData.id}" class="open-btn font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            Edit
+                        </button>
+                    </div>
+                </td></tr>`;
+            });
+            tbody.innerHTML= row;
+            //tbody.apppend(row);
+        }
+    });
+};
+$('#close-btn, #close-btn1').on('click', function(){
+    $('#my-modal').hide();
+    $('.sector_form')[0].reset();
+    $('.sector_previewicon').prop('src', '');
+    $('.sector_previewicon').addClass('opacity-0');
+    $('#sector_message').html('');
+});
+
+//image preview
+$('#icon_input').on('change', function(e){
+    var file = e.target.files[0];
+    var preview = $('.sector_previewicon');
+    var url = URL.createObjectURL(file);
+    preview.removeClass('opacity-0');
+    preview.prop('src', url);
+});
 // searchbox
 $(document).on('click','#sectorSearch', function(){
     var input, filter, table, tr, i;
@@ -41,24 +117,3 @@ $(document).on('click','#sectorSearch', function(){
         }
     }
 });
-// sector modal
-let modal = document.getElementById("my-modal");
-
-let btn = document.getElementById("open-btn");
-
-let button = document.getElementById("close-btn");
-let button1 = document.getElementById('close-btn1');
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-button.onclick = function() {
-    modal.style.display = "none";
-}
-button1.onclick = function() {
-    modal.style.display = "none";
-}
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}

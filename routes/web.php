@@ -48,8 +48,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/users/{user}',[UserController::class, 'destroy'])->name('users.reject');
     Route::get('users-paginate',[UserController::class, 'paginate'])->name('users.paginate');
     Route::resource('userdata', UserdataController::class)->parameters(['userdata' => "userdata"]);
+    Route::get('/sectors/{sector}',[SectorController::class, 'edit'])->name('sector.edit');
+    Route::post('/sectors/{sector}',[SectorController::class, 'update'])->name('sector.update');
+    Route::get('/fetch-sectors',[SectorController::class, 'fetch'])->name('sector.fetch');
     Route::get('/sectors',[SectorController::class, 'index'])->name('sector');
-    Route::patch('/sectors/icon',[SectorController::class, 'update'])->name('sector.update');
     //Map
     Route::get('/map', [MapController::class, 'index'])->name('map');
 });

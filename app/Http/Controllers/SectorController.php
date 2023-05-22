@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\IconUpdateRequest;
 use App\Models\Sector;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
 class SectorController extends Controller
@@ -18,13 +19,19 @@ class SectorController extends Controller
             return view('sector', compact('sectors'));
         }
     }
-    public function update(IconUpdateRequest $request){
-        $filtersector = Sector::find($request->sector_id);
+    public function fetch(){
+        $sectors = Sector::all();
+        return $sectors;
+    }
+    public function edit(Sector $sector){ //route model binding
+        return $sector;
+    }
+    public function update(IconUpdateRequest $request, Sector $sector){
         $path = Storage::disk('public')->put(('icons'), $request->file('icon'));
-        if ($old = $filtersector->icon) {
+        if ($old = $sector->icon) {
             Storage::disk('public')->delete($old);
         }
-        $filtersector->update(['icon'=>$path]);
-        return back()->with('message', 'Icon is added successfully!');
+        $sector->update(['icon'=>$path]);
+        return Response::json(['message'=>'Icon is added successfully!']);
     }
 }

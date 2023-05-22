@@ -22,7 +22,6 @@ class IconUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sector_id'=> 'required',
             'icon'=>'required|image',
         ];
     }

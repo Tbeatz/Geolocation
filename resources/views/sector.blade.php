@@ -29,23 +29,6 @@
                             </button>
                         </div>
                         @include('sectortable')
-                        {{-- <table class="w-full text-sm text-white-200 dark:text-white-200 font-arial font-semibold text-left">
-                            @foreach ($sectors as $index => $sector)
-                                @if ($index >= 0 && $index <= 11)
-                                    @if ($index % 2 === 0)
-                                        <tr class="bg-white border-b dark:bg-green-600 dark:border-lime-400 hover:bg-green-50 dark:hover:bg-green-500">
-                                    @endif
-                                    <td class="w-28"></td>
-                                    <td class="py-3">
-                                        <img class="w-16 h-16 rounded-full ring-1 ring-gray-100 dark:ring-gray-100" src="{{ "/storage/$sector->icon" }}" alt="">
-                                    </td>
-                                    <td>{{ $sector->name }}</td>
-                                    @if ($index % 2 === 3)
-                                        </tr>
-                                    @endif
-                                @endif
-                            @endforeach
-                        </table> --}}
                         @include('sectormodal')
                     </section>
                 </div>

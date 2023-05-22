@@ -19,17 +19,13 @@
                             <img class="w-16 h-16 rounded-full ring-1 ring-gray-200 dark:ring-gray-200" src="{{ "/storage/$sector->icon" }}" alt="">
                         </td>
                         <td>{{ $sector->name }}</td>
-                        <form method="post" action="#">
-                            @csrf
-                            <td>
-                                <div class="inline-flex">
-                                    <input type="hidden" value="{{$sector->name}}">
-                                    <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                        Edit
-                                    </button>
-                                </div>
-                            </td>
-                        </form>
+                        <td>
+                            <div class="inline-flex">
+                                <button value="{{$sector->id}}" class="open-btn font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    Edit
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
