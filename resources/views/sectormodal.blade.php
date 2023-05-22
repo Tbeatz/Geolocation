@@ -26,13 +26,13 @@
                         <tr class="text-center">
                             <td class="border-r border-gray-300">
                                 <div class="w-full mb-4 flex flex-col items-center">
-                                    <label for="icon_info" class="text-gray-900 uppercase font-arial font-semibold text-sm">Before</label>
+                                    <label for="icon_info" class="text-gray-900 uppercase font-arial font-semibold text-sm">Current</label>
                                     <img class="w-20 h-20 sector_icon rounded-full ring-1 mt-3 ring-gray-200 dark:ring-gray-300" alt="">
                                 </div>
                             </td>
                             <td>
                                 <div class="w-full mb-4 flex flex-col items-center">
-                                    <label for="icon_info" class="text-gray-900 uppercase font-arial font-semibold text-sm">After</label>
+                                    <label for="icon_info" class="text-gray-900 uppercase font-arial font-semibold text-sm">New</label>
                                     <div class="w-20 h-20 rounded-full ring-1 border-0 mt-3 ring-gray-200 dark:ring-gray-300">
                                         <img class="opacity-0 w-20 h-20 sector_previewicon" alt="">
                                     </div>

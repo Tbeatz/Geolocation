@@ -32,6 +32,6 @@ class SectorController extends Controller
             Storage::disk('public')->delete($old);
         }
         $sector->update(['icon'=>$path]);
-        return Response::json(['message'=>'Icon is added successfully!']);
+        return Response::json(['message'=>'Icon is added successfully!', 'sector'=>$sector]);
     }
 }

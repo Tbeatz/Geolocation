@@ -12,10 +12,10 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link class="navstyle font-semibold uppercase font-arial" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('COMPANY PROFILE') }}
                     </x-nav-link>
-                    <x-nav-link style="font-family: arial;" class="navstyle font-semibold uppercase" :href="route('geolocation')" :active="request()->routeIs('geolocation')">
+                    <x-nav-link class="navstyle font-semibold uppercase font-arial" :href="route('geolocation')" :active="request()->routeIs('geolocation')">
                         {{ __('Geolocation') }}
                     </x-nav-link>
                 </div>

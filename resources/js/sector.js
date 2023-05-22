@@ -46,8 +46,20 @@ $('#sectoricon_save').on('click', function(){
         contentType: false,
         success: function(response) {
             $('#sector_message').html(response.message);
+            $('.sector_icon').prop('src', '/storage/'+response.sector.icon);
+            $('.sector_previewicon').prop('src', '');
+            $('.sector_previewicon').addClass('opacity-0');
             sectionRender();
         },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status == 422) {
+                var errorResponse = JSON.parse(jqXHR.responseText);
+                $('#sector_message').html(errorResponse.message);
+            }
+            else {
+                console.log('Error occurred:', textStatus, errorThrown);
+            }
+        }
     });
 });
 function sectionRender(){
@@ -55,11 +67,11 @@ function sectionRender(){
         method: 'GET',
         url: '/fetch-sectors',
         success: function(res){
-            console.log(res);
+            // console.log(res);
             var tbody = document.querySelector('#sector-table tbody'); //$('#sector-table tbody');
             var row = '';
             res.forEach(function(rowData, index) {
-                console.log(rowData);
+                // console.log(rowData);
                 row += `<tr class="bg-white border-b h-12 dark:bg-white dark:border-gray-200 hover:bg-green-50 dark:hover:bg-gray-100 dark:text-gray-900">
                 <td>${index+1}</td>
                 <td class="flex justify-center items-center py-3">

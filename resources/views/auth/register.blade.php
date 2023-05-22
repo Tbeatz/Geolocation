@@ -8,7 +8,7 @@
                 <td>
                     <div class="mr-1">
                         <x-input-label for="name" :value="__('Name')" />
-                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
+                        <x-text-input id="name" type="text" name="name"
                             :value="old('name')" required autofocus autocomplete="name" />
                     </div>
                 </td>
@@ -18,7 +18,7 @@
                 <td>
                     <div class="ml-1">
                         <x-input-label for="email" :value="__('Email')" />
-                        <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
+                        <x-text-input id="email" type="email" name="email"
                             :value="old('email')" required autocomplete="username" />
                     </div>
                 </td>
@@ -31,7 +31,7 @@
                 <td>
                     <div class="mt-4 mr-1">
                         <x-input-label for="company_name" :value="__('Company Name')" />
-                        <x-text-input id="company_name" class="block mt-1 w-full" type="text" name="company_name"
+                        <x-text-input id="company_name" type="text" name="company_name"
                             :value="old('company_name')" required autocomplete="company" />
                     </div>
                 </td>
@@ -39,7 +39,7 @@
                 <td>
                     <div class="mt-4 ml-1">
                         <x-input-label for="company_reg_no" :value="__('Company Registration No.')" />
-                        <x-text-input id="company_reg_no" class="block mt-1 w-full" type="text" name="company_reg_no"
+                        <x-text-input id="company_reg_no" type="text" name="company_reg_no"
                             :value="old('company_reg_no')" required autocomplete="company" />
                     </div>
                 </td>
@@ -49,7 +49,7 @@
                 <td>
                     <div class="mt-4 mr-1">
                         <x-input-label for="permit_no" :value="__('Permit No.')" />
-                        <x-text-input id="permit_no" class="block mt-1 w-full" type="text" name="permit_no"
+                        <x-text-input id="permit_no" type="text" name="permit_no"
                             :value="old('permit_no')" required autocomplete="company" />
                     </div>
                 </td>
@@ -57,7 +57,7 @@
                 <td>
                     <div class="mt-4 ml-1">
                         <x-input-label for="permit_date" :value="__('Permit Date')" />
-                        <x-text-input id="permit_date" class="block mt-1 w-full" type="date" name="permit_date"
+                        <x-text-input id="permit_date" type="date" name="permit_date"
                             :value="old('permit_date')" required autocomplete="company" />
                     </div>
                 </td>
@@ -69,7 +69,7 @@
                 <td>
                     <div class="mt-4 mr-1">
                         <x-input-label for="password" :value="__('Password')" />
-                        <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                        <x-text-input id="password" type="password" name="password" required
                             autocomplete="new-password" />
                     </div>
                 </td>
@@ -78,7 +78,7 @@
                     <div class="mt-4 ml-1">
                         <!-- Confirm Password -->
                         <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-                        <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password"
+                        <x-text-input id="password_confirmation" type="password"
                             name="password_confirmation" required autocomplete="new-password" />
                     </div>
                 </td>
@@ -87,7 +87,7 @@
             <tr>
                 <td>
                     <div class="flex items-center justify-end mt-4">
-                        <a class="underline text-sm text-white hover:text-blue-900 dark:hover:text-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                        <a class="underline text-sm text-gray-900 hover:text-blue-600 dark:hover:text-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                             href="{{ route('login') }}">
                             {{ __('Already registered?') }}
                         </a>

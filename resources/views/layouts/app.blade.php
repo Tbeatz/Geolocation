@@ -10,7 +10,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <style>
@@ -96,7 +96,7 @@
     </head>
     <body class="font-sans antialiased">
         {{-- <div class="main"></div> --}}
-        <div style="background-color: #eaeef6;" class="min-h-screen">
+        <div class="min-h-screen dark:bg-white">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -115,3 +115,5 @@
         </div>
     </body>
 </html>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+

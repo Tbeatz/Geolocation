@@ -13,18 +13,10 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <style>
-            body {
-                margin: 0;
-                height: 100vh;
-                font-weight: 100;
-                background: #eaeef6;
-            }
-        </style>
     </head>
     <body>
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 ">
-            <div class="p-4 sm:p-10 bg-green-600 shadow sm:rounded-lg border-2 border-green-200">
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 dark:bg-white">
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg border-2 border-neutral-300">
                 <div>
                     <a href="/">
                         <x-welcome-style/>

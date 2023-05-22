@@ -7,14 +7,14 @@
 
     <div class="">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="p-4 sm:p-8 bg-neutral-200 shadow sm:rounded-lg border-2 border-neutral-300">
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg border-2 border-neutral-300">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <section>
                         <header>
-                            <h2 class="text-lg font-semibold text-gray-700 uppercase dark:text-dark-100 mb-1">
+                            <h2 class="text-lg font-semibold font-arial text-gray-700 uppercase dark:text-dark-100 mb-1">
                                 {{ __('COMPANY INFORMATION') }}
                             </h2>
-                            <p style="font-family: arial;" class="mb-4 font-semibold text-sm text-green-600 dark:text-green-600">
+                            <p class="mb-4 font-arial font-semibold text-sm text-green-600 dark:text-green-600">
                                 {{ __("Fill your informations") }}
                             </p>
                         </header>
@@ -23,22 +23,14 @@
                                 {{session('message')}}
                             </div>
                         @endif
-                        <form method="post" action="{{ route('dashboard.update') }}" class="p-4 sm:p-8 bg-green-600 shadow sm:rounded-lg border-2 border-gray-300">
+                        <form method="post" action="{{ route('dashboard.update') }}" class="mt-6 space-y-6">
                             @csrf
                             @method('patch')
-                            <div>
-                                <h2 class="text-lg font-semibold text-gray-100 uppercase dark:text-green-400 mb-1">
-                                    {{ __('Company Profile') }}
-                                </h2>
-                                <p style="font-family: arial;" class="mb-4 font-semibold text-sm text-gray-600 dark:text-gray-300">
-                                    {{ __("Fill up your company profile information correctly.") }}
-                                </p>
-                            </div>
-                            <div class="m-auto w-3/4">
+                            <div class="m-auto w-full">
                                 <div class="flex flex-row">
                                     <div class="w-full">
                                         <x-input-label for="company_name" :value="__('Company Name')" />
-                                        <x-text-input style="width: 97%;" id="company_name" name="company_name" type="text" class="mt-1" id="default_size" :value="old('company_name', $profile?->company_name)" required autofocus autocomplete="company_name" />
+                                        <x-text-input style="width: 97%;" id="company_name" name="company_name" type="text" id="default_size" :value="old('company_name', $profile?->company_name)" required autofocus autocomplete="company_name" />
                                         <x-input-error class="mt-2" :messages="$errors->get('company_name')" />
                                     </div>
                                     <div class="w-full">
@@ -79,7 +71,7 @@
                                 <div class="flex flex-row mt-2">
                                     <div class="w-full">
                                         <x-input-label for="permit_type_id" :value="__('Permit Type')" />
-                                        <select style="width: 98%; font-family:arial;" id="permit_type_id" name="permit_type_id" class="mt-1 border border-gray-300 rounded-md block p-2 dark:bg-gray-100 dark:border-gray-200 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-lime-600 dark:focus:border-blue-500" required>
+                                        <select style="width: 98%;" id="permit_type_id" name="permit_type_id" class="mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile?->permit_type_id) selected @endif>Select an Option</option>
                                             @foreach ($permit_types as $permit_type)
                                                 <option value="{{$permit_type?->id}}" @if ($profile?->permit_type_id == $permit_type?->id) selected @endif>{{$permit_type?->name}}</option>
@@ -89,7 +81,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="form_of_invest_id" :value="__('Form Of Investment')" />
-                                        <select style="width: 98%; font-family:arial;" name="form_of_invest_id" id="form_of_invest_id" class="mt-1 border border-gray-300 text-gray-200 rounded-md block p-2 dark:bg-gray-100 dark:border-gray-200 dark:placeholder-gray-200 dark:text-gray-900 dark:focus:ring-lime-600 dark:focus:border-blue-200" required>
+                                        <select style="width: 98%;" name="form_of_invest_id" id="form_of_invest_id" class="mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile?->form_of_invest_id) selected @endif>Select an Option</option>
                                             @foreach ($form_of_invests as $form_of_invest)
                                                 <option value="{{$form_of_invest?->id}}" @if ($profile?->form_of_invest_id == $form_of_invest?->id) selected @endif>{{$form_of_invest->name}}</option>
