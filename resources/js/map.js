@@ -283,11 +283,12 @@ $('#ScreenSize').on('click', function(){
 });
 
 $("#sel3").change(function(){
-    dt = [];
+    var dt = [];
     $.each($("#sel3 option:selected"), function(){
         dt.push($(this).val());
     });
     $('#sel4 option').remove();
+    console.log(township);
     township.eachLayer(function(layer){
         if(dt.includes(layer.feature.properties.DT))
         {

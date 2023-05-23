@@ -55,8 +55,8 @@ class RegionSeeder extends Seeder
                     continue;
                 }
                 $township = $district->townships()->firstOrCreate(
-                    ['name' => $township_name],
-                    ['name_mm' => $t($township_name, 'township')],
+                    ['name' => $t($township_name, 'township')],
+                    ['name_mm' => $township_name],
                 );
             }
         });

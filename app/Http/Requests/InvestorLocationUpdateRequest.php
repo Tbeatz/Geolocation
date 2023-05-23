@@ -24,6 +24,9 @@ class InvestorLocationUpdateRequest extends FormRequest
         return [
             'sector_id'=>'required',
             'country_id'=>'required',
+            'region_id'=>'required',
+            'district_id'=>'required',
+            'township_id'=>'required',
             'contact_information'=>'required',
             'businesstype_detail'=>'required',
             'geolocation'=>'required|json',

@@ -33,6 +33,12 @@ return new class extends Migration
             $table->foreign('sector_id')->references('id')->on('sectors');
             $table->unsignedBigInteger('country_id')->nullable();
             $table->foreign('country_id')->references('id')->on('countries');
+            $table->unsignedBigInteger('region_id')->nullable();
+            $table->foreign('region_id')->references('id')->on('regions');
+            $table->unsignedBigInteger('district_id')->nullable();
+            $table->foreign('district_id')->references('id')->on('districts');
+            $table->unsignedBigInteger('township_id')->nullable();
+            $table->foreign('township_id')->references('id')->on('townships');
             $table->text('contact_information')->nullable();
             $table->text('businesstype_detail')->nullable();
             $table->json('geolocation')->nullable();

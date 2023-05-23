@@ -43,7 +43,7 @@
                                 <div class="flex flex-row mt-2">
                                     <div class="w-full">
                                         <x-input-label for="cover" :value="__('Cover')" />
-                                        <input id="cover" style="width:99%;" name="cover" type="file" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-900 focus:outline-none dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 mt-1 font-arial" id="default_size" :value="old('cover', $profiles->cover)" autofocus autocomplete="cover" />
+                                        <input id="cover" style="width:99%;" name="cover" type="file" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-900 focus:outline-none dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 mt-1 font-arial" id="default_size" :value="old('cover', $profiles->cover)" autofocus autocomplete="cover"/>
                                         <x-input-error class="mt-2" :messages="$errors->get('cover')" />
                                     </div>
                                 </div>
@@ -94,6 +94,38 @@
                                             @endforeach
                                         </select>
                                         <x-input-error class="mt-2" :messages="$errors->get('sector_id')" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-row mt-2">
+                                    <div class="w-full">
+                                        <x-input-label for="region_id" :value="__('Region')" />
+                                        <select style="width: 98%;" id="region_id" name="region_id" class="mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                            <option value="" @if (!$profile->region_id) selected @endif>Select an Option</option>
+                                            @foreach ($regions as $region)
+                                                <option value="{{$region->id}}" @if ($profile->region_id == $region->id) selected @endif>{{$region->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        <x-input-error class="mt-2" :messages="$errors->get('region_id')" />
+                                    </div>
+                                    <div class="w-full">
+                                        <x-input-label for="district_id" :value="__('District')" />
+                                        <select style="width: 98%;" id="district_id" name="district_id" class="mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                            <option value="" @if (!$profile->district_id) selected @endif>Select an Option</option>
+                                            @foreach ($districts as $district)
+                                                <option value="{{$district->id}}" @if ($profile->district_id == $district->id) selected @endif>{{$district->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        <x-input-error class="mt-2" :messages="$errors->get('district_id')" />
+                                    </div>
+                                    <div class="w-full">
+                                        <x-input-label for="township_id" :value="__('Township')" />
+                                        <select style="width: 98%;" id="township_id" name="township_id" class="mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                            <option value="" @if (!$profile->township_id) selected @endif>Select an Option</option>
+                                            @foreach ($townships as $township)
+                                                <option value="{{$township->id}}" @if ($profile->township_id == $township->id) selected @endif>{{$township->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        <x-input-error class="mt-2" :messages="$errors->get('township_id')" />
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-4 mt-5">

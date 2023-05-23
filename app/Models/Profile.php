@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Profile extends Model
 {
@@ -19,5 +20,15 @@ class Profile extends Model
     }
     public function country(){
         return $this->hasOne(Country::class, 'id', 'country_id');
+    }
+    public function region(){
+        return $this->hasOne(Region::class, 'id', 'region_id');
+        // return DB::table('regions')->whereColumn('regions.id', '=', 'profiles.region_id')->first();
+    }
+    public function districts(){
+        return $this->hasOne(District::class, 'id', 'district_id');
+    }
+    public function townships(){
+        return $this->hasOne(Township::class, 'id', 'township_id');
     }
 }
