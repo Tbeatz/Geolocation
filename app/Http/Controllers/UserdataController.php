@@ -77,7 +77,7 @@ class UserdataController extends Controller
     {
         $userdata->update($request->validated());
 
-        return redirect()->route('userdata.index')->with('message', 'Data updated successfully');
+        return back()->with('message', 'Data updated successfully');
     }
 
     /**
@@ -87,6 +87,6 @@ class UserdataController extends Controller
     {
         $userdata->delete();
 
-        return redirect()->route('userdata.index')->with('message', 'Data deleted successfully');
+        return redirect()->route('userdata.index')->with('error', 'Data deleted successfully');
     }
 }

@@ -18,7 +18,9 @@
         </div>
         <!-- Modal body -->
         <form enctype="multipart/form-data" class="sector_form" id="sector_form_id">
-            <div class="font-arial text-red-500 font-semibold text-sm mb-4 mt-2" id="sector_message">
+            <div class="mt-2" id="sector_message">
+            </div>
+            <div class="mt-2" id="sector_error">
             </div>
             <div class="m-auto w-3/4">
                 <div class="mt-2">

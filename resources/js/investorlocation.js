@@ -6,3 +6,8 @@ $('#cover').on('change', function(e){
     preview.removeClass('opacity-0');
     preview.prop('src', url);
 });
+$(document).ready(function() {
+    $('#invloc-close').click(function() {
+    $('#invloc-msg').slideUp(400);
+    });
+});

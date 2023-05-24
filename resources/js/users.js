@@ -19,6 +19,14 @@ function record1(pg){
     })
 }
 
+$('#usersaccept-close').click(function(){
+    $('#usersaccept-msg').slideUp(400);
+});
+
+$('#usersreject-close').click(function(){
+    $('#usersreject-msg').slideUp(400);
+});
+
 $(document).on('click','#usersSearch', function(){
     var input, filter, table, tr, i;
     input = document.getElementById("searchInput1");

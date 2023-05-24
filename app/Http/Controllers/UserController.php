@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         $user->delete();
         Mail::to($user->email)->send(new UserRejected($user));
-        return back()->with('message', 'Rejected Successfully!');
+        return back()->with('error', 'Rejected Successfully!');
     }
     // todo: send email error fix
 }

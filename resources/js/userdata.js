@@ -46,3 +46,11 @@ $(document).on('click', '#userDataSearch', function(){
         }
     }
 });
+
+$('#userdata-close').click(function(){
+    $('#userdata-msg').slideUp(400);
+});
+
+$('#userdatadel-close').click(function(){
+    $('#userdatadel-msg').slideUp(400);
+});

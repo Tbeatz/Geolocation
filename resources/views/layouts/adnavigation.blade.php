@@ -12,16 +12,16 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link class="navstyle font-semibold uppercase font-arial" :href="route('users')" :active="request()->routeIs('users')">
+                    <x-nav-link class="font-semibold font-arial" :href="route('users')" :active="request()->routeIs('users')">
                         {{ __('Users') }}
                     </x-nav-link>
-                    <x-nav-link class="navstyle font-semibold uppercase font-arial" :href="route('map')" :active="request()->routeIs('map')">
+                    <x-nav-link class="font-semibold font-arial" :href="route('map')" :active="request()->routeIs('map')">
                         {{ __('Map') }}
                     </x-nav-link>
-                    <x-nav-link class="navstyle font-semibold uppercase font-arial" :href="route('userdata.index')" :active="request()->routeIs('userdata.index')">
+                    <x-nav-link class="font-semibold font-arial" :href="route('userdata.index')" :active="request()->routeIs('userdata.index')">
                         {{ __('User Data') }}
                     </x-nav-link>
-                    <x-nav-link class="navstyle font-semibold uppercase font-arial" :href="route('sector')" :active="request()->routeIs('sector')">
+                    <x-nav-link class="font-semibold font-arial" :href="route('sector')" :active="request()->routeIs('sector')">
                         {{ __('Sectors') }}
                     </x-nav-link>
                 </div>
@@ -36,7 +36,7 @@
                                 @if (Auth::user()->avatar)
                                     <img class="w-10 h-10 rounded-full ring-2 ring-gray-400 dark:ring-gray-300" src="{{asset('storage/'.Auth::user()?->avatar)}}" alt="">
                                 @elseif(!Auth::user()->avatar)
-                                    <img class="w-10 h-10 rounded-full ring-1 ring-green-600 dark:ring-green-600" src="img/user.png" alt="">
+                                    <img class="w-10 h-10 rounded-full ring-1 ring-green-600 dark:ring-green-600" src="{{asset('img/user.png')}}" alt="">
                                 @endif
                             </div>
 
@@ -69,8 +69,8 @@
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-green-500 focus:outline-none focus:bg-gray-100 dark:focus:bg-green-500 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
+                    <svg class="h-5 w-5" stroke="white" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -83,15 +83,24 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('users')" :active="request()->routeIs('users')">
-                {{ __('Dashboard') }}
+                {{ __('Users') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('map')" :active="request()->routeIs('map')">
+                {{ __('Map') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('userdata.index')" :active="request()->routeIs('userdata.index')">
+                {{ __('User Data') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('sector')" :active="request()->routeIs('sector')">
+                {{ __('Sectors') }}
             </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()?->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()?->email }}</div>
+                <div class="font-arial text-base font-semibold text-gray-800 dark:text-white">{{ Auth::user()?->name }}</div>
+                <div class="font-arial text-sm font-semibold text-gray-300">{{ Auth::user()?->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">

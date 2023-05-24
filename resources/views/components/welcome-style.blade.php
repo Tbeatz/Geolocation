@@ -29,5 +29,5 @@
                 }
             } */
         </style>
-    <h3 class="text-green-600 text-lg font-semibold font-arial hover:text-green-500">Welcome User</h3>
+    <h3 class="text-gray-900 text-lg font-semibold font-arial hover:text-gray-600">Welcome User</h3>
 </html>
