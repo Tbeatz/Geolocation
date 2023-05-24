@@ -54,9 +54,14 @@
                                 <span class="sr-only">Search</span>
                             </button>
                         </div>
-                       @include('companyregistertable')
+                        @include('companyregistertable')
+                        @include('confirm-modal', [
+                                'message' => 'Are you sure you want to approve?',
+                        ])
+                        @include('reject-modal', [
+                                'message' => 'Are you sure you want to reject?',
+                        ])
                     </section>
-
                 </div>
             </div>
         </div>

@@ -55,4 +55,32 @@ $(document).on('click','#usersSearch', function(){
             }
         }
     }
-})
+});
+//approve modal
+$(document).on('click', '#company_approve', function(e){
+    e.preventDefault()
+    $('#confirm_modal').show();
+});
+
+$('#yes_btn').click(function(){
+    $('form').submit();
+    $('#confirm_modal').hide();
+});
+
+$('#no_btn, #no_icon').click(function(){
+    $('#confirm_modal').hide();
+});
+//reject modal
+$(document).on('click', '#company_reject', function(e){
+    e.preventDefault()
+    $('#reject_modal').show();
+});
+
+$('#yes1_btn').click(function(){
+    $('form').submit();
+    $('#reject_modal').hide();
+});
+
+$('#no1_btn, #no1_icon').click(function(){
+    $('#reject_modal').hide();
+});

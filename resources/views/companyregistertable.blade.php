@@ -27,9 +27,7 @@
                                     action="{{ route('users.approve', $user) }}">
                                     @csrf
                                     @method('patch')
-                                    <button
-                                        onclick="return confirm('Are you sure you want to approve?')"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    <button id="company_approve" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                         Approve
                                         {{-- <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                             height="16" fill="white"
@@ -44,9 +42,7 @@
                                     action="{{ route('users.reject', $user) }}">
                                     @csrf
                                     @method('delete')
-                                    <button
-                                        onclick="return confirm('Are you sure you want to reject?')"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    <button id="company_reject" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                         Reject
                                         {{-- <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                             height="16" fill="white" class="bi bi-x"
