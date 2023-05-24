@@ -56,6 +56,7 @@ $(document).on('click','#usersSearch', function(){
         }
     }
 });
+
 //approve modal
 $(document).on('click', '#company_approve', function(e){
     e.preventDefault()
@@ -70,6 +71,7 @@ $('#yes_btn').click(function(){
 $('#no_btn, #no_icon').click(function(){
     $('#confirm_modal').hide();
 });
+
 //reject modal
 $(document).on('click', '#company_reject', function(e){
     e.preventDefault()
