@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Validation\UnauthorizedException;
 use Symfony\Component\HttpFoundation\Response;
 
 class AdminMiddleware
@@ -15,10 +16,11 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next) :Response
     {
-        if (!$request->user() || !$request->user()->is_admin) {
-            return back();
+        if ($request->user()?->is_admin) {
+            return $next($request);
         }
+        throw new UnauthorizedException('message');
 
-        return $next($request);
+
     }
 }
