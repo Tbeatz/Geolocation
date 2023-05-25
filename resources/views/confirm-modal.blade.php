@@ -10,7 +10,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <h3 class="mb-5 text-lg font-arial dark:text-gray-500 text-gray-400">{{$message}}</h3>
-                <button id="yes_btn" type="button" class="text-white font-arial bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none dark:focus:ring-green-300 focus:ring-green-800 rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                <button id="yes_btn" type="button" class="text-white font-arial bg-greenprimary hover:bg-green-800 focus:ring-4 focus:outline-none dark:focus:ring-green-300 focus:ring-green-800 rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                     Yes, I'm sure
                 </button>
                 <button id="no_btn" type="button" class="dark:text-gray-500 font-arial dark:bg-white dark:hover:bg-gray-100 dark:focus:ring-4 dark:focus:outline-none dark:focus:ring-gray-200 rounded-lg border border-gray-200 text-sm px-5 py-2.5 dark:hover:text-gray-900 focus:z-10 bg-gray-700 text-gray-300 border-gray-500 hover:text-white hover:bg-gray-600 focus:ring-gray-600">No, cancel</button>

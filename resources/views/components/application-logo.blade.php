@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         h1 {
             color: hsl(0, 0%, 86%);

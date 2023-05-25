@@ -3,7 +3,7 @@
         {{-- <h2 class="textanime font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Company Information') }}
         </h2> --}}
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div>
             @vite('resources/js/userdata-edit.js')
             @if (session('message'))
             <div id="userdataedit-msg" class="flex p-4 text-green-800 rounded-lg bg-green-50 dark:bg-green-50 dark:text-green-800" role="alert">
@@ -30,7 +30,7 @@
                             <h2 class="text-lg font-semibold font-arial text-gray-700 dark:text-dark-100 mb-1">
                                 {{ __('Company Information') }}
                             </h2>
-                            <p class="mb-4 font-semibold font-arial text-sm text-green-600 dark:text-green-600">
+                            <p class="mb-4 font-semibold font-arial text-sm text-greenprimary dark:text-greenprimary">
                                 {{ __("Edit Company Data") }}
                             </p>
                         </header>
@@ -82,7 +82,7 @@
                                 <div class="flex flex-row mt-2">
                                     <div class="w-full">
                                         <x-input-label for="country_id" :value="__('Countries')" />
-                                        <select style="width: 98%;" id="country_id" name="country_id" class="mt-1 text-sm p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" id="country_id" name="country_id" class="mt-1 text-sm p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$userdata->country_id) selected @endif>Select an Option</option>
                                             @foreach ($countries as $country)
                                                 <option value="{{$country->id}}" @if ($userdata->country_id == $country->id) selected @endif>{{$country->name}}</option>
@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="sector_id" :value="__('Sectors')" />
-                                        <select style="width: 98%;" name="sector_id" id="sector_id" class="mt-1 p-2 text-sm block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" name="sector_id" id="sector_id" class="mt-1 p-2 text-sm block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$userdata->sector_id) selected @endif>Select an Option</option>
                                             @foreach ($sectors as $sector)
                                                 <option value="{{$sector->id}}" @if ($userdata->sector_id == $sector->id) selected @endif>{{$sector->name}}</option>
@@ -109,7 +109,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="type" :value="__('Investment Type')" />
-                                        <select style="width: 98%;" name="type" id="type" class="mt-1 p-2 block text-sm w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" name="type" id="type" class="mt-1 p-2 block text-sm w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option @if ($userdata->type == 0) selected @endif value="0">Local</option>
                                             <option @if ($userdata->type == 1) selected @endif value="1">Foreign</option>
                                         </select>

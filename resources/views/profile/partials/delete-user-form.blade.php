@@ -4,7 +4,7 @@
             {{ __('Delete Account') }}
         </h2>
 
-        <p style="font-family: arial;" class="font-semibold text-sm text-green-600 dark:text-green-600">
+        <p style="font-family: arial;" class="font-semibold text-sm text-greenprimary dark:text-greenprimary">
             {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
         </p>
     </header>

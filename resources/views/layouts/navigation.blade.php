@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-green-600 border-b border-green-600 dark:border-green-600">
+<nav x-data="{ open: false }" class="bg-white dark:bg-greenprimary border-b border-greenprimary dark:border-greenprimary">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -25,12 +25,13 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-500 dark:text-green-400 bg-white dark:bg-green-600 hover:text-green-700 dark:hover:text-green-300 focus:outline-none transition ease-in-out duration-150">
+                        @vite(['resources/css/app.css', 'resources/js/app.js'])
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-500 dark:text-green-400 bg-white dark:bg-greenprimary hover:text-green-700 dark:hover:text-green-300 focus:outline-none transition ease-in-out duration-150">
                             <div>
                                 @if (Auth::user()->avatar)
                                     <img class="w-10 h-10 rounded-full ring-2 ring-gray-400 dark:ring-gray-300" src="{{'storage/'.Auth::user()?->avatar}}" alt="">
                                 @else
-                                    <img class="w-10 h-10 rounded-full ring-1 ring-green-600 dark:ring-green-600" src="img/user.png" alt="">
+                                    <img class="w-10 h-10 rounded-full ring-1 ring-greenprimary dark:ring-greenprimary" src="img/user.png" alt="">
                                 @endif
                             </div>
 

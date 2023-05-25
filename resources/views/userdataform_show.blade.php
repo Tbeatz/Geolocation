@@ -3,7 +3,7 @@
         {{-- <h2 class="textanime font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Company Information') }}
         </h2> --}}
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div>
         </div>
     </x-slot>
 
@@ -16,7 +16,7 @@
                             <h2 class="text-lg font-semibold font-arial text-gray-700 dark:text-dark-100 mb-1">
                                 {{ __('Company Data') }}
                             </h2>
-                            <p class="mb-4 font-arial font-semibold text-sm text-green-600 dark:text-green-600">
+                            <p class="mb-4 font-arial font-semibold text-sm text-greenprimary dark:text-greenprimary">
                                 {{ __("Information of Company") }}
                             </p>
                         </header>

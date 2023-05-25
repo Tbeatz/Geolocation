@@ -30,7 +30,7 @@
                             <h2 class="text-lg font-arial font-semibold text-gray-700 dark:text-dark-100 mb-1">
                                 {{ __('Geolocation') }}
                             </h2>
-                            <p class="mb-4 font-arial font-semibold text-sm text-green-600 dark:text-green-600">
+                            <p class="mb-4 font-arial font-semibold text-sm text-greenprimary dark:text-greenprimary">
                                 {{ __("Fill your informations") }}
                             </p>
                         </header>
@@ -58,7 +58,7 @@
                                 <div class="flex flex-row mt-2">
                                     <div class="w-full">
                                         <x-input-label for="country_id" :value="__('Country')" />
-                                        <select style="width: 98%;" id="country_id" name="country_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" id="country_id" name="country_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile->country_id) selected @endif>Select an Option</option>
                                             @foreach ($countries as $country)
                                                 <option value="{{$country->id}}" @if ($profile->country_id == $country->id) selected @endif>{{$country->name}}</option>
@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="type" :value="__('Investment Type')" />
-                                        <select style="width: 98%;" name="type" id="type" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" name="type" id="type" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option selected value="0">Local</option>
                                             <option value="1">Foreign</option>
                                         </select>
@@ -95,7 +95,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="sector_id" :value="__('Sector')" />
-                                        <select style="width: 98%;" id="sector_id" name="sector_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" id="sector_id" name="sector_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile->sector_id) selected @endif>Select an Option</option>
                                             @foreach ($sectors as $sector)
                                                 <option value="{{$sector->id}}" @if ($profile->sector_id == $sector->id) selected @endif>{{$sector->name}}</option>
@@ -107,7 +107,7 @@
                                 <div class="flex flex-row mt-2">
                                     <div class="w-full">
                                         <x-input-label for="region_id" :value="__('Region')" />
-                                        <select style="width: 98%;" id="region_id" name="region_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" id="region_id" name="region_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile->region_id) selected @endif>Select an Option</option>
                                             @foreach ($regions as $region)
                                                 <option value="{{$region->id}}" @if ($profile->region_id == $region->id) selected @endif>{{$region->name}}</option>
@@ -117,7 +117,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="district_id" :value="__('District')" />
-                                        <select style="width: 98%;" id="district_id" name="district_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" id="district_id" name="district_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile->district_id) selected @endif>Select an Option</option>
                                             @foreach ($districts as $district)
                                                 <option value="{{$district->id}}" @if ($profile->district_id == $district->id) selected @endif>{{$district->name}}</option>
@@ -127,7 +127,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="township_id" :value="__('Township')" />
-                                        <select style="width: 98%;" id="township_id" name="township_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" id="township_id" name="township_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile->township_id) selected @endif>Select an Option</option>
                                             @foreach ($townships as $township)
                                                 <option value="{{$township->id}}" @if ($profile->township_id == $township->id) selected @endif>{{$township->name}}</option>

@@ -4,7 +4,7 @@
             {{ __('Update Password') }}
         </h2>
 
-        <p class="mb-4 font-semibold text-sm text-green-600 dark:text-green-600 font-arial">
+        <p class="mb-4 font-semibold text-sm text-greenprimary dark:text-greenprimary font-arial">
             {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </p>
     </header>
@@ -53,7 +53,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <button type="submit" class="inline-flex items-center mt-3 px-3 py-2 bg-green-500 text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 font-arial">Save</button>
+            <button type="submit" class="inline-flex items-center mt-3 px-3 py-2 bg-green-500 text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-greenprimary dark:hover:bg-green-700 dark:focus:ring-green-800 font-arial">Save</button>
         </div>
     </form>
 </section>

@@ -4,7 +4,7 @@
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mb-4 font-semibold text-sm text-green-600 dark:text-green-600 font-arial">
+        <p class="mb-4 font-semibold text-sm text-greenprimary dark:text-greenprimary font-arial">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
@@ -24,7 +24,7 @@
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                     </svg>
                 </span>
-                <input type="text" id="name" name="name" class="mt-1 block w-full text-sm font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" value="{{old('name', $user->name)}}" required autofocus autocomplete="name" />
+                <input type="text" id="name" name="name" class="mt-1 block w-full text-sm font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" value="{{old('name', $user->name)}}" required autofocus autocomplete="name" />
             </div>
             <x-input-error class="mt-1" :messages="$errors->get('name')" />
         </div>
@@ -52,7 +52,7 @@
                     </p>
 
                     @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
+                        <p class="mt-2 font-medium text-sm text-greenprimary dark:text-green-400">
                             {{ __('A new verification link has been sent to your email address.') }}
                         </p>
                     @endif
@@ -61,7 +61,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <button type="submit" class="inline-flex items-center px-3 py-2 mt-3 font-arial bg-green-500 text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
+            <button type="submit" class="inline-flex items-center px-3 py-2 mt-3 font-arial bg-green-500 text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-greenprimary dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
         </div>
     </form>
 </section>

@@ -55,7 +55,7 @@
             <!-- Modal footer -->
             <div class="flex mt-4 items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-200">
                 <button type="button" id="sectoricon_save"
-                    class="inline-flex items-center px-4 py-2 font-medium bg-green-500 text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 font-arial">Update</button>
+                    class="inline-flex items-center px-4 py-2 font-medium bg-green-500 text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-greenprimary dark:hover:bg-green-700 dark:focus:ring-green-800 font-arial">Update</button>
                 <button type="button" id="close-btn"
                     class="inline-flex items-center px-4 py-2 font-medium bg-green-500 text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 font-arial">Cancel</button>
             </div>

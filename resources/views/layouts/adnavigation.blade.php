@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-green-600 border-b border-green-600 dark:border-green-600">
+<nav x-data="{ open: false }" class="bg-white dark:bg-greenprimary border-b border-greenprimary dark:border-greenprimary">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -31,17 +31,17 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-500 dark:text-green-400 bg-white dark:bg-green-600 hover:text-green-700 dark:hover:text-green-300 focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-500 dark:text-green-400 bg-white dark:bg-greenprimary hover:text-green-700 dark:hover:text-green-300 focus:outline-none transition ease-in-out duration-150">
                             <div>
                                 @if (Auth::user()->avatar)
                                     <img class="w-10 h-10 rounded-full ring-2 ring-gray-400 dark:ring-gray-300" src="{{asset('storage/'.Auth::user()?->avatar)}}" alt="">
                                 @elseif(!Auth::user()->avatar)
-                                    <img class="w-10 h-10 rounded-full ring-1 ring-green-600 dark:ring-green-600" src="{{asset('img/user.png')}}" alt="">
+                                    <img class="w-10 h-10 rounded-full ring-1 ring-greenprimary dark:ring-greenprimary" src="{{asset('img/user.png')}}" alt="">
                                 @endif
                             </div>
 
                             <div class="ml-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <svg class="fill-white h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
                             </div>

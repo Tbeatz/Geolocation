@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"></div>
+        <div></div>
         {{-- <h2 class="textanime font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Company Information') }}
         </h2> --}}
@@ -15,7 +15,7 @@
                             <h2 class="text-lg font-semibold font-arial text-gray-700 dark:text-dark-100 mb-1">
                                 {{ __('Company Information') }}
                             </h2>
-                            <p class="mb-4 font-arial font-semibold text-sm text-green-600 dark:text-green-600">
+                            <p class="mb-4 font-arial font-semibold text-sm text-greenprimary dark:text-greenprimary">
                                 {{ __("Fill the information") }}
                             </p>
                         </header>
@@ -66,7 +66,7 @@
                                 <div class="flex flex-row mt-2">
                                     <div class="w-full">
                                         <x-input-label for="country_id" :value="__('Countries')" />
-                                        <select style="width: 98%;" id="country_id" name="country_id" class="mt-1 text-sm font-arial p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" id="country_id" name="country_id" class="mt-1 text-sm font-arial p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" selected>Select an Option</option>
                                             @foreach ($countries as $country)
                                                 <option value="{{$country->id}}">{{$country->name}}</option>
@@ -76,7 +76,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="sector_id" :value="__('Sectors')" />
-                                        <select style="width: 98%;" name="sector_id" id="sector_id" class="mt-1 text-sm font-arial p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" name="sector_id" id="sector_id" class="mt-1 text-sm font-arial p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" selected>Select an Option</option>
                                             @foreach ($sectors as $sector)
                                                 <option value="{{$sector->id}}">{{$sector->name}}</option>
@@ -93,7 +93,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="type" :value="__('Investment Type')" />
-                                        <select style="width: 98%;" name="type" id="type" class="mt-1 text-sm font-arial p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" name="type" id="type" class="mt-1 text-sm font-arial p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option selected value="0">Local</option>
                                             <option value="1">Foreign</option>
                                         </select>

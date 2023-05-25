@@ -3,7 +3,7 @@
         {{-- <h2 class="textanime font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('PROFILE') }}
         </h2> --}}
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div>
             @vite(['resources/js/avatar.js', 'resources/js/profileinfo.js', 'resources/js/profilepassword.js'])
             @if (session('message'))
                 <div id="avatar-msg" class="flex p-4 text-green-800 rounded-lg bg-green-50 dark:bg-green-50 dark:text-green-800" role="alert">

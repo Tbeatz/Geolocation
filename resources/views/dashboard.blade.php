@@ -30,7 +30,7 @@
                             <h2 class="text-lg font-semibold font-arial text-gray-700 dark:text-dark-100 mb-1">
                                 {{ __('Company Information') }}
                             </h2>
-                            <p class="mb-4 font-arial font-semibold text-sm text-green-600 dark:text-green-600">
+                            <p class="mb-4 font-arial font-semibold text-sm text-greenprimary dark:text-greenprimary">
                                 {{ __("Fill your informations") }}
                             </p>
                         </header>
@@ -82,7 +82,7 @@
                                 <div class="flex flex-row mt-2">
                                     <div class="w-full">
                                         <x-input-label for="permit_type_id" :value="__('Permit Type')" />
-                                        <select style="width: 98%;" id="permit_type_id" name="permit_type_id" class="mt-1 p-2 text-sm block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" id="permit_type_id" name="permit_type_id" class="mt-1 p-2 text-sm block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile?->permit_type_id) selected @endif>Select an Option</option>
                                             @foreach ($permit_types as $permit_type)
                                                 <option value="{{$permit_type?->id}}" @if ($profile?->permit_type_id == $permit_type?->id) selected @endif>{{$permit_type?->name}}</option>
@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="form_of_invest_id" :value="__('Form Of Investment')" />
-                                        <select style="width: 98%;" name="form_of_invest_id" id="form_of_invest_id" class="mt-1 p-2 text-sm block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" name="form_of_invest_id" id="form_of_invest_id" class="mt-1 p-2 text-sm block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile?->form_of_invest_id) selected @endif>Select an Option</option>
                                             @foreach ($form_of_invests as $form_of_invest)
                                                 <option value="{{$form_of_invest?->id}}" @if ($profile?->form_of_invest_id == $form_of_invest?->id) selected @endif>{{$form_of_invest->name}}</option>

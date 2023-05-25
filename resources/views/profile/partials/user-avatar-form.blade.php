@@ -3,13 +3,13 @@
         <h2 class="text-lg font-semibold font-arial text-gray-700 dark:text-dark-100 mb-1">
             {{ __('Avatar') }}
         </h2>
-        <p class="mb-4 font-semibold font-arial text-sm text-green-600 dark:text-green-600">
+        <p class="mb-4 font-semibold font-arial text-sm text-greenprimary dark:text-greenprimary">
             {{ __("Create or Update") }}
         </p>
         @if ($user->avatar)
-            <img class="w-20 h-20 rounded-full ring-1 ring-green-600 dark:ring-green-600" src="{{"/storage/$user->avatar"}}" alt="">
+            <img class="w-20 h-20 rounded-full ring-1 ring-greenprimary dark:ring-greenprimary" src="{{"/storage/$user->avatar"}}" alt="">
         @elseif (!$user->avatar)
-            <img class="w-20 h-20 rounded-full ring-1 ring-green-600 dark:ring-green-600" src="img/user.png" alt="">
+            <img class="w-20 h-20 rounded-full ring-1 ring-greenprimary dark:ring-greenprimary" src="img/user.png" alt="">
         @endif
     </header>
     <form method="post" action="{{ route('profile.avatar') }}" class="mt-6 space-y-6" enctype="multipart/form-data" >
@@ -22,7 +22,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <button type="submit" class="inline-flex items-center text-sm px-3 py-2 font-arial font-arial bg-green-500 text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
+            <button type="submit" class="inline-flex items-center text-sm px-3 py-2 font-arial font-arial bg-green-500 text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-greenprimary dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
         </div>
     </form>
 </section>

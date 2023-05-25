@@ -1,7 +1,7 @@
 <x-app-layout>
-    <x-slot name="header">
+    <header>
         @vite('resources/js/map.js')
-    </x-slot>
+    </header>
     <div id="map">
         <div class="leaflet-control coordinate"></div>
         <div class="wrapper">
@@ -9,7 +9,7 @@
             <div class="leaflet-control p-7 p-4 sm:p-8 bg-white shadow sm:rounded-lg border-2 border-neutral-300 multisearch w-4/5 mx-auto hidden">
                 <div class="selectContainer vertical-center">
                     <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-900" for="">Type</label>
-                    <select class="multiSelect block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-green-600 focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" id="sel1" multiple
+                    <select class="multiSelect block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" id="sel1" multiple
                         multiselect-search="true"
                         multiselect-select-all="true"
                         multiselect-max-items="1"
@@ -40,7 +40,7 @@
                     </select>
                 </div>
                 <div class="searchContainer vertical-center">
-                    <button type="button" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-3 mx-2 rounded searchBtn">
+                    <button type="button" class="bg-greenprimary hover:bg-green-700 text-white font-bold py-2 px-3 mx-2 rounded searchBtn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                         </svg>
@@ -66,7 +66,7 @@
                             <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
                         </svg>
                     </button><br>
-                    <button type="button" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-3 mx-2 rounded navbtn">
+                    <button type="button" class="bg-greenprimary hover:bg-green-700 text-white font-bold py-2 px-3 mx-2 rounded navbtn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-filter" viewBox="0 0 16 16">
                             <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
                         </svg>

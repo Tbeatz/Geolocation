@@ -90,7 +90,9 @@ var township = L.geoJSON(townshiplayer, {
     }
 });
 
-var clustermarkers = L.markerClusterGroup();
+var clustermarkers = L.markerClusterGroup({
+    disableClusteringAtZoom: 13,
+});
 let _id = 0;
 var factoryGroup = L.geoJSON(geofactoryjson, {
     pointToLayer: function(feature, latlng){
@@ -132,8 +134,11 @@ var factoryGroup = L.geoJSON(geofactoryjson, {
         feature.properties.searchFactories = feature.properties.name + ', ' + feature.properties.sector+ ', ' + feature.properties.type+ ', ' + feature.properties.company_reg_no;
     }
 });
+
 clustermarkers.addLayer(factoryGroup);
-map.addLayer(clustermarkers);
+if(clustermarkers.getLayers().length !== 1){
+    map.addLayer(clustermarkers);
+}
 
 //layerGroup
 // var allFactories = L.featureGroup([industries, agriculture, mining]);
@@ -426,7 +431,9 @@ var CustomSearchControl = L.Control.Search.extend({
         // Create the search control but don't add the layer initially
         var searchControl = L.Control.Search.prototype.onAdd.call(this, map);
         // Remove the layer from the map
-        map.removeLayer(this.options.layer);
+        if (clustermarkers.getLayers().length !== 1) {
+            map.removeLayer(this.options.layer);
+        }
 
         return searchControl;
     }
