@@ -127,7 +127,8 @@ $('#icon_input').on('change', function(e){
     preview.prop('src', url);
 });
 // searchbox
-$(document).on('click','#sectorSearch', function(){
+$(document).on('click','#sectorSearch', function(e){
+    e.preventDefault();
     var input, filter, table, tr, i;
     input = document.getElementById("sectorInput");
     filter = input.value.toUpperCase();

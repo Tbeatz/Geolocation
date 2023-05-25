@@ -26,8 +26,9 @@ $('#usersaccept-close').click(function(){
 $('#usersreject-close').click(function(){
     $('#usersreject-msg').slideUp(400);
 });
-
-$(document).on('click','#usersSearch', function(){
+//Search
+$(document).on('click','#usersSearch', function(e){
+    e.preventDefault();
     var input, filter, table, tr, i;
     input = document.getElementById("searchInput1");
     filter = input.value.toUpperCase();
