@@ -6,7 +6,7 @@
         </div>
         <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-r-3xl sm:p-10">
             <a href="/">
-                <h3 class="text-gray-900 text-lg font-arial hover:text-gray-600">Registration Form</h3>
+                <h3 class="text-gray-700 text-lg font-arial hover:text-gray-600">Registration Form</h3>
             </a>
             <form method="POST" action="{{ route('register') }}" class="mt-3">
                 @csrf
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center mt-4">
-                    <a class="underline text-sm text-gray-900 hover:text-blue-600 dark:hover:text-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                    <a class="underline text-sm text-gray-700 hover:text-blue-600 dark:hover:text-blue-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                         href="{{ route('login') }}">
                         {{ __('Already registered?') }}
                     </a>

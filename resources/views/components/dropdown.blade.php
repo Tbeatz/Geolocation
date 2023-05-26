@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-greenprimary'])
+@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-greenprimary'])
 @php
 switch ($align) {
     case 'left':

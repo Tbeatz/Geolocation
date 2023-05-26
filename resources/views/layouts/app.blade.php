@@ -96,7 +96,7 @@
     </head>
     <body class="font-sans antialiased">
         {{-- <div class="main"></div> --}}
-        <div class="min-h-screen dark:bg-white">
+        <div class="min-h-screen bg-white">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

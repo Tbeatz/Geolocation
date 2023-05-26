@@ -8,8 +8,8 @@
             <div id="geoprofile" class="hidden">{{ json_encode($profiles) }}</div>
             <div class="leaflet-control p-7 p-4 sm:p-8 bg-white shadow sm:rounded-lg border-2 border-neutral-300 multisearch w-4/5 mx-auto hidden">
                 <div class="selectContainer vertical-center">
-                    <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-900" for="">Type</label>
-                    <select class="multiSelect block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" id="sel1" multiple
+                    <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-700" for="">Type</label>
+                    <select class="multiSelect block w-full font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-300 focus:ring-lime-600 rounded-md shadow-sm" id="sel1" multiple
                         multiselect-search="true"
                         multiselect-select-all="true"
                         multiselect-max-items="1"
@@ -17,21 +17,21 @@
                         <option value="Local">Local</option>
                         <option value="Foreign">Foreign</option>
                     </select>
-                    <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-900" for="">Sector</label>
+                    <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-700" for="">Sector</label>
                     <select class="multiSelect" id="sel2" multiple
                         multiselect-search="true"
                         multiselect-select-all="true"
                         multiselect-max-items="1"
                     >
                     </select>
-                    <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-900" for="">District</label>
+                    <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-700" for="">District</label>
                     <select class="multiSelect" id="sel3" multiple
                         multiselect-search="true"
                         multiselect-select-all="true"
                         multiselect-max-items="1"
                     >
                     </select>
-                    <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-900" for="">Township</label>
+                    <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-700" for="">Township</label>
                     <select class="multiSelect" id="sel4" multiple
                         multiselect-search="true"
                         multiselect-select-all="true"
@@ -75,19 +75,19 @@
             </div>
             <div class="leaflet-control btn_container">
                 <div class="inline-flex rounded-md shadow-sm" role="group">
-                    <button type="button" id="Country" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-blue-700 dark:border-blue-600 dark:text-white dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-500 dark:focus:text-white rounded-l-lg">
+                    <button type="button" id="Country" class="inline-flex items-center px-4 py-2 text-sm font-medium border-t border-b focus:z-10 focus:ring-2 bg-blue-700 border-blue-600 text-white hover:text-white hover:bg-blue-600 focus:ring-blue-500 focus:text-white rounded-l-lg">
                         Country
                     </button>
-                    <button type="button" id="State" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-blue-700 dark:border-blue-600 dark:text-white dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" id="State" class="inline-flex items-center px-4 py-2 text-sm font-medium border-t border-b focus:z-10 focus:ring-2 bg-blue-700 border-blue-600 text-white hover:text-white hover:bg-blue-600 focus:ring-blue-500 focus:text-white">
                         State & Region
                     </button>
-                    <button type="button" id="District" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-blue-700 dark:border-blue-600 dark:text-white dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" id="District" class="inline-flex items-center px-4 py-2 text-sm font-medium border-t border-b focus:z-10 focus:ring-2 bg-blue-700 border-blue-600 text-white hover:text-white hover:bg-blue-600 focus:ring-blue-500 focus:text-white">
                         District
                     </button>
-                    <button type="button" id="Township" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-blue-700 dark:border-blue-600 dark:text-white dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" id="Township" class="inline-flex items-center px-4 py-2 text-sm font-medium border-t border-b focus:z-10 focus:ring-2 bg-blue-700 border-blue-600 text-white hover:text-white hover:bg-blue-600 focus:ring-blue-500 focus:text-white">
                         Township
                     </button>
-                    <button type="button" id="Clear" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-red-700 dark:border-red-600 dark:text-white dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" id="Clear" class="inline-flex items-center px-4 py-2 text-sm font-medium border-t border-b rounded-r-md focus:z-10 focus:ring-2 bg-red-700 border-red-600 text-white hover:text-white hover:bg-red-600 focus:ring-blue-500 focus:text-white">
                         Clear
                     </button>
                   </div>

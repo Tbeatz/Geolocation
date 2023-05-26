@@ -1,8 +1,8 @@
 <div class="table-data1">
     <div class="relative overflow-x-auto sm:rounded-lg mt-1 space-y-6">
-        <table id="my-table1" class="w-full font-arial text-sm text-white-200 dark:text-white-200 text-center">
+        <table id="my-table1" class="w-full font-arial text-sm text-white-200 text-center">
             <thead
-                class="text-gray-200 bg-gray-50 dark:bg-white dark:text-gray-900 font-semibold border-b-2">
+                class="bg-white text-gray-700 font-semibold border-b-2">
                 <tr>
                     <td class="py-3 pl-2">No.</td>
                     <td>Company Name</td>
@@ -15,7 +15,7 @@
             <tbody>
                 @foreach ($users as $user)
                     <tr
-                        class="bg-white border-b h-12 dark:bg-white dark:border-gray-200 hover:bg-green-50 dark:hover:bg-gray-100 dark:text-gray-900">
+                        class="border-b h-12 bg-white border-gray-200 hover:bg-gray-100 text-gray-700">
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $user->profile->company_name }}</td>
                         <td>{{ $user->profile->company_reg_no }}</td>
@@ -27,7 +27,7 @@
                                     action="{{ route('users.approve', $user) }}">
                                     @csrf
                                     @method('patch')
-                                    <button id="company_approve" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    <button id="company_approve" class="font-medium text-blue-500 hover:underline">
                                         Approve
                                         {{-- <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                             height="16" fill="white"
@@ -42,7 +42,7 @@
                                     action="{{ route('users.reject', $user) }}">
                                     @csrf
                                     @method('delete')
-                                    <button id="company_reject" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    <button id="company_reject" class="font-medium text-blue-500 hover:underline">
                                         Reject
                                         {{-- <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                             height="16" fill="white" class="bi bi-x"

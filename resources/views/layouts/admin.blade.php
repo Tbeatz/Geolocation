@@ -106,7 +106,7 @@
     </head>
     <body class="font-sans antialiased">
         {{-- <div class="main"></div> --}}
-        <div class="min-h-screen dark:bg-white">
+        <div class="min-h-screen">
             @include('layouts.adnavigation')
 
             <!-- Page Heading -->

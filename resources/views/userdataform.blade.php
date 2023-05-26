@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div></div>
-        {{-- <h2 class="textanime font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        {{-- <h2 class="textanime font-semibold text-xl text-gray-800 text-gray-200 leading-tight">
             {{ __('Company Information') }}
         </h2> --}}
     </x-slot>
@@ -9,13 +9,13 @@
     <div class="">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg border-2 border-neutral-300">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
+                <div class="p-6">
                     <section>
                         <header>
-                            <h2 class="text-lg font-semibold font-arial text-gray-700 dark:text-dark-100 mb-1">
+                            <h2 class="text-lg font-semibold font-arial text-gray-700 mb-1">
                                 {{ __('Company Information') }}
                             </h2>
-                            <p class="mb-4 font-arial font-semibold text-sm text-greenprimary dark:text-greenprimary">
+                            <p class="mb-4 font-arial font-semibold text-sm text-greenprimary">
                                 {{ __("Fill the information") }}
                             </p>
                         </header>
@@ -66,7 +66,7 @@
                                 <div class="flex flex-row mt-2">
                                     <div class="w-full">
                                         <x-input-label for="country_id" :value="__('Countries')" />
-                                        <select style="width: 98%;" id="country_id" name="country_id" class="mt-1 text-sm font-arial p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" id="country_id" name="country_id" class="mt-1 text-sm font-arial p-2 block w-full font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" selected>Select an Option</option>
                                             @foreach ($countries as $country)
                                                 <option value="{{$country->id}}">{{$country->name}}</option>
@@ -76,7 +76,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="sector_id" :value="__('Sectors')" />
-                                        <select style="width: 98%;" name="sector_id" id="sector_id" class="mt-1 text-sm font-arial p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" name="sector_id" id="sector_id" class="mt-1 text-sm font-arial p-2 block w-full font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" selected>Select an Option</option>
                                             @foreach ($sectors as $sector)
                                                 <option value="{{$sector->id}}">{{$sector->name}}</option>
@@ -93,7 +93,7 @@
                                     </div>
                                     <div class="w-full">
                                         <x-input-label for="type" :value="__('Investment Type')" />
-                                        <select style="width: 98%;" name="type" id="type" class="mt-1 text-sm font-arial p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select style="width: 98%;" name="type" id="type" class="mt-1 text-sm font-arial p-2 block w-full font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option selected value="0">Local</option>
                                             <option value="1">Foreign</option>
                                         </select>
@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="flex items-center gap-2 mt-5">
                                     <x-primary-button>{{ __('Save') }}</x-primary-button>
-                                    <a href="{{route('userdata.index')}}" class="inline-flex items-center px-3 py-2 font-medium bg-green-500 text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 font-arial">Back</a>
+                                    <a href="{{route('userdata.index')}}" class="inline-flex items-center px-3 py-2 font-medium focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-4 py-2 bg-red-600 hover:bg-red-700 focus:ring-red-800 font-arial text-white">Back</a>
                                 </div>
                             </div>
                         </form>
