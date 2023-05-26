@@ -139,7 +139,13 @@ clustermarkers.addLayer(factoryGroup);
 if(clustermarkers.getLayers().length !== 1){
     map.addLayer(clustermarkers);
 }
+map.on('zoomend', function () { //this is for the error of markercluster library and search library
+    var currentZoom = map.getZoom();
 
+    if (currentZoom >= 13) {
+        map.addLayer(factoryGroup);
+    }
+});
 //layerGroup
 // var allFactories = L.featureGroup([industries, agriculture, mining]);
 
