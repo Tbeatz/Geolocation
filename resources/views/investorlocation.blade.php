@@ -37,7 +37,7 @@
                         <form method="post" action="{{ route('geolocation.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
                             @csrf
                             @method('patch')
-                            <div class="m-auto w-full">
+                            <div class="container mx-auto max-w-full">
                                 <x-input-label for="cover" :value="__('Preview')" />
                                 @if ($profile->cover)
                                     <div class="w-40 h-40 rounded-lg shadow-lg mt-3">
@@ -48,17 +48,17 @@
                                         <img class="w-40 h-40 preview_cover opacity-0" alt="">
                                     </div>
                                 @endif
-                                <div class="flex flex-row mt-2">
+                                <div class="flex flex-col mt-2">
                                     <div class="w-full">
                                         <x-input-label for="cover" :value="__('Cover')" />
-                                        <input id="cover" style="width:99%;" name="cover" type="file" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-900 focus:outline-none dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 mt-1 font-arial" id="default_size" :value="old('cover', $profiles->cover)" autofocus autocomplete="cover"/>
+                                        <input id="cover" name="cover" type="file" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-900 focus:outline-none dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 mt-1 font-arial" id="default_size" :value="old('cover', $profiles->cover)" autofocus autocomplete="cover"/>
                                         <x-input-error class="mt-1" :messages="$errors->get('cover')" />
                                     </div>
                                 </div>
-                                <div class="flex flex-row mt-2">
-                                    <div class="w-full">
+                                <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                                    <div class="w-full md:w-1/2">
                                         <x-input-label for="country_id" :value="__('Country')" />
-                                        <select style="width: 98%;" id="country_id" name="country_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select id="country_id" name="country_id" class="w-full text-sm mt-1 p-2 block font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile->country_id) selected @endif>Select an Option</option>
                                             @foreach ($countries as $country)
                                                 <option value="{{$country->id}}" @if ($profile->country_id == $country->id) selected @endif>{{$country->name}}</option>
@@ -66,36 +66,36 @@
                                         </select>
                                         <x-input-error class="mt-1" :messages="$errors->get('country_id')" />
                                     </div>
-                                    <div class="w-full">
+                                    <div class="w-full md:w-1/2">
                                         <x-input-label for="type" :value="__('Investment Type')" />
-                                        <select style="width: 98%;" name="type" id="type" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select name="type" id="type" class="w-full text-sm mt-1 p-2 block font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option selected value="0">Local</option>
                                             <option value="1">Foreign</option>
                                         </select>
                                         <x-input-error class="mt-1" :messages="$errors->get('type')" />
                                     </div>
                                 </div>
-                                <div class="flex flex-row mt-2">
-                                    <div class="w-full">
+                                <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                                    <div class="w-full md:w-1/2">
                                         <x-input-label for="contact_information" :value="__('Contact')" />
-                                        <x-text-input style="width: 98%;" id="contact_information" name="contact_information" type="text" class="mt-1" id="default_size" :value="old('contact_information', $profile?->contact_information)" required autofocus autocomplete="contact_information" />
+                                        <x-text-input id="contact_information" name="contact_information" type="text" class="mt-1" id="default_size" :value="old('contact_information', $profile?->contact_information)" required autofocus autocomplete="contact_information" />
                                         <x-input-error class="mt-1" :messages="$errors->get('contact_information')" />
                                     </div>
-                                    <div class="w-full">
+                                    <div class="w-full md:w-1/2">
                                         <x-input-label for="geolocation" :value="__('Geolocation')" />
-                                        <x-text-input style="width: 98%;" id="geolocation" name="geolocation" type="text" class="mt-1" id="default_size" :value="old('geolocation', $profile?->geolocation)" required autofocus autocomplete="geolocation" />
+                                        <x-text-input id="geolocation" name="geolocation" type="text" class="mt-1" id="default_size" :value="old('geolocation', $profile?->geolocation)" required autofocus autocomplete="geolocation" />
                                         <x-input-error class="mt-1" :messages="$errors->get('geolocation')" />
                                     </div>
                                 </div>
-                                <div class="flex flex-row mt-2">
-                                    <div class="w-full">
+                                <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                                    <div class="w-full md:w-1/2">
                                         <x-input-label for="businesstype_detail" :value="__('Business Detail')" />
-                                        <x-text-input style="width: 98%;" id="businesstype_detail" name="businesstype_detail" type="text" class="mt-1" id="default_size" :value="old('businesstype_detail', $profile?->businesstype_detail)" required autofocus autocomplete="businesstype_detail" />
+                                        <x-text-input id="businesstype_detail" name="businesstype_detail" type="text" class="mt-1" id="default_size" :value="old('businesstype_detail', $profile?->businesstype_detail)" required autofocus autocomplete="businesstype_detail" />
                                         <x-input-error class="mt-1" :messages="$errors->get('businesstype_detail')" />
                                     </div>
-                                    <div class="w-full">
+                                    <div class="w-full md:w-1/2">
                                         <x-input-label for="sector_id" :value="__('Sector')" />
-                                        <select style="width: 98%;" id="sector_id" name="sector_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select id="sector_id" name="sector_id" class="w-full text-sm mt-1 p-2 block font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile->sector_id) selected @endif>Select an Option</option>
                                             @foreach ($sectors as $sector)
                                                 <option value="{{$sector->id}}" @if ($profile->sector_id == $sector->id) selected @endif>{{$sector->name}}</option>
@@ -104,10 +104,10 @@
                                         <x-input-error class="mt-1" :messages="$errors->get('sector_id')" />
                                     </div>
                                 </div>
-                                <div class="flex flex-row mt-2">
-                                    <div class="w-full">
+                                <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                                    <div class="w-full md:w-1/2">
                                         <x-input-label for="region_id" :value="__('Region')" />
-                                        <select style="width: 98%;" id="region_id" name="region_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select id="region_id" name="region_id" class="w-full text-sm mt-1 p-2 block font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile->region_id) selected @endif>Select an Option</option>
                                             @foreach ($regions as $region)
                                                 <option value="{{$region->id}}" @if ($profile->region_id == $region->id) selected @endif>{{$region->name}}</option>
@@ -115,9 +115,9 @@
                                         </select>
                                         <x-input-error class="mt-1" :messages="$errors->get('region_id')" />
                                     </div>
-                                    <div class="w-full">
+                                    <div class="w-full md:w-1/2">
                                         <x-input-label for="district_id" :value="__('District')" />
-                                        <select style="width: 98%;" id="district_id" name="district_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select id="district_id" name="district_id" class="w-full text-sm mt-1 p-2 block font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile->district_id) selected @endif>Select an Option</option>
                                             @foreach ($districts as $district)
                                                 <option value="{{$district->id}}" @if ($profile->district_id == $district->id) selected @endif>{{$district->name}}</option>
@@ -125,9 +125,9 @@
                                         </select>
                                         <x-input-error class="mt-1" :messages="$errors->get('district_id')" />
                                     </div>
-                                    <div class="w-full">
+                                    <div class="w-full md:w-1/2">
                                         <x-input-label for="township_id" :value="__('Township')" />
-                                        <select style="width: 98%;" id="township_id" name="township_id" class="text-sm mt-1 p-2 block w-full font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
+                                        <select id="township_id" name="township_id" class="w-full text-sm mt-1 p-2 block font-arial dark:border-gray-300 dark:bg-white dark:text-gray-900 dark:focus:border-greenprimary focus:ring-lime-300 dark:focus:ring-lime-600 rounded-md shadow-sm" required>
                                             <option value="" @if (!$profile->township_id) selected @endif>Select an Option</option>
                                             @foreach ($townships as $township)
                                                 <option value="{{$township->id}}" @if ($profile->township_id == $township->id) selected @endif>{{$township->name}}</option>
@@ -136,7 +136,7 @@
                                         <x-input-error class="mt-1" :messages="$errors->get('township_id')" />
                                     </div>
                                 </div>
-                                <div class="flex items-center gap-4 mt-5">
+                                <div class="flex mt-5">
                                     <x-primary-button>{{ __('Save') }}</x-primary-button>
                                 </div>
                             </div>
