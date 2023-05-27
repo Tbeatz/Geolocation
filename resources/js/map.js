@@ -226,7 +226,7 @@ var scale = L.control.scale().addTo(map);
 //Events
 var coordinate = document.getElementsByClassName('coordinate');
 map.on('mousemove', function(e){
-    coordinate[0].innerHTML ='<strong class="font-arial text-red-600">' + 'Lattitude: ' + e.latlng.lat + ', ' +  'Longitude: ' + e.latlng.lng + '</strong>';
+    coordinate[0].innerHTML ='<strong>' + 'Lattitude: ' + e.latlng.lat + ', ' +  'Longitude: ' + e.latlng.lng + '</strong>';
 });
 
 $('#Country').on('click', function(){

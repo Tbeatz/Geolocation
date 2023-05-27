@@ -31,6 +31,8 @@ Route::middleware(['auth', 'user'])->group(function () {
      Route::patch('/dashboard',[DashboardController::class, 'update'])->name('dashboard.update');
      Route::get('/geolocation',[GeolocationController::class, 'index'])->name('geolocation');
      Route::patch('/geolocation', [GeolocationController::class, 'update'])->name('geolocation.update');
+     Route::get('/district/{region_id}', [GeolocationController::class, 'district']);
+     Route::get('/township/{district_id}', [GeolocationController::class, 'township']);
 });
 
 //Auth

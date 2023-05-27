@@ -1,10 +1,10 @@
 <x-guest-layout>
-    <div class="min-h-screen bg-gray-100 py-6 flex justify-center sm:py-20">
-        <div class="relative px-4 py-10 bg-green-300 shadow-lg sm:rounded-l-3xl sm:p-10">
+    <div class="min-h-screen bg-gray-900 py-6 flex justify-center sm:py-20">
+        <div class="relative px-4 py-10 bg-gray-600 shadow-lg sm:rounded-l-3xl sm:p-10 animated-border border-r-0 border-y-2 border-l-2">
             <img class="w-50 h-40 rounded-lg" src="{{asset('img/map.png')}}" alt="">
             <h3 class="text-white text-lg font-arial text-center">Geolocation</h3>
         </div>
-        <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-r-3xl sm:p-10">
+        <div class="relative px-4 py-10 bg-gray-100 shadow-lg sm:rounded-r-3xl sm:p-10 animated-border border-l-0 border-y-2 border-r-2">
             <a href="/">
                 <h3 class="text-gray-700 text-lg font-arial hover:text-gray-600">Registration Form</h3>
             </a>

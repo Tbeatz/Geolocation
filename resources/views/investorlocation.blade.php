@@ -37,6 +37,7 @@
                         <form method="post" action="{{ route('geolocation.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
                             @csrf
                             @method('patch')
+                            <div id="investor_profile" class="hidden">{{ json_encode($profile) }}</div>
                             <div class="container mx-auto max-w-full">
                                 <x-input-label for="cover" :value="__('Preview')" />
                                 @if ($profile->cover)
@@ -108,7 +109,7 @@
                                     <div class="w-full md:w-1/2">
                                         <x-input-label for="region_id" :value="__('Region')" />
                                         <select id="region_id" name="region_id" class="w-full text-sm mt-1 p-2 block font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>
-                                            <option value="" @if (!$profile->region_id) selected @endif>Select an Option</option>
+                                            <option value="" @if (!$profile->region_id) selected @endif>Select a Region</option>
                                             @foreach ($regions as $region)
                                                 <option value="{{$region->id}}" @if ($profile->region_id == $region->id) selected @endif>{{$region->name}}</option>
                                             @endforeach
@@ -118,20 +119,14 @@
                                     <div class="w-full md:w-1/2">
                                         <x-input-label for="district_id" :value="__('District')" />
                                         <select id="district_id" name="district_id" class="w-full text-sm mt-1 p-2 block font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>
-                                            <option value="" @if (!$profile->district_id) selected @endif>Select an Option</option>
-                                            @foreach ($districts as $district)
-                                                <option value="{{$district->id}}" @if ($profile->district_id == $district->id) selected @endif>{{$district->name}}</option>
-                                            @endforeach
+                                            <option value="" @if (!$profile->district_id) selected @endif>Select a District</option>
                                         </select>
                                         <x-input-error class="mt-1" :messages="$errors->get('district_id')" />
                                     </div>
                                     <div class="w-full md:w-1/2">
                                         <x-input-label for="township_id" :value="__('Township')" />
                                         <select id="township_id" name="township_id" class="w-full text-sm mt-1 p-2 block font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>
-                                            <option value="" @if (!$profile->township_id) selected @endif>Select an Option</option>
-                                            @foreach ($townships as $township)
-                                                <option value="{{$township->id}}" @if ($profile->township_id == $township->id) selected @endif>{{$township->name}}</option>
-                                            @endforeach
+                                            <option value="" @if (!$profile->township_id) selected @endif>Select a Township</option>
                                         </select>
                                         <x-input-error class="mt-1" :messages="$errors->get('township_id')" />
                                     </div>

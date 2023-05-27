@@ -21,9 +21,7 @@ class GeolocationController extends Controller
         $sectors = Sector::all();
         // $regions = DB::table('regions')->get();
         $regions = Region::all();
-        $districts = District::all();
-        $townships = Township::all();
-        return view('investorlocation', compact('profile','countries','sectors', 'regions', 'districts', 'townships'));
+        return view('investorlocation', compact('profile','countries','sectors', 'regions'));
     }
 
     public function update(InvestorLocationUpdateRequest $request)
@@ -40,5 +38,15 @@ class GeolocationController extends Controller
             $filterprofile->update($request->validated());
         }
         return redirect()->route('geolocation')->with('message', 'Information is added successfully!');
+    }
+
+    public function district($region_id){
+        $districts = District::where('region_id', $region_id)->get();
+        return $districts;
+    }
+
+    public function township($district_id){
+        $townships = Township::where('district_id', $district_id)->get();
+        return $townships;
     }
 }

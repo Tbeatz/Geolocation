@@ -1,15 +1,14 @@
 <x-guest-layout>
-    <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div class="min-h-screen bg-gray-900 py-6 flex flex-col justify-center sm:py-12">
         <div class="relative py-3 sm:max-w-xl sm:mx-auto">
             <!-- Session Status -->
-            <div
-                class="absolute inset-0 bg-gradient-to-r from-gray-300 to-greenprimary shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
-            </div>
+            <div class="absolute inset-0 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl animate-gradient"></div>
+
             <x-auth-session-status class="mb-4" :status="session('status')" />
             @isset($message)
                 {{ $message }}
             @endisset
-            <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-10">
+            <div class="relative px-4 py-10 bg-gray-100 shadow-lg sm:rounded-3xl sm:p-10">
                 <a href="/">
                     <h3 class="text-gray-700 text-lg font-arial hover:text-gray-600">Login Form</h3>
                 </a>

@@ -3,7 +3,7 @@
         @vite('resources/js/map.js')
     </header>
     <div id="map">
-        <div class="leaflet-control coordinate"></div>
+        <div class="leaflet-control coordinate font-arial text-red-600"></div>
         <div class="wrapper">
             <div id="geoprofile" class="hidden">{{ json_encode($profiles) }}</div>
             <div class="leaflet-control p-7 p-4 sm:p-8 bg-white shadow sm:rounded-lg border-2 border-neutral-300 multisearch w-4/5 mx-auto hidden">
