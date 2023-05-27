@@ -19,7 +19,7 @@ class DashboardController extends Controller
         $profile = Profile::where('user_id', '=', auth()->id())->first();
         $permit_types = PermitType::all();
         $form_of_invests = FormOfInvest::all();
-        return view('dashboard', compact('profile','permit_types','form_of_invests'));
+        return view('user.dashboard.dashboard', compact('profile','permit_types','form_of_invests'));
     }
 
     /**

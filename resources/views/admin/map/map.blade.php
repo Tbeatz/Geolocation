@@ -1,6 +1,6 @@
 <x-app-layout>
     <header>
-        @vite('resources/js/map.js')
+        @vite('resources/js/admin/map/map.js')
     </header>
     <div id="map">
         <div class="leaflet-control coordinate font-arial text-red-600"></div>

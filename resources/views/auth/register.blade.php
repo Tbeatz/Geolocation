@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="min-h-screen bg-gray-900 py-6 flex justify-center sm:py-20">
+    <div class="min-h-screen bg-gray-900 py-6 flex justify-center sm:py-20" style="background-image: url('img/login.jpg'); background-size: cover;">
         <div class="relative px-4 py-10 bg-gray-600 shadow-lg sm:rounded-l-3xl sm:p-10 animated-border border-r-0 border-y-2 border-l-2">
             <img class="w-50 h-40 rounded-lg" src="{{asset('img/map.png')}}" alt="">
             <h3 class="text-white text-lg font-arial text-center">Geolocation</h3>

@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::where('is_admin', false)->where('active',false)->with('profile')->paginate(5);
-        return view('users', compact('users'));
+        return view('admin.users.users', compact('users'));
     }
     public function update(User $user)
     {
@@ -27,7 +27,7 @@ class UserController extends Controller
     public function paginate(Request $request)
     {
         $users = User::where('is_admin', false)->where('active',false)->with('profile')->paginate(5);
-        return view('companyregistertable', compact('users'))->render();
+        return view('admin.users.companyregistertable', compact('users'))->render();
     }
 
     public function destroy(User $user)

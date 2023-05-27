@@ -21,7 +21,7 @@ class GeolocationController extends Controller
         $sectors = Sector::all();
         // $regions = DB::table('regions')->get();
         $regions = Region::all();
-        return view('investorlocation', compact('profile','countries','sectors', 'regions'));
+        return view('user.geolocation.investorlocation', compact('profile','countries','sectors', 'regions'));
     }
 
     public function update(InvestorLocationUpdateRequest $request)

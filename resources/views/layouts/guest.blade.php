@@ -25,13 +25,13 @@
 
             .animate-gradient {
                 animation: gradientAnimation 4s linear infinite;
-                background: linear-gradient(to right, #cf5ac9, #3de691);
+                background: linear-gradient(to right, #3911a5, #109452);
                 background-size: 200% auto;
             }
 
             @keyframes borderAnimation {
                 0% {
-                    border-color: #f63ba8;
+                    border-color: #c13bf6;
                 }
                 50% {
                     border-color: #0b2ef5;
@@ -42,7 +42,7 @@
             }
 
             .animated-border {
-                animation: borderAnimation 3s infinite;
+                animation: borderAnimation 5s infinite;
                 border-style: solid;
             }
         </style>

@@ -4,7 +4,7 @@
             {{ __('Registered Companies') }}
         </h2> --}}
         <div>
-            @vite('resources/js/sector.js')
+            @vite('resources/js/admin/sector/sector.js')
         </div>
     </x-slot>
 
@@ -30,8 +30,8 @@
                                 </button>
                             </form>
                         </div>
-                        @include('sectortable')
-                        @include('sectormodal')
+                        @include('admin.sectors.sectortable')
+                        @include('admin.sectors.sectormodal')
                     </section>
                 </div>
             </div>

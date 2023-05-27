@@ -13,10 +13,10 @@ class SectorController extends Controller
     public function index(Request $request){
         if($request->ajax()){
             $sectors = Sector::paginate(6);
-            return view('sectortable',compact('sectors'))->render();
+            return view('admin.sectors.sectortable',compact('sectors'))->render();
         }else{
             $sectors = Sector::paginate(6);
-            return view('sector', compact('sectors'));
+            return view('admin.sectors.sector', compact('sectors'));
         }
     }
     public function fetch(){

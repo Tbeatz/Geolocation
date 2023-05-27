@@ -20,10 +20,10 @@ class UserdataController extends Controller
         $search = $request->searchInput;
         if($request->ajax()){
             $userdatas = Userdata::paginate(5);
-            return view('companydatatable',compact('userdatas'))->render();
+            return view('admin.userdata.companydatatable',compact('userdatas'))->render();
         }else{
             $userdatas = Userdata::paginate(5);
-            return view('userdata', compact('userdatas'));
+            return view('admin.userdata.userdata', compact('userdatas'));
         }
         // $userdatas = Userdata::orwhere('investor_name', 'LIKE', '%'.$search.'%')
         //     ->orwhere('company_name', 'LIKE', '%'.$search.'%')
@@ -37,7 +37,7 @@ class UserdataController extends Controller
     {
         $countries = Country::all();
         $sectors = Sector::all();
-        return view('userdataform', compact('countries', 'sectors'));
+        return view('admin.userdata.userdataform', compact('countries', 'sectors'));
     }
 
     /**
@@ -55,7 +55,7 @@ class UserdataController extends Controller
      */
     public function show(Userdata $userdata)
     {
-        return view('userdataform_show', compact('userdata'));
+        return view('admin.userdata.userdataform_show', compact('userdata'));
     }
 
     /**
@@ -63,7 +63,7 @@ class UserdataController extends Controller
      */
     public function edit(Userdata $userdata)
     {
-        return view('userdataform_edit', [
+        return view('admin.userdata.userdataform_edit', [
             'userdata' => $userdata,
             'countries' =>  Country::all(),
             'sectors' =>  Sector::all(),

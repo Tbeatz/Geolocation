@@ -1,6 +1,6 @@
 <div class="sector-table-data">
     <div class="relative overflow-x-auto sm:rounded-lg mt-1 space-y-6">
-        <table id="sector-table" class="w-full font-arial text-sm text-white-200 text-white-200 text-center">
+        <table id="sector-table" class="w-full font-arial text-sm text-center">
             <thead
                 class="bg-white text-gray-700 font-semibold border-b-2">
                 <tr>

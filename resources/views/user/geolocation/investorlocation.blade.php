@@ -4,7 +4,7 @@
             {{ __('Company Information') }}
         </h2> --}}
         <div>
-            @vite('resources/js/investorlocation.js')
+            @vite('resources/js/user/investorlocation/investorlocation.js')
         </div>
         @if (session('message'))
         <div id="invloc-msg" class="flex p-4 rounded-lg bg-green-50 text-green-800" role="alert">

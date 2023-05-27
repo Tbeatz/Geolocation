@@ -9,6 +9,6 @@ class MapController extends Controller
 {
     public function index(){
         $profiles = Profile::with('sector')->whereNotNull('geolocation')->get();
-        return view('map', compact('profiles'));
+        return view('admin.map.map', compact('profiles'));
     }
 }

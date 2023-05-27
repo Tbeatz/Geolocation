@@ -4,7 +4,7 @@
             {{ __('Company Information') }}
         </h2> --}}
         <div>
-            @vite('resources/js/dashboard.js')
+            @vite('resources/js/user/dashboard/dashboard.js')
         </div>
         @if (session('message'))
         <div id="dash-msg" class="flex p-4 rounded-lg bg-green-50 text-green-800" role="alert">

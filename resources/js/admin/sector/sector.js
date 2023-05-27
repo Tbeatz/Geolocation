@@ -46,7 +46,7 @@ $('#sectoricon_save').on('click', function(){
         contentType: false,
         success: function(response) {
             $('#sector_message').html(`
-            <div class="flex p-4 text-green-800 rounded-lg bg-green-50 dark:bg-green-50 dark:text-green-800" role="alert">
+            <div class="flex p-4 rounded-lg bg-green-50 text-green-800" role="alert">
                 <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
                 <span class="sr-only">Info</span>
                 <div class="ml-3 text-sm font-arial">
@@ -66,7 +66,7 @@ $('#sectoricon_save').on('click', function(){
                 var errorResponse = JSON.parse(jqXHR.responseText);
                 $('#sector_message').html('');
                 $('#sector_error').html(`
-                    <div class="flex p-4 text-red-800 rounded-lg bg-red-50 dark:bg-red-50 dark:text-red-800" role="alert">
+                    <div class="flex p-4 rounded-lg bg-red-50 text-red-800" role="alert">
                         <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
                         <span class="sr-only">Info</span>
                         <div class="ml-3 text-sm font-arial">
@@ -91,15 +91,15 @@ function sectionRender(){
             var row = '';
             res.forEach(function(rowData, index) {
                 // console.log(rowData);
-                row += `<tr class="bg-white border-b h-12 dark:bg-white dark:border-gray-200 hover:bg-green-50 dark:hover:bg-gray-100 dark:text-gray-900">
+                row += `<tr class="border-b h-12 bg-white border-gray-200 hover:bg-gray-100 text-gray-900">
                 <td>${index+1}</td>
                 <td class="flex justify-center items-center py-3">
-                    <img class="w-16 h-16 rounded-full ring-1 ring-gray-200 dark:ring-gray-200" src="${'/storage/'+rowData.icon}" alt="">
+                    <img class="w-16 h-16 rounded-full ring-1 ring-gray-200" src="${'/storage/'+rowData.icon}" alt="">
                 </td>
                 <td>${rowData.name}</td>
                 <td>
                     <div class="inline-flex">
-                        <button value="${rowData.id}" class="open-btn font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                        <button value="${rowData.id}" class="open-btn font-medium text-blue-500 hover:underline">
                             Edit
                         </button>
                     </div>
