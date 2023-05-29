@@ -1,21 +1,21 @@
 // Default map include
-var map = L.map('map',{
+var map = L.map('map', {
     preferCanvas: true,
     selectArea: true
 }).setView([16.8409, 96.1735], 11);
 
 // Tile Layers
-var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-    subdomains:['mt0','mt1','mt2','mt3']
+var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
 });
-var googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
-    subdomains:['mt0','mt1','mt2','mt3']
+var googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
 });
-var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
-    subdomains:['mt0','mt1','mt2','mt3']
+var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
 });
-var googleTerrain = L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
-    subdomains:['mt0','mt1','mt2','mt3']
+var googleTerrain = L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
 });
 var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
@@ -23,87 +23,35 @@ var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // icons
 var agricultureIcon = L.icon({
     iconUrl: "img/icons/agriculture-icon.png",
-    iconSize: [50,50],
+    iconSize: [50, 50],
 })
 var miningIcon = L.icon({
     iconUrl: "img/icons/mining-icon.png",
-    iconSize: [50,50],
+    iconSize: [50, 50],
 })
 var industryIcon = L.icon({
     iconUrl: "img/icons/icon1.png",
-    iconSize: [50,50],
+    iconSize: [50, 50],
 })
-
 //marker example
 // var junctionSquare = L.marker([16.8171,96.1307], {icon: junctionSquareIcon ,draggable: false});
 
 //geojson
-var country = L.geoJSON(countrylayer, {
-    style:{
-        color:"#19fadc",
-        fillColor: "#19fadc",
-    }
-}).bindTooltip('<b>Myanmar</b>');
-
-var district = L.geoJSON(districtlayer, {
-    filter: function (feature){
-        return feature.properties.ST === "Yangon";
-    },
-    onEachFeature:function(feature,layer){
-        layer.bindPopup("<b>"+feature.properties.DT+"</b>")
-        $('#sel3').append(`<option value='${feature.properties.DT}'>${feature.properties.DT}</option>`);
-    },
-    style:{
-        stroke: true,
-        color:"#de0218",
-        fillColor: "#de0218",
-    }
-});
-
-var stateandregion = L.geoJSON(stateandregionlayer,{
-    filter: function (feature){
-        return feature.properties.ST === "Yangon";
-    },
-    onEachFeature:function(feature,layer){
-        layer.bindPopup("<b>"+feature.properties.ST+"</b>");
-    },
-    style:{
-        stroke: true,
-        color: "#9906d4",
-        fillColor: "#9906d4",
-    }
-});
-
-var township = L.geoJSON(townshiplayer, {
-    filter: function(feature){
-        return feature.properties.ST === "Yangon";
-    },
-    onEachFeature:function(feature,layer){
-        layer.feature = feature;
-        layer.bindPopup("<b>"+feature.properties.TS+"</b>");
-        layer.bindTooltip("<b>"+feature.properties.TS+"</b>");
-    },
-    style:{
-        color:"#02de15",
-        fillColor: "#02de15",
-        stroke: true,
-    }
-});
-
-var clustermarkers = L.markerClusterGroup({
-    disableClusteringAtZoom: 13,
-});
-let _id = 0;
-var factoryGroup = L.geoJSON(geofactoryjson, {
-    pointToLayer: function(feature, latlng){
+var factoryGroup = L.geoJSON({
+    "type": "FeatureCollection",
+    "features": []
+}, {
+    pointToLayer: function (feature, latlng) {
         return L.marker(latlng, {
             icon: feature.properties.icon
         });
     },
-    onEachFeature: function(feature, layer) {
+    onEachFeature: function (feature, layer) {
+        let _id = 0;
         feature.properties.id = _id++;
+        console.log(feature);
         $('#sel2').append(`<option value='${feature.properties.sector}'>${feature.properties.sector}</option>`);
-        const {lat,lng} = layer.getLatLng();
+        const { lat, lng } = layer.getLatLng();
         layer.bindPopup(`
         <div class="containerstyle">
             <strong class="header">${feature.properties.name}</strong>
@@ -120,39 +68,35 @@ var factoryGroup = L.geoJSON(geofactoryjson, {
             </table>
             <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded detail">View More</button>
         </div>`)
-        layer.bindTooltip(feature.properties.name,{
+        layer.bindTooltip(feature.properties.name, {
             permanent: true,
             direction: 'top',
-            offset: L.point(0,-15),
-            style:{
-                color:"#19fadc",
+            offset: L.point(0, -15),
+            style: {
+                color: "#19fadc",
                 fillColor: "#19fadc",
                 background: "transparent",
                 fillOpacity: 0.1
             }
         });
-        feature.properties.searchFactories = feature.properties.name + ', ' + feature.properties.sector+ ', ' + feature.properties.type+ ', ' + feature.properties.company_reg_no;
+        feature.properties.searchFactories = feature.properties.name + ', ' + feature.properties.sector + ', ' + feature.properties.type + ', ' + feature.properties.company_reg_no;
     }
 });
+map.addLayer(factoryGroup);
+// map.on('zoomend', function () { //this is for the error of markercluster library and search library
+//     var currentZoom = map.getZoom();
 
-clustermarkers.addLayer(factoryGroup);
-if(clustermarkers.getLayers().length !== 1){
-    map.addLayer(clustermarkers);
-}
-map.on('zoomend', function () { //this is for the error of markercluster library and search library
-    var currentZoom = map.getZoom();
+//     if (currentZoom >= 13) {
+//     }
+// });
 
-    if (currentZoom >= 13) {
-        map.addLayer(factoryGroup);
-    }
-});
 //layerGroup
 // var allFactories = L.featureGroup([industries, agriculture, mining]);
 
 factoryGroup
-        .on('click', L.DomEvent.stopPropagation)
-        .on('popupopen', function(e){
-        $('.detail').on('click', function(){
+    .on('click', L.DomEvent.stopPropagation)
+    .on('popupopen', function (e) {
+        $('.detail').on('click', function () {
             slideMenu.setContents(`
                 // <img class="image2" src="${e.layer.feature.properties.image}">
                 <div class="container content">
@@ -209,27 +153,82 @@ factoryGroup
 
 //layerController
 var layers = {
-    "OSM" : osm,
-    "Streets" : googleStreets,
-    "Hybrid" : googleHybrid,
-    "Satellite" : googleSat,
-    "Terrain" : googleTerrain,
+    "OSM": osm,
+    "Streets": googleStreets,
+    "Hybrid": googleHybrid,
+    "Satellite": googleSat,
+    "Terrain": googleTerrain,
 }
 var markerGroup = {
     // "All Factories" : factoryGroup,
 }
-var layerControl = L.control.layers(layers, markerGroup,{sortLayers:false}).addTo(map);
+var layerControl = L.control.layers(layers, markerGroup, { sortLayers: false }).addTo(map);
 
 //Scale
 var scale = L.control.scale().addTo(map);
 
 //Events
 var coordinate = document.getElementsByClassName('coordinate');
-map.on('mousemove', function(e){
-    coordinate[0].innerHTML ='<strong>' + 'Lattitude: ' + e.latlng.lat + ', ' +  'Longitude: ' + e.latlng.lng + '</strong>';
+map.on('mousemove', function (e) {
+    coordinate[0].innerHTML = '<strong>' + 'Lattitude: ' + e.latlng.lat + ', ' + 'Longitude: ' + e.latlng.lng + '</strong>';
+});
+var country = L.geoJSON(countrylayer, {
+    style: {
+        color: "#19fadc",
+        fillColor: "#19fadc",
+    }
+}).bindTooltip('<b>Myanmar</b>');
+
+var district = L.geoJSON(districtlayer, {
+    filter: function (feature) {
+        return feature.properties.ST === "Yangon";
+    },
+    onEachFeature: function (feature, layer) {
+        layer.bindPopup("<b>" + feature.properties.DT + "</b>")
+        $('#sel3').append(`<option value='${feature.properties.DT}'>${feature.properties.DT}</option>`);
+    },
+    style: {
+        stroke: true,
+        color: "#de0218",
+        fillColor: "#de0218",
+    }
 });
 
-$('#Country').on('click', function(){
+var stateandregion = L.geoJSON(stateandregionlayer, {
+    filter: function (feature) {
+        return feature.properties.ST === "Yangon";
+    },
+    onEachFeature: function (feature, layer) {
+        layer.bindPopup("<b>" + feature.properties.ST + "</b>");
+    },
+    style: {
+        stroke: true,
+        color: "#9906d4",
+        fillColor: "#9906d4",
+    }
+});
+
+var township = L.geoJSON(townshiplayer, {
+    filter: function (feature) {
+        return feature.properties.ST === "Yangon";
+    },
+    onEachFeature: function (feature, layer) {
+        layer.feature = feature;
+        layer.bindPopup("<b>" + feature.properties.TS + "</b>");
+        layer.bindTooltip("<b>" + feature.properties.TS + "</b>");
+    },
+    style: {
+        color: "#02de15",
+        fillColor: "#02de15",
+        stroke: true,
+    }
+});
+
+var clustermarkers = L.markerClusterGroup({
+    disableClusteringAtZoom: 13,
+});
+
+$('#Country').on('click', function (event) {
     country.addTo(map);
     map.removeLayer(district);
     map.removeLayer(township);
@@ -238,7 +237,7 @@ $('#Country').on('click', function(){
     map.doubleClickZoom.disable();
 });
 
-$('#District').on('click', function(){
+$('#District').on('click', function (event) {
     district.addTo(map);
     map.removeLayer(country);
     map.removeLayer(township);
@@ -247,7 +246,7 @@ $('#District').on('click', function(){
     map.doubleClickZoom.disable();
 });
 
-$('#State').on('click', function(){
+$('#State').on('click', function (event) {
     stateandregion.addTo(map);
     map.removeLayer(district);
     map.removeLayer(township);
@@ -256,7 +255,7 @@ $('#State').on('click', function(){
     map.doubleClickZoom.disable();
 });
 
-$('#Township').on('click', function(){
+$('#Township').on('click', function (event) {
     township.addTo(map);
     map.removeLayer(district);
     map.removeLayer(country);
@@ -265,7 +264,7 @@ $('#Township').on('click', function(){
     map.doubleClickZoom.disable();
 });
 
-$('#Clear').on('click', function(){
+$('#Clear').on('click', function (event) {
     map.removeLayer(township);
     map.removeLayer(district);
     map.removeLayer(country);
@@ -274,8 +273,9 @@ $('#Clear').on('click', function(){
     map.doubleClickZoom.disable();
 });
 
-$('#Reset').on('click', function(){
+$('#Reset').on('click', function (event) {
     map.setView([16.8409, 96.1735], 11);
+    geoajax();
     if (!myClick) {
         event.stopPropagation();
         map.doubleClickZoom.disable();
@@ -287,22 +287,21 @@ $('#Reset').on('click', function(){
 });
 
 var mapID = document.getElementById('map');
-$('#ScreenSize').on('click', function(){
+$('#ScreenSize').on('click', function (event) {
     mapID.requestFullscreen();
     event.stopPropagation();
     map.doubleClickZoom.disable();
 });
 
-$("#sel3").change(function(){
+$("#sel3").change(function () {
     var dt = [];
-    $.each($("#sel3 option:selected"), function(){
+    $.each($("#sel3 option:selected"), function () {
         dt.push($(this).val());
     });
     $('#sel4 option').remove();
     console.log(township);
-    township.eachLayer(function(layer){
-        if(dt.includes(layer.feature.properties.DT))
-        {
+    township.eachLayer(function (layer) {
+        if (dt.includes(layer.feature.properties.DT)) {
             $('#sel4').append(`<option value='${layer.feature.properties.TS}'>${layer.feature.properties.TS}</option>`);
         }
     });
@@ -310,12 +309,12 @@ $("#sel3").change(function(){
 });
 
 var myClick;
-map.on('click', function(e){
+map.on('click', function (e) {
     if (e.originalEvent.ctrlKey) {
         return;
     }
     myClick && map.removeLayer(myClick);
-    myClick = L.marker([e.latlng.lat, e.latlng.lng], {draggable:true});
+    myClick = L.marker([e.latlng.lat, e.latlng.lng], { draggable: true });
     myClick.bindPopup('<strong>Location: </strong>' + myClick.getLatLng()).addTo(map);
 });
 
@@ -335,35 +334,35 @@ map.on('areaselected', (e) => {
     });
 
     // Do something with the filtered markers
-    if (filteredMarkers.length>0) {
+    if (filteredMarkers.length > 0) {
         backEventHandler();
         slideMenu.show();
     }
 });
 
-function backEventHandler(){
-        var specificMarker =``;
-        for (let i = 0; i < filteredMarkers.length; i++) {
-            specificMarker += `
+function backEventHandler() {
+    var specificMarker = ``;
+    for (let i = 0; i < filteredMarkers.length; i++) {
+        specificMarker += `
             <div>
                 <div style="flex-direction: row; display:flex; align-items:center; margin:10px; background-color:white;">
                     <button value="${filteredMarkers[i].feature.properties.id}" type="button" class="w-full font-arial bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 mx-2 rounded specificDetail">${filteredMarkers[i].feature.properties.name}, ${filteredMarkers[i].feature.properties.sector}, ${filteredMarkers[i].feature.properties.type}</button>
                 </div>
             </div>`
-        }
-        slideMenu.setContents(`<div style="margin: 20px;">
+    }
+    slideMenu.setContents(`<div style="margin: 20px;">
             <h2 class="font-arial text-gray-900 text-xl font-medium">Selected Areas List</h2>
         </div>`
         + specificMarker
-        );
-    }
+    );
+}
 
-$(document).on('click', '.specificDetail', function() {
-        var clickedId = $(this).val();
-        var matchedMarker = filteredMarkers.find(function(marker) {
-            return marker.feature.properties.id == clickedId;
-        });
-        slideMenu.setContents(`
+$(document).on('click', '.specificDetail', function () {
+    var clickedId = $(this).val();
+    var matchedMarker = filteredMarkers.find(function (marker) {
+        return marker.feature.properties.id == clickedId;
+    });
+    slideMenu.setContents(`
         <img class="image2" src="${matchedMarker.feature.properties.image}">
                 <div class="container content">
                     <h3 class="uppercase font-arial mb-2 mt-2 font-semibold text-blue-600 text-xl">${matchedMarker.feature.properties.name}</h3>
@@ -414,12 +413,12 @@ $(document).on('click', '.specificDetail', function() {
                     <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 mx-2 rounded back">Back</button>
                 </div>
         `);
-    });
+});
 
-    $(document).on('click', '.back',function(){
-        console.log('this button is clicked');
-        backEventHandler();
-    });
+$(document).on('click', '.back', function () {
+    console.log('this button is clicked');
+    backEventHandler();
+});
 
 //Print
 L.control.browserPrint().addTo(map);
@@ -433,7 +432,7 @@ map.attributionControl.setPrefix(false);
 //Search
 // Custom Search control
 var CustomSearchControl = L.Control.Search.extend({
-    onAdd: function(map) {
+    onAdd: function (map) {
         // Create the search control but don't add the layer initially
         var searchControl = L.Control.Search.prototype.onAdd.call(this, map);
         // Remove the layer from the map
@@ -458,45 +457,52 @@ var customSearchControl = new CustomSearchControl({
 map.addControl(customSearchControl);
 
 //Side Menu
-var slideMenu = L.control.slideMenu('',{
+var slideMenu = L.control.slideMenu('', {
     width: '450px',
 }).addTo(map);
 
 // multiselect
-$('.multisearch').on('click',function(){
+$('.multisearch').on('click', function (event) {
     event.stopPropagation();
     map.doubleClickZoom.disable();
 });
 
-$(".searchBtn").click(function(){
-    data = [];
-    $.each($(".multiSelect option:selected"), function(){
+$(".searchBtn").click(function () {
+    var data = [];
+    $.each($(".multiSelect option:selected"), function () {
         data.push($(this).val());
     });
-    console.log('search array',data);
-    if(data.length === 0)
-        {
-           alert('You need to choose at least 1 data to filter.');
-           return;
+    console.log('search array', data);
+    if (data.length === 0) {
+        alert('You need to choose at least 1 data to filter.');
+        return;
+    }
+    console.log('this is all factories', factoryGroup);
+    factoryGroup.eachLayer(function (layer) {
+        if (data.includes(layer.feature.properties.type) || data.includes(layer.feature.properties.TS) || data.includes(layer.feature.properties.DT) || data.includes(layer.feature.properties.sector)) {
+            layer.addTo(map);
         }
-        console.log('this is all factories',factoryGroup);
-    factoryGroup.eachLayer(function(layer){
-            if(data.includes(layer.feature.properties.type) || data.includes(layer.feature.properties.TS) || data.includes(layer.feature.properties.DT) || data.includes(layer.feature.properties.sector))
-            {
-                layer.addTo(map);
-            }
-            else
-            {
-                layer.remove();
-            }
+        else {
+            layer.remove();
+        }
     });
 });
-$(".remove").click(function(){
+$(".remove").click(function () {
     $(".multisearch").fadeOut(500);
 });
-$(".navbtn").click(function(){
+$(".navbtn").click(function (event) {
     event.stopPropagation();
     map.doubleClickZoom.disable();
     $(".multisearch").fadeIn(500);
     $(".multisearch").removeClass('d-none');
 });
+function main(geofactoryjson) {
+    factoryGroup.clearLayers();
+    clustermarkers.clearLayers();
+    factoryGroup.addData(geofactoryjson);
+    clustermarkers.addLayer(factoryGroup);
+    // if (clustermarkers.getLayers().length !== 1) {
+        map.addLayer(clustermarkers);
+    // }
+}
+geoajax();

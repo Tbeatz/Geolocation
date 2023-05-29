@@ -1,11 +1,8 @@
 <x-app-layout>
-    <header>
-        @vite('resources/js/admin/map/map.js')
-    </header>
+    {{-- @vite('resources/js/admin/map/map.js') --}}
     <div id="map">
         <div class="leaflet-control coordinate font-arial text-red-600"></div>
         <div class="wrapper">
-            <div id="geoprofile" class="hidden">{{ json_encode($profiles) }}</div>
             <div class="leaflet-control p-7 p-4 sm:p-8 bg-white shadow sm:rounded-lg border-2 border-neutral-300 multisearch w-4/5 mx-auto hidden">
                 <div class="selectContainer vertical-center">
                     <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-700" for="">Type</label>
@@ -94,4 +91,6 @@
             </div>
         </div>
     </div>
+    <script src="/data/geofactory.js"></script>
+    <script src="/data/map/map.js"></script>
 </x-app-layout>

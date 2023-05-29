@@ -23,6 +23,27 @@
         <link rel="stylesheet" href="/css/geolocation.css">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+        <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+        <script src="https://unpkg.com/geojson-vt@3.2.0/geojson-vt.js"></script>
+        <script src="https://unpkg.com/rbush@3.0.1/rbush.js"></script>
+        <!-- lib js -->
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+        <script src="/lib/Leaflet.markercluster-1.4.1/dist/leaflet.markercluster-src.js"></script>
+        {{-- <script src="/lib/Leaflet.markercluster-1.4.1/src/MarkerCluster.js"></script> --}}
+        <script src="/lib/multiselect-dropdown.js"></script>
+        <script src="/lib/leaflet.browser.print.min.js"></script>
+        <script src="/lib/leaflet-search-master/dist/leaflet-search.src.js"></script>
+        <script src="/lib/L.Control.SlideMenu.js"></script>
+        <script src="/lib/leaflet-geojson-vt.js"></script>
+        <script src="/lib/leaflet-markers-canvas.js"></script>
+        <script src="/lib/Map.SelectArea.min.js"></script>
+        <!-- DataJS -->
+        <script src="/data/countrylayer.js"></script>
+        <script src="/data/districtlayer.js"></script>
+        <script src="/data/stateandregionlayer.js"></script>
+        <script src="/data/townshiplayer.js"></script>
+        <script src="/data/factory.js"></script>
         <style>
             .main {
                 position: fixed;
@@ -122,27 +143,5 @@
             </main>
         </div>
     </body>
+    <!-- leaflet -->
 </html>
-<!-- leaflet -->
-<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
-<script src="https://unpkg.com/geojson-vt@3.2.0/geojson-vt.js"></script>
-<script src="https://unpkg.com/rbush@3.0.1/rbush.js"></script>
-<!-- lib js -->
-<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-<script src="/lib/Leaflet.markercluster-1.4.1/dist/leaflet.markercluster-src.js"></script>
-{{-- <script src="/lib/Leaflet.markercluster-1.4.1/src/MarkerCluster.js"></script> --}}
-<script src="/lib/multiselect-dropdown.js"></script>
-<script src="/lib/leaflet.browser.print.min.js"></script>
-<script src="/lib/leaflet-search-master/dist/leaflet-search.src.js"></script>
-<script src="/lib/L.Control.SlideMenu.js"></script>
-<script src="/lib/leaflet-geojson-vt.js"></script>
-<script src="/lib/leaflet-markers-canvas.js"></script>
-<script src="/lib/Map.SelectArea.min.js"></script>
-<!-- DataJS -->
-<script src="/data/countrylayer.js"></script>
-<script src="/data/districtlayer.js"></script>
-<script src="/data/stateandregionlayer.js"></script>
-<script src="/data/townshiplayer.js"></script>
-<script src="/data/factory.js"></script>
-<script src="/data/geofactory.js"></script>

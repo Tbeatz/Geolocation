@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 
 class MapController extends Controller
 {
-    public function index(){
-        $profiles = Profile::with('sector')->whereNotNull('geolocation')->get();
-        return view('admin.map.map', compact('profiles'));
+    public function index(Request $request){
+        if ($request->ajax()) {
+            $profiles = Profile::with('sector')->whereNotNull('geolocation')->get();
+            return $profiles;
+        }
+        return view('admin.map.map');
     }
 }
