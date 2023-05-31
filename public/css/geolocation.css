@@ -68,7 +68,7 @@
     flex-direction: row;
 }
 .selectContainer .multiselect-dropdown{
-    width: 15% !important;
+    width: 16% !important;
 }
 .selectContainer{
     position: fixed;
@@ -121,15 +121,18 @@
     font-family: arial;
     font-weight: bold;
 }
+
 .leaflet-popup-content-wrapper{
     border-radius: 9px !important;
 }
+
 .content {
     display: flex;
     flex-direction: column;
     padding-left: 20px;
     padding-right: 20px;
 }
+
 .text2{
     margin-top: 10px;
     font-family: "Google Sans",Roboto,var(--noto-ff,),Arial,sans-serif;

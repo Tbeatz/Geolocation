@@ -47,10 +47,7 @@ var factoryGroup = L.geoJSON({
         });
     },
     onEachFeature: function (feature, layer) {
-        let _id = 0;
-        feature.properties.id = _id++;
-        console.log(feature);
-        $('#sel2').append(`<option value='${feature.properties.sector}'>${feature.properties.sector}</option>`);
+        // console.log(feature);
         const { lat, lng } = layer.getLatLng();
         layer.bindPopup(`
         <div class="containerstyle">
@@ -98,55 +95,56 @@ factoryGroup
     .on('popupopen', function (e) {
         $('.detail').on('click', function () {
             slideMenu.setContents(`
-                // <img class="image2" src="${e.layer.feature.properties.image}">
+                <img class="w-full h-auto" src="${e.layer.feature.properties.image}">
                 <div class="container content">
-                    <h3 class="uppercase font-arial mb-2 mt-2 font-semibold text-blue-600 text-xl">${e.layer.feature.properties.name}</h3>
+                    <h3 class="uppercase font-arial mb-2 mt-2 font-semibold text-blue-600 text-lg">${e.layer.feature.properties.name}</h3>
                     <p1 class= "font-arial mb-1 font-semibold text-gray-900 text-sm">${e.layer.feature.properties.sector} Sector</p1>
                     <p2 class= "font-arial font-semibold text-gray-900 text-sm">${e.layer.feature.properties.type} Investment</p2>
-                    <table class="table-auto border-separate [border-spacing:0.75rem] borderless">
+                    <table class="table-auto border-separate border-collapse mt-3">
                         <tr>
-                            <td>
+                            <td class="px-4 py-2 border-r-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#1a73e8" class="bi bi-telephone" viewBox="0 0 16 16">
                                     <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                                 </svg>
                             </td>
-                            <td class="font-arial font-medium text-gray-900 text-sm">| ${e.layer.feature.properties.company_reg_no}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer.feature.properties.company_reg_no}</td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="px-4 py-2 border-r-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#1a73e8" class="bi bi-envelope" viewBox="0 0 16 16">
                                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
                                 </svg>
                             </td>
-                            <td class="font-arial font-medium text-gray-900 text-sm">| ${e.layer.feature.properties.businesstype}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer.feature.properties.businesstype}</td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="px-4 py-2 border-r-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#1a73e8" class="bi bi-map" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z"/>
                                 </svg>
                             </td>
-                            <td class="font-arial font-medium text-gray-900 text-sm">| ${e.layer.feature.properties.contact}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer.feature.properties.contact}</td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="px-4 py-2 border-r-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#1a73e8" class="bi bi-building" viewBox="0 0 16 16">
                                     <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z"/>
                                     <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z"/>
                                 </svg>
                             </td>
-                            <td class="font-arial font-medium text-gray-900 text-sm">| ${e.layer.feature.properties.contact}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer.feature.properties.contact}</td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="px-4 py-2 border-r-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#1a73e8" class="bi bi-geo" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
                                 </svg>
-                            <td class="font-arial font-medium text-gray-900 text-sm">| ${e.layer._latlng.lat}, ${e.layer._latlng.lng}</td>
+                            </td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer._latlng.lat}, ${e.layer._latlng.lng}</td>
                         </tr>
                     </table>
                 </div>`)
-            console.log('got clicked');
+            // console.log('got clicked');
             slideMenu.show();
         });
     });
@@ -185,7 +183,6 @@ var district = L.geoJSON(districtlayer, {
     },
     onEachFeature: function (feature, layer) {
         layer.bindPopup("<b>" + feature.properties.DT + "</b>")
-        $('#sel3').append(`<option value='${feature.properties.DT}'>${feature.properties.DT}</option>`);
     },
     style: {
         stroke: true,
@@ -293,21 +290,6 @@ $('#ScreenSize').on('click', function (event) {
     map.doubleClickZoom.disable();
 });
 
-$("#sel3").change(function () {
-    var dt = [];
-    $.each($("#sel3 option:selected"), function () {
-        dt.push($(this).val());
-    });
-    $('#sel4 option').remove();
-    console.log(township);
-    township.eachLayer(function (layer) {
-        if (dt.includes(layer.feature.properties.DT)) {
-            $('#sel4').append(`<option value='${layer.feature.properties.TS}'>${layer.feature.properties.TS}</option>`);
-        }
-    });
-    sel4.loadOptions();
-});
-
 var myClick;
 map.on('click', function (e) {
     if (e.originalEvent.ctrlKey) {
@@ -320,7 +302,7 @@ map.on('click', function (e) {
 
 var filteredMarkers;
 map.on('areaselected', (e) => {
-    console.log(e); // lon, lat, lon, lat
+    // console.log(e); // lon, lat, lon, lat
 
     // Get the bounds of the selected area
     var bounds = e.bounds;
@@ -363,60 +345,61 @@ $(document).on('click', '.specificDetail', function () {
         return marker.feature.properties.id == clickedId;
     });
     slideMenu.setContents(`
-        <img class="image2" src="${matchedMarker.feature.properties.image}">
+        <img class="w-full h-auto" src="${matchedMarker.feature.properties.image}">
                 <div class="container content">
                     <h3 class="uppercase font-arial mb-2 mt-2 font-semibold text-blue-600 text-xl">${matchedMarker.feature.properties.name}</h3>
                     <p1 class= "font-arial mb-1 font-semibold text-gray-900 text-sm">${matchedMarker.feature.properties.sector} Sector</p1>
                     <p2 class= "font-arial font-semibold text-gray-900 text-sm">${matchedMarker.feature.properties.type} Investment</p2>
-                    <table class="table-auto border-separate [border-spacing:0.75rem] borderless">
+                    <table class="table-auto border-separate border-collapse mt-3">
                         <tr>
-                            <td>
+                            <td class="px-4 py-2 border-r-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#1a73e8" class="bi bi-telephone" viewBox="0 0 16 16">
                                     <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                                 </svg>
                             </td>
-                            <td class="text1">| ${matchedMarker.feature.properties.phone}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker.feature.properties.company_reg_no}</td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="px-4 py-2 border-r-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#1a73e8" class="bi bi-envelope" viewBox="0 0 16 16">
                                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
                                 </svg>
                             </td>
-                            <td class="text1">| ${matchedMarker.feature.properties.email}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker.feature.properties.businesstype}</td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="px-4 py-2 border-r-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#1a73e8" class="bi bi-map" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z"/>
                                 </svg>
                             </td>
-                            <td class="text1">| ${matchedMarker.feature.properties.address}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker.feature.properties.contact}</td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="px-4 py-2 border-r-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#1a73e8" class="bi bi-building" viewBox="0 0 16 16">
                                     <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z"/>
                                     <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z"/>
                                 </svg>
                             </td>
-                            <td class="text1">| ${matchedMarker.feature.properties.area}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker.feature.properties.contact}</td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="px-4 py-2 border-r-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#1a73e8" class="bi bi-geo" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
                                 </svg>
-                            <td class="text1">| ${matchedMarker._latlng.lat}, ${matchedMarker._latlng.lng}</td>
+                            </td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker._latlng.lat}, ${matchedMarker._latlng.lng}</td>
                         </tr>
                     </table>
-                    <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 mx-2 rounded back">Back</button>
+                    <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 mt-4 rounded back">Back</button>
                 </div>
         `);
 });
 
 $(document).on('click', '.back', function () {
-    console.log('this button is clicked');
+    // console.log('this button is clicked');
     backEventHandler();
 });
 
@@ -468,6 +451,10 @@ $('.multisearch').on('click', function (event) {
 });
 
 $(".searchBtn").click(function () {
+    var ftype = $('#sel1').val()
+    var fsector = $('#sel2').val()
+    var fdistrict = $('#sel3').val()
+    var ftownship = $('#sel4').val()
     var data = [];
     $.each($(".multiSelect option:selected"), function () {
         data.push($(this).val());
@@ -477,15 +464,59 @@ $(".searchBtn").click(function () {
         alert('You need to choose at least 1 data to filter.');
         return;
     }
-    console.log('this is all factories', factoryGroup);
-    factoryGroup.eachLayer(function (layer) {
-        if (data.includes(layer.feature.properties.type) || data.includes(layer.feature.properties.TS) || data.includes(layer.feature.properties.DT) || data.includes(layer.feature.properties.sector)) {
-            layer.addTo(map);
+    $.ajax({
+        url: '/filter',
+        method: 'GET',
+        data: {"type":ftype, "sector":fsector, "district":fdistrict, "township":ftownship},
+        success: function (res) {
+            // Process the data
+            const features = res.map(function (profile) {
+                var coordinates = JSON.parse(profile.geolocation);
+                var sectorName = profile.sector.name;
+                var type;
+                if (profile.type == 0) {
+                    type = 'Local';
+                } else {
+                    type = 'Foreign';
+                }
+                var sectorIcon = L.icon({
+                    iconSize: [50, 50],
+                    iconUrl: '/storage/' + profile.sector.icon,
+                    iconAnchor: [25, 25],
+                });
+                return {
+                    "type": "Feature",
+                    "properties": {
+                        "id": profile.id,
+                        "name": profile.company_name,
+                        "sector": sectorName,
+                        "icon": sectorIcon,
+                        "businesstype": profile.businesstype_detail,
+                        "contact": profile.contact_information,
+                        "type": type,
+                        "image": '/storage/' + profile.cover,
+                        "company_reg_no": profile.company_reg_no,
+                        "TS": profile.township_id,
+                        "DT": profile.district_id,
+                        "RG": profile.region_id,
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": coordinates
+                    }
+                };
+            });
+            const geojson =  {
+                "type": "FeatureCollection",
+                features
+            }
+            factoryGroup.clearLayers();
+            clustermarkers.clearLayers();
+            factoryGroup.addData(geojson);
+            clustermarkers.addLayer(factoryGroup);
+            map.addLayer(clustermarkers);
         }
-        else {
-            layer.remove();
-        }
-    });
+    })
 });
 $(".remove").click(function () {
     $(".multisearch").fadeOut(500);
@@ -502,7 +533,30 @@ function main(geofactoryjson) {
     factoryGroup.addData(geofactoryjson);
     clustermarkers.addLayer(factoryGroup);
     // if (clustermarkers.getLayers().length !== 1) {
-        map.addLayer(clustermarkers);
+    map.addLayer(clustermarkers);
     // }
 }
 geoajax();
+
+//ajax for district and townships
+$('#sel3').change(function () {
+    var dt = $(this).val();
+    if (dt.length > 0) {
+        $.ajax({
+            url: "/tsp",
+            type: "GET",
+            data: {"district":dt},
+            success: function (data) {
+                $('#sel4').empty();
+                $.each(data, function (index, value) {
+                    var option = `<option value="${value.id}"}>${value.name}</option>`
+                    $('#sel4').append(option);
+                    sel4.loadOptions();
+                });
+            }
+        });
+    } else {
+        $('#sel4').empty();
+        sel4.loadOptions();
+    }
+});

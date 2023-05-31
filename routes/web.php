@@ -56,6 +56,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/sectors',[SectorController::class, 'index'])->name('sector');
     //Map
     Route::get('/map', [MapController::class, 'index'])->name('map');
+    Route::get('/tsp', [MapController::class, 'township']);
+    Route::get('/filter', [MapController::class, 'filtering']);
 });
 
 require __DIR__.'/auth.php';

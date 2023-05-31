@@ -5,7 +5,7 @@
         <div class="wrapper">
             <div class="leaflet-control p-7 p-4 sm:p-8 bg-white shadow sm:rounded-lg border-2 border-neutral-300 multisearch w-4/5 mx-auto hidden">
                 <div class="selectContainer vertical-center">
-                    <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-700" for="">Type</label>
+                    <label class="mx-1 font-semibold text-sm font-arial text-gray-700" for="">Type</label>
                     <select class="multiSelect block w-full font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-300 focus:ring-lime-600 rounded-md shadow-sm" id="sel1" multiple
                         multiselect-search="true"
                         multiselect-select-all="true"
@@ -14,21 +14,27 @@
                         <option value="Local">Local</option>
                         <option value="Foreign">Foreign</option>
                     </select>
-                    <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-700" for="">Sector</label>
+                    <label class="mx-1 font-semibold text-sm font-arial text-gray-700" for="">Sector</label>
                     <select class="multiSelect" id="sel2" multiple
                         multiselect-search="true"
                         multiselect-select-all="true"
                         multiselect-max-items="1"
                     >
+                    @foreach ($sectors as $sector)
+                        <option value="{{$sector->id}}">{{$sector->name}}</option>
+                    @endforeach
                     </select>
-                    <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-700" for="">District</label>
+                    <label class="mx-1 font-semibold text-sm font-arial text-gray-700" for="">District</label>
                     <select class="multiSelect" id="sel3" multiple
                         multiselect-search="true"
                         multiselect-select-all="true"
                         multiselect-max-items="1"
                     >
+                    @foreach ($districts as $district)
+                        <option value="{{$district->id}}">{{$district->name}}</option>
+                    @endforeach
                     </select>
-                    <label class="mx-1 font-semibold text-sm font-arial uppercase text-gray-700" for="">Township</label>
+                    <label class="mx-1 font-semibold text-sm font-arial text-gray-700" for="">Township</label>
                     <select class="multiSelect" id="sel4" multiple
                         multiselect-search="true"
                         multiselect-select-all="true"

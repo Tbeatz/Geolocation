@@ -23,6 +23,7 @@ function geoajax() {
                 return {
                     "type": "Feature",
                     "properties": {
+                        "id": profile.id,
                         "name": profile.company_name,
                         "sector": sectorName,
                         "icon": sectorIcon,
@@ -31,7 +32,9 @@ function geoajax() {
                         "type": type,
                         "image": '/storage/' + profile.cover,
                         "company_reg_no": profile.company_reg_no,
-
+                        "TS": profile.townships.id,
+                        "DT": profile.districts.id,
+                        "RG": profile.region_id,
                     },
                     "geometry": {
                         "type": "Point",
