@@ -35,6 +35,8 @@ $(document).ready(function () {
                 }
             });
         } else {
+            $('#township_id').empty();
+            $('#township_id').append('<option value="">Select a Township</option>');
             $('#district_id').empty();
             $('#district_id').append('<option value="">Select a District</option>');
         }

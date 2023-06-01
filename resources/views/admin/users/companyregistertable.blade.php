@@ -23,7 +23,7 @@
                         <td>{{ $user->profile->permit_date }}</td>
                         <td>
                             <div class="inline-flex gap-2">
-                                <form method="post"
+                                <form method="post" id="approve_mail"
                                     action="{{ route('users.approve', $user) }}">
                                     @csrf
                                     @method('patch')
@@ -38,7 +38,7 @@
                                     </button>
                                 </form>
                                 <p>|</p>
-                                <form method="post"
+                                <form method="post" id="reject_mail"
                                     action="{{ route('users.reject', $user) }}">
                                     @csrf
                                     @method('delete')

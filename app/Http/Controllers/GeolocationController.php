@@ -20,7 +20,7 @@ class GeolocationController extends Controller
         $countries = Country::all();
         $sectors = Sector::all();
         // $regions = DB::table('regions')->get();
-        $regions = Region::all();
+        $regions = Region::where('id', 13)->get();
         return view('user.geolocation.investorlocation', compact('profile','countries','sectors', 'regions'));
     }
 
