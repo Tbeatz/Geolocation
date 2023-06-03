@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('company_reg_no')->nullable();
             $table->date('company_reg_date')->nullable();
             $table->date('commercial_date')->nullable();
-            $table->text('office_address')->nullable();
             $table->text('permit_no')->nullable();
             $table->date('permit_date')->nullable();
             $table->double('local_invest')->nullable();
@@ -28,6 +27,12 @@ return new class extends Migration
             $table->foreign('permit_type_id')->references('id')->on('permit_types');
             $table->unsignedBigInteger('form_of_invest_id')->nullable();
             $table->foreign('form_of_invest_id')->references('id')->on('form_of_invests');
+            $table->text('investor_name')->nullable();
+            $table->text('investor_phone')->nullable();
+            $table->text('investor_email')->nullable();
+            $table->text('hr_name')->nullable();
+            $table->text('hr_phone')->nullable();
+            $table->text('businesstype_detail')->nullable();
             //geolocation
             $table->unsignedBigInteger('sector_id')->nullable();
             $table->foreign('sector_id')->references('id')->on('sectors');
@@ -39,8 +44,6 @@ return new class extends Migration
             $table->foreign('district_id')->references('id')->on('districts');
             $table->unsignedBigInteger('township_id')->nullable();
             $table->foreign('township_id')->references('id')->on('townships');
-            $table->text('contact_information')->nullable();
-            $table->text('businesstype_detail')->nullable();
             $table->json('geolocation')->nullable();
             $table->string('cover')->nullable();
             $table->boolean('type')->default(false);

@@ -25,14 +25,18 @@ class DashboardUpdateRequest extends FormRequest
             'company_name'=>'required',
             'company_reg_no'=>'required',
             'company_reg_date'=>'required',
-            'commercial_date'=>'required',
-            'office_address'=>'required',
             'permit_no'=>'required',
             'permit_date'=>'required',
             'local_invest'=>'required',
             'foreign_invest'=>'required',
+            'businesstype_detail'=>'required',
             'permit_type_id'=>'required',
             'form_of_invest_id'=>'required',
+            'investor_name' => 'required',
+            'investor_phone' => 'required',
+            'investor_email' => 'required',
+            'hr_name' => 'required',
+            'hr_phone' => 'required',
         ];
     }
 }

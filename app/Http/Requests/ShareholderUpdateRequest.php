@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InvestorLocationUpdateRequest extends FormRequest
+class ShareholderUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,16 +22,13 @@ class InvestorLocationUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sector_id'=>'required',
-            'country_id'=>'required',
-            'region_id'=>'required',
-            'district_id'=>'required',
-            'township_id'=>'required',
-            // 'contact_information'=>'required',
-            // 'businesstype_detail'=>'required',
-            'geolocation'=>'required|json',
-            'type'=>'required',
-            'cover'=>'image',
+            'name'=>'required',
+            'designation'=> 'required',
+            'passport_nrc'=>'required',
+            'address'=>'required',
+            'phone'=>'required',
+            'email'=>'required',
+            'nationality_id'=>'required',
         ];
     }
 }

@@ -77,11 +77,11 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
-                                    <div class="w-full md:w-1/2">
+                                    {{-- <div class="w-full md:w-1/2">
                                         <x-input-label for="contact_information" :value="__('Contact')" />
                                         <x-text-input id="contact_information" name="contact_information" type="text" class="mt-1" id="default_size" :value="old('contact_information', $profile?->contact_information)" required autofocus autocomplete="contact_information" />
                                         <x-input-error class="mt-1" :messages="$errors->get('contact_information')" />
-                                    </div>
+                                    </div> --}}
                                     <div class="w-full md:w-1/2">
                                         <x-input-label for="geolocation" :value="__('Geolocation')" />
                                         <x-text-input id="geolocation" name="geolocation" type="text" class="mt-1" id="default_size" :value="old('geolocation', $profile?->geolocation)" required autofocus autocomplete="geolocation" />
@@ -89,11 +89,6 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
-                                    <div class="w-full md:w-1/2">
-                                        <x-input-label for="businesstype_detail" :value="__('Business Detail')" />
-                                        <x-text-input id="businesstype_detail" name="businesstype_detail" type="text" class="mt-1" id="default_size" :value="old('businesstype_detail', $profile?->businesstype_detail)" required autofocus autocomplete="businesstype_detail" />
-                                        <x-input-error class="mt-1" :messages="$errors->get('businesstype_detail')" />
-                                    </div>
                                     <div class="w-full md:w-1/2">
                                         <x-input-label for="sector_id" :value="__('Sector')" />
                                         <select id="sector_id" name="sector_id" class="w-full text-sm mt-1 p-2 block font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>

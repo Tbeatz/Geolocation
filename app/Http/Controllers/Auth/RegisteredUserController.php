@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\PermitType;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -20,7 +21,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $permit_types = PermitType::whereIn('id', [1,2,16])->get();
+        return view('auth.register', compact('permit_types'));
     }
 
     /**
@@ -37,6 +39,7 @@ class RegisteredUserController extends Controller
             'company_reg_no' => ['required'],
             'permit_no' => ['required', 'unique:profiles,permit_no'],
             'permit_date' => ['required'],
+            'permit_type_id' => ['required'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -50,6 +53,7 @@ class RegisteredUserController extends Controller
             'company_reg_no' => $request->company_reg_no,
             'permit_no' => $request->permit_no,
             'permit_date' => $request->permit_date,
+            'permit_type_id' => $request->permit_type_id
         ]);
         event(new Registered($user));
 
