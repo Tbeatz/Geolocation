@@ -38,13 +38,9 @@
                                     Edit
                                 </button>
                                 <p>|</p>
-                                <form id="director_deleteform" action="{{ route('director.destroy',$director) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button id="director_delete" class="font-medium text-blue-500 hover:underline">
-                                        Delete
-                                    </button>
-                                </form>
+                                <button id="director_delete" value="{{$director->id}}" class="font-medium text-blue-500 hover:underline">
+                                    Delete
+                                </button>
                             </div>
 
                         </td>

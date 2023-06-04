@@ -30,14 +30,14 @@ Route::middleware(['auth', 'user'])->group(function () {
      Route::get('/dashboard',[DashboardController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
      Route::patch('/dashboard',[DashboardController::class, 'update'])->name('dashboard.update');
         //director
-     Route::get('director-paginate',[DashboardController::class, 'director_paginate'])->name('directors.paginate');
+     Route::get('/director-paginate',[DashboardController::class, 'director_paginate'])->name('directors.paginate');
      Route::post('/director-create',[DashboardController::class, 'director_create']);
      Route::get('/director/{director}',[DashboardController::class, 'director_edit']);
      Route::post('/director-update/{director}', [DashboardController::class, 'director_update']);
      Route::get('/fetch-directors',[DashboardController::class, 'director_fetch']);
      Route::delete('/director-delete/{director}',[DashboardController::class, 'director_destroy'])->name('director.destroy');
         //shareholder
-     Route::get('shareholder-paginate',[DashboardController::class, 'shareholder_paginate'])->name('shareholders.paginate');
+     Route::get('/shareholder-paginate',[DashboardController::class, 'shareholder_paginate'])->name('shareholders.paginate');
      Route::post('/shareholder-create',[DashboardController::class, 'shareholder_create']);
      Route::get('/shareholder/{shareholder}',[DashboardController::class, 'shareholder_edit']);
      Route::post('/shareholder-update/{shareholder}', [DashboardController::class, 'shareholder_update']);

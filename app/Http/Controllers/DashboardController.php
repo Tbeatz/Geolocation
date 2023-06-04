@@ -48,7 +48,7 @@ class DashboardController extends Controller
     //director
     public function director_fetch(){
         $directors = Director::with('nationality')->paginate(5);
-        return $directors;
+        return view('user.dashboard.director_table', compact('directors'))->render();
     }
 
     public function director_edit(Director $director){
@@ -65,7 +65,7 @@ class DashboardController extends Controller
     public function director_destroy(Director $director)
     {
         $director->delete();
-        return back()->with('director_delete_message', 'Director is deleted Successfully!');
+        return response()->json(['message' => 'Director is deleted Successfully!']);
     }
 
     public function director_paginate(Request $request){
@@ -85,7 +85,7 @@ class DashboardController extends Controller
     //shareholder
     public function shareholder_fetch(){
         $shareholders = Shareholder::with('nationality')->paginate(5);
-        return $shareholders;
+        return view('user.dashboard.shareholder_table', compact('shareholders'))->render();
     }
 
     public function shareholder_edit(Shareholder $shareholder){
@@ -102,7 +102,7 @@ class DashboardController extends Controller
     public function shareholder_destroy(Shareholder $shareholder)
     {
         $shareholder->delete();
-        return back()->with('shareholder_delete_message', 'Shareholder is deleted Successfully!');
+        return response()->json(['message'=>'Shareholder is deleted successfully!']);
     }
 
     public function shareholder_paginate(Request $request){

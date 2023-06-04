@@ -34,17 +34,17 @@ $(document).ready(function() {
 
     $(document).on('click','.director_pagination a', function(e){
         e.preventDefault();
-        let directorpage = $(this).attr('href').split('directorpage=')[1]
+        let directorpage = $(this).attr('href').split('page=')[1]
         director_record(directorpage)
     });
 
     function director_record(directorpage){
         $.ajax({
-            url: "/director-paginate?directorpage=" + directorpage,
+            url: "/director-paginate?page=" + directorpage,
             success:function(res){
                 $('.director_table_data').html(res);
             }
-        })
+        });
     }
     //Search
     $(document).on('click', '#directorSearch', function(e){
@@ -208,48 +208,26 @@ $(document).ready(function() {
             method: 'GET',
             url: '/fetch-directors',
             success: function(res){
-                var tbody = document.querySelector('#director_table tbody');
-                var row = '';
-                res.data.forEach(function(rowData, index) {
-                    row +=
-                    `<tr class="border-b h-12 bg-white border-gray-200 hover:bg-gray-100 text-gray-700">
-                        <td>${index+1}</td>
-                        <td>${rowData.name}</td>
-                        <td>${rowData.passport_nrc}</td>
-                        <td>${rowData.address}</td>
-                        <td>${rowData.phone}</td>
-                        <td>${rowData.email}</td>
-                        <td>${rowData.nationality.name}</td>
-                        <td>
-                            <div class="inline-flex gap-2">
-                                <button value="${rowData.id}" class="director_edit font-medium text-blue-500 hover:underline">
-                                    Edit
-                                </button>
-                                <p>|</p>
-                                <form id="director_deleteform" action="/director-delete/${rowData.id}" method="POST">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <button id="director_delete" class="font-medium text-blue-500 hover:underline">
-                                        Delete
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
-                        <td></td>
-                    </tr>`;
-                });
-                tbody.innerHTML= row;
-                //tbody.apppend(row);
+                $('.director_table_data').html(res);
             }
         });
     };
     //delete
     $(document).on('click', '#director_delete', function(e){
+        const d_id = $(this).val();
         e.preventDefault()
         $('#reject_modal').show();
         $('#yes1_btn').click(function(){
-            $('#director_deleteform').submit();
-            $('#reject_modal').hide();
+            $.ajax({
+                method: 'DELETE',
+                url: '/director-delete/'+ d_id,
+                success:function(res){
+                    $('#director-del-msg').show();
+                    $('.director_del_alert').html(res.message);
+                    $('#reject_modal').hide();
+                    directorRender();
+                }
+            });
         });
 
         $('#no1_btn, #no1_icon').click(function(){
@@ -264,13 +242,13 @@ $(document).ready(function() {
 
     $(document).on('click','.shareholder_pagination a', function(e){
         e.preventDefault();
-        let shareholderpage = $(this).attr('href').split('shareholderpage=')[1]
+        let shareholderpage = $(this).attr('href').split('page=')[1]
         shareholder_record(shareholderpage)
     });
 
     function shareholder_record(shareholderpage){
         $.ajax({
-            url: "/shareholder-paginate?shareholderpage=" + shareholderpage,
+            url: "/shareholder-paginate?page=" + shareholderpage,
             success:function(res){
                 $('.shareholder_table_data').html(res);
             }
@@ -432,60 +410,39 @@ $(document).ready(function() {
             }
         });
     });
+
+    //delete
+    $(document).on('click', '#shareholder_delete', function(e){
+        const s_id = $(this).val();
+        console.log(s_id);
+        e.preventDefault()
+        $('#reject_modal').show();
+        $('#yes1_btn').click(function(){
+            $.ajax({
+                method: 'DELETE',
+                url: '/shareholder-delete/'+ s_id,
+                success:function(res){
+                    $('#reject_modal').hide();
+                    $('#shareholder-del-msg').show();
+                    $('.shareholder_del_alert').html(res.message);
+                    shareholderRender();
+                }
+            })
+            
+        });
+        
+        $('#no1_btn, #no1_icon').click(function(){
+            $('#reject_modal').hide();
+        });
+    });
+    
     function shareholderRender(){
         $.ajax({
             method: 'GET',
             url: '/fetch-shareholders',
             success: function(res){
-                var tbody = document.querySelector('#shareholder_table tbody');
-                var row = '';
-                res.data.forEach(function(rowData, index) {
-                    console.log(rowData)
-                    row +=
-                    `<tr class="border-b h-12 bg-white border-gray-200 hover:bg-gray-100 text-gray-700">
-                        <td>${index+1}</td>
-                        <td>${rowData.name}</td>
-                        <td>${rowData.designation}</td>
-                        <td>${rowData.passport_nrc}</td>
-                        <td>${rowData.address}</td>
-                        <td>${rowData.phone}</td>
-                        <td>${rowData.email}</td>
-                        <td>${rowData.nationality.name}</td>
-                        <td>
-                            <div class="inline-flex gap-2">
-                                <button value="${rowData.id}" class="shareholder_edit font-medium text-blue-500 hover:underline">
-                                    Edit
-                                </button>
-                                <p>|</p>
-                                <form id="shareholder_deleteform" action="/shareholder-delete/${rowData.id}" method="POST">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <button id="shareholder_delete" class="font-medium text-blue-500 hover:underline">
-                                        Delete
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
-                        <td></td>
-                    </tr>`;
-                });
-                tbody.innerHTML= row;
-                //tbody.apppend(row);
+                $('.shareholder_table_data').html(res);
             }
         });
     };
-     //delete
-     $(document).on('click', '#shareholder_delete', function(e){
-        e.preventDefault()
-        $('#reject_modal').show();
-        $('#yes1_btn').click(function(){
-            $('#shareholder_deleteform').submit();
-            $('#reject_modal').hide();
-        });
-
-        $('#no1_btn, #no1_icon').click(function(){
-            $('#reject_modal').hide();
-        });
-    });
-
 });

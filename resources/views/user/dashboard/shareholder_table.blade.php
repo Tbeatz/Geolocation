@@ -40,12 +40,9 @@
                                     Edit
                                 </button>
                                 <p>|</p>
-                                <form id="shareholder_deleteform" action="{{ route('shareholder.destroy',$shareholder) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button id="shareholder_delete" class="font-medium text-blue-500 hover:underline">
-                                        Delete
-                                    </button>
+                                <button id="shareholder_delete" value="{{$shareholder->id}}" class="font-medium text-blue-500 hover:underline">
+                                    Delete
+                                </button>
                                 </form>
                             </div>
 

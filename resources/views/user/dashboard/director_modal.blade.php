@@ -64,11 +64,11 @@
             <!-- Modal footer -->
             <div class="flex mt-4 items-center p-6 space-x-2 border-t rounded-b border-gray-200">
                 <button type="button" id="director_save"
-                    class="hidden inline-flex items-center px-4 py-2 font-medium focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-4 py-2 bg-greenprimary hover:bg-green-700 focus:ring-green-800 font-arial">Save</button>
+                    class="hidden inline-flex items-center px-4 py-2 font-medium focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-4 py-2 bg-greenprimary hover:bg-green-700 focus:ring-green-800 font-arial text-white">Save</button>
                 <button type="button" id="director_update"
-                class="hidden inline-flex items-center px-4 py-2 font-medium focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-4 py-2 bg-greenprimary hover:bg-green-700 focus:ring-green-800 font-arial">Update</button>
+                class="hidden inline-flex items-center px-4 py-2 font-medium focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-4 py-2 bg-greenprimary hover:bg-green-700 focus:ring-green-800 font-arial text-white">Update</button>
                 <button type="button" id="director-close-btn"
-                    class="inline-flex items-center px-4 py-2 font-medium focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-4 py-2 bg-red-600 hover:bg-red-700 focus:ring-red-800 font-arial">Cancel</button>
+                    class="inline-flex items-center px-4 py-2 font-medium focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-4 py-2 bg-red-600 hover:bg-red-700 focus:ring-red-800 font-arial text-white">Cancel</button>
             </div>
         </form>
     </div>
