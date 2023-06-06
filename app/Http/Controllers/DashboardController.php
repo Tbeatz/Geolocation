@@ -26,8 +26,8 @@ class DashboardController extends Controller
         $profile = Profile::where('user_id', '=', auth()->id())->first();
         $permit_types = PermitType::whereIn('id', [1,2,16])->get();
         $form_of_invests = FormOfInvest::whereIn('id', [1,2,4])->get();
-        $directors = Director::with('nationality')->paginate(5);
-        $shareholders = Shareholder::with('nationality')->paginate(5);
+        $directors = Director::with('nationality')->where('profile_id', auth()->user()->profile->id)->paginate(5);
+        $shareholders = Shareholder::with('nationality')->where('profile_id', auth()->user()->profile->id)->paginate(5);
         $nationalities = Nationality::all();
         return view('user.dashboard.dashboard', compact('profile','permit_types','form_of_invests','directors', 'shareholders', 'nationalities'));
     }

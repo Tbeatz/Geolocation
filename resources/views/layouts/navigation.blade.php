@@ -18,6 +18,12 @@
                     <x-nav-link class="font-semibold font-arial" :href="route('geolocation')" :active="request()->routeIs('geolocation')">
                         {{ __('Geolocation') }}
                     </x-nav-link>
+                    <x-nav-link class="font-semibold font-arial" :href="route('detail')" :active="request()->routeIs('detail')">
+                        {{ __('Company Detail') }}
+                    </x-nav-link>
+                    <x-nav-link class="font-semibold font-arial" :href="route('contribution')" :active="request()->routeIs('contribution')">
+                        {{ __('Contribution') }}
+                    </x-nav-link>
                 </div>
             </div>
 

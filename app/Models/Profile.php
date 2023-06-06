@@ -31,4 +31,16 @@ class Profile extends Model
     public function townships(){
         return $this->hasOne(Township::class, 'id', 'township_id');
     }
+    public function landtype(){
+        return $this->hasOne(Landtype::class, 'id', 'landtype_id');
+    }
+    public function businesszone(){
+        return $this->hasOne(Businesszone::class, 'id', 'businesszone_id');
+    }
+    public function commercial_country(){
+        return $this->hasOne(Country::class, 'id', 'commercial_country_id');
+    }
+    public function currency(){
+        return $this->hasOne(Currency::class, 'id', 'currency_id');
+    }
 }

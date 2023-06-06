@@ -13,6 +13,8 @@ export default defineConfig({
                 'resources/js/admin/users/users.js',
                 'resources/js/user/dashboard/dashboard.js',
                 'resources/js/user/investorlocation/investorlocation.js',
+                'resources/js/user/detail/detail.js',
+                'resources/js/user/contribution/contribution.js',
                 'resources/js/profile/avatar.js',
                 'resources/js/profile/profileinfo.js',
                 'resources/js/profile/profilepassword.js',

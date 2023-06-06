@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CapitalController;
+use App\Http\Controllers\CompanydetailController;
+use App\Http\Controllers\ContributionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Profile\AvatarController;
@@ -26,28 +29,34 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::middleware(['auth', 'user'])->group(function () {
-     //Investor
-     Route::get('/dashboard',[DashboardController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
-     Route::patch('/dashboard',[DashboardController::class, 'update'])->name('dashboard.update');
+    //Company Profile
+    Route::get('/dashboard',[DashboardController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
+    Route::patch('/dashboard',[DashboardController::class, 'update'])->name('dashboard.update');
         //director
-     Route::get('/director-paginate',[DashboardController::class, 'director_paginate'])->name('directors.paginate');
-     Route::post('/director-create',[DashboardController::class, 'director_create']);
-     Route::get('/director/{director}',[DashboardController::class, 'director_edit']);
-     Route::post('/director-update/{director}', [DashboardController::class, 'director_update']);
-     Route::get('/fetch-directors',[DashboardController::class, 'director_fetch']);
-     Route::delete('/director-delete/{director}',[DashboardController::class, 'director_destroy'])->name('director.destroy');
+    Route::get('/director-paginate',[DashboardController::class, 'director_paginate'])->name('directors.paginate');
+    Route::post('/director-create',[DashboardController::class, 'director_create']);
+    Route::get('/director/{director}',[DashboardController::class, 'director_edit']);
+    Route::post('/director-update/{director}', [DashboardController::class, 'director_update']);
+    Route::get('/fetch-directors',[DashboardController::class, 'director_fetch']);
+    Route::delete('/director-delete/{director}',[DashboardController::class, 'director_destroy'])->name('director.destroy');
         //shareholder
-     Route::get('/shareholder-paginate',[DashboardController::class, 'shareholder_paginate'])->name('shareholders.paginate');
-     Route::post('/shareholder-create',[DashboardController::class, 'shareholder_create']);
-     Route::get('/shareholder/{shareholder}',[DashboardController::class, 'shareholder_edit']);
-     Route::post('/shareholder-update/{shareholder}', [DashboardController::class, 'shareholder_update']);
-     Route::get('/fetch-shareholders',[DashboardController::class, 'shareholder_fetch']);
-     Route::delete('/shareholder-delete/{shareholder}',[DashboardController::class, 'shareholder_destroy'])->name('shareholder.destroy');
-        //geolocation
-     Route::get('/geolocation',[GeolocationController::class, 'index'])->name('geolocation');
-     Route::patch('/geolocation', [GeolocationController::class, 'update'])->name('geolocation.update');
-     Route::get('/district/{region_id}', [GeolocationController::class, 'district']);
-     Route::get('/township/{district_id}', [GeolocationController::class, 'township']);
+    Route::get('/shareholder-paginate',[DashboardController::class, 'shareholder_paginate'])->name('shareholders.paginate');
+    Route::post('/shareholder-create',[DashboardController::class, 'shareholder_create']);
+    Route::get('/shareholder/{shareholder}',[DashboardController::class, 'shareholder_edit']);
+    Route::post('/shareholder-update/{shareholder}', [DashboardController::class, 'shareholder_update']);
+    Route::get('/fetch-shareholders',[DashboardController::class, 'shareholder_fetch']);
+    Route::delete('/shareholder-delete/{shareholder}',[DashboardController::class, 'shareholder_destroy'])->name('shareholder.destroy');
+    //geolocation
+    Route::get('/geolocation',[GeolocationController::class, 'index'])->name('geolocation');
+    Route::patch('/geolocation', [GeolocationController::class, 'update'])->name('geolocation.update');
+    Route::get('/district_businesszone/{region_id}', [GeolocationController::class, 'district_businesszone']);
+    Route::get('/township/{district_id}', [GeolocationController::class, 'township']);
+    //Company Detail
+    Route::get('/detail', [CompanydetailController::class, 'index'])->name('detail');
+    Route::patch('/detail',[CompanydetailController::class, 'update'])->name('detail.update');
+    //Capital
+    Route::get('/contribution', [ContributionController::class, 'index'])->name('contribution');
+
 });
 
 //Auth

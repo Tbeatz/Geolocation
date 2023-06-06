@@ -14,13 +14,13 @@ $(document).ready(function() {
             $('#foreign_invest').val(100);
             $('#local_invest_div, #foreign_invest_div').addClass('hidden');
         }else if (FOI == 4){
-            $('#local_invest').val('');
-            $('#foreign_invest').val('');
             $('#local_invest_div, #foreign_invest_div').removeClass('hidden');
         }else{
+            $('#local_invest').val('');
+            $('#foreign_invest').val('');
             $('#local_invest_div, #foreign_invest_div').addClass('hidden');
         }
-    });
+    }).change();
 
     $.ajaxSetup({
         headers: {
@@ -428,14 +428,14 @@ $(document).ready(function() {
                     shareholderRender();
                 }
             })
-            
+
         });
-        
+
         $('#no1_btn, #no1_icon').click(function(){
             $('#reject_modal').hide();
         });
     });
-    
+
     function shareholderRender(){
         $.ajax({
             method: 'GET',

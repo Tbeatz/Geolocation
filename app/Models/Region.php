@@ -14,4 +14,8 @@ class Region extends Model
     {
         return $this->hasMany(District::class, 'region_id', 'id');
     }
+    public function business_zones()
+    {
+        return $this->hasMany(BusinessZone::class);
+    }
 }

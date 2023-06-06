@@ -67,7 +67,7 @@
                 </div>
             </div>
             <!-- Modal footer -->
-            <div class="flex mt-4 items-center p-6 space-x-2 border-t rounded-b border-gray-200">
+            <div class="flex mt-4 items-center p-3 space-x-2 border-t rounded-b border-gray-200">
                 <button type="button" id="shareholder_save"
                     class="inline-flex items-center px-4 py-2 font-medium focus:ring-4 focus:outline-none font-medium rounded-md text-sm px-4 py-2 bg-greenprimary hover:bg-green-700 focus:ring-green-800 font-arial text-white">Save</button>
                 <button type="button" id="shareholder_update"

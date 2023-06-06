@@ -77,11 +77,11 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
-                                    {{-- <div class="w-full md:w-1/2">
-                                        <x-input-label for="contact_information" :value="__('Contact')" />
-                                        <x-text-input id="contact_information" name="contact_information" type="text" class="mt-1" id="default_size" :value="old('contact_information', $profile?->contact_information)" required autofocus autocomplete="contact_information" />
-                                        <x-input-error class="mt-1" :messages="$errors->get('contact_information')" />
-                                    </div> --}}
+                                    <div class="w-full md:w-1/2">
+                                        <x-input-label for="land_area" :value="__('Land Area')" />
+                                        <x-text-input id="land_area" name="land_area" type="text" class="mt-1" id="default_size" :value="old('land_area', $profile?->land_area)" required autofocus autocomplete="land_area" />
+                                        <x-input-error class="mt-1" :messages="$errors->get('land_area')" />
+                                    </div>
                                     <div class="w-full md:w-1/2">
                                         <x-input-label for="geolocation" :value="__('Geolocation')" />
                                         <x-text-input id="geolocation" name="geolocation" type="text" class="mt-1" id="default_size" :value="old('geolocation', $profile?->geolocation)" required autofocus autocomplete="geolocation" />
@@ -90,14 +90,26 @@
                                 </div>
                                 <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
                                     <div class="w-full md:w-1/2">
-                                        <x-input-label for="sector_id" :value="__('Sector')" />
-                                        <select id="sector_id" name="sector_id" class="w-full text-sm mt-1 p-2 block font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>
-                                            <option value="" @if (!$profile->sector_id) selected @endif>Select an Option</option>
-                                            @foreach ($sectors as $sector)
-                                                <option value="{{$sector->id}}" @if ($profile->sector_id == $sector->id) selected @endif>{{$sector->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        <x-input-error class="mt-1" :messages="$errors->get('sector_id')" />
+                                        <x-input-label for="land_plot_no" :value="__('Land Plot No.')" />
+                                        <x-text-input id="land_plot_no" name="land_plot_no" type="text" class="mt-1" id="default_size" :value="old('land_plot_no', $profile?->land_plot_no)" required autofocus autocomplete="land_plot_no" />
+                                        <x-input-error class="mt-1" :messages="$errors->get('land_plot_no')" />
+                                    </div>
+                                    <div class="w-full md:w-1/2">
+                                        <x-input-label for="land_measure_no" :value="__('Land Plot Measurement No.')" />
+                                        <x-text-input id="land_measure_no" name="land_measure_no" type="text" class="mt-1" id="default_size" :value="old('land_measure_no', $profile?->land_measure_no)" required autofocus autocomplete="land_measure_no" />
+                                        <x-input-error class="mt-1" :messages="$errors->get('land_measure_no')" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                                    <div class="w-full md:w-1/2">
+                                        <x-input-label for="street_no" :value="__('Street No.')" />
+                                        <x-text-input id="street_no" name="street_no" type="text" class="mt-1" id="default_size" :value="old('street_no', $profile?->street_no)" required autofocus autocomplete="street_no" />
+                                        <x-input-error class="mt-1" :messages="$errors->get('street_no')" />
+                                    </div>
+                                    <div class="w-full md:w-1/2">
+                                        <x-input-label for="street_name" :value="__('Street Name')" />
+                                        <x-text-input id="street_name" name="street_name" type="text" class="mt-1" id="default_size" :value="old('street_name', $profile?->street_name)" required autofocus autocomplete="street_name" />
+                                        <x-input-error class="mt-1" :messages="$errors->get('street_name')" />
                                     </div>
                                 </div>
                                 <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
@@ -124,6 +136,61 @@
                                             <option value="" @if (!$profile->township_id) selected @endif>Select a Township</option>
                                         </select>
                                         <x-input-error class="mt-1" :messages="$errors->get('township_id')" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                                    <div class="w-full md:w-1/2">
+                                        <x-input-label for="businesszone_id" :value="__('Business Zone')" />
+                                        <select id="businesszone_id" name="businesszone_id" class="w-full text-sm mt-1 p-2 block font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>
+                                            <option value="" @if (!$profile->businesszone_id) selected @endif>Select a Business Zone</option>
+                                        </select>
+                                        <x-input-error class="mt-1" :messages="$errors->get('businesszone_id')" />
+                                    </div>
+                                    <div class="w-full md:w-1/2">
+                                        <x-input-label for="sector_id" :value="__('Sector')" />
+                                        <select id="sector_id" name="sector_id" class="w-full text-sm mt-1 p-2 block font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>
+                                            <option value="" @if (!$profile->sector_id) selected @endif>Select an Option</option>
+                                            @foreach ($sectors as $sector)
+                                                <option value="{{$sector->id}}" @if ($profile->sector_id == $sector->id) selected @endif>{{$sector->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        <x-input-error class="mt-1" :messages="$errors->get('sector_id')" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                                    <div class="w-full md:w-1/2">
+                                        <x-input-label for="land_lease_contract_stamp" :value="__('Land Lease Contract Stamp (Yes/No)')" />
+                                        <select id="land_lease_contract_stamp" name="land_lease_contract_stamp" class="w-full text-sm mt-1 p-2 block font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>
+                                            <option value="0"  @if ($profile->land_lease_contract_stamp == 0) selected @endif>No</option>
+                                            <option value="1"  @if ($profile->land_lease_contract_stamp == 1) selected @endif>Yes</option>
+                                        </select>
+                                        <x-input-error class="mt-1" :messages="$errors->get('land_lease_contract_stamp')" />
+                                    </div>
+                                    <div class="w-full md:w-1/2">
+                                        <x-input-label for="land_lease_contract_register" :value="__('Land Lease Contract Register (Yes/No)')" />
+                                        <select id="land_lease_contract_register" name="land_lease_contract_register" class="w-full text-sm mt-1 p-2 block font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>
+                                            <option value="0"  @if ($profile->land_lease_contract_register == 0) selected @endif>No</option>
+                                            <option value="1"  @if ($profile->land_lease_contract_register == 1) selected @endif>Yes</option>
+                                        </select>
+                                        <x-input-error class="mt-1" :messages="$errors->get('land_lease_contract_register')" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col mt-2 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                                    <div class="w-full md:w-1/2">
+                                        <x-input-label for="landtype_id" :value="__('Land Type')" />
+                                        <select id="landtype_id" name="landtype_id" class="w-full text-sm mt-1 p-2 block font-arial border-gray-300 bg-white text-gray-700 focus:border-greenprimary focus:ring-lime-600 rounded-md shadow-sm" required>
+                                            <option value="" @if (!$profile->landtype_id) selected @endif>Select an Option</option>
+                                            @foreach ($landtypes as $landtype)
+                                                <option value="{{$landtype->id}}" @if ($profile->landtype_id == $landtype->id) selected @endif>{{$landtype->name}}</option>
+                                            @endforeach
+                                            <option value="" class="otherlandtype">Other</option>
+                                        </select>
+                                        <x-input-error class="mt-1" :messages="$errors->get('landtype_id')" />
+                                    </div>
+                                    <div class="w-full md:w-1/2 hidden" id="otherLandType">
+                                        <x-input-label for="other_land_type" :value="__('Other Land Type')" />
+                                        <x-text-input type="text" class="mt-1 other_land_type" name="other_land_type" id="default_size" autofocus autocomplete="other_land_type" />
+                                        <x-input-error class="mt-1" :messages="$errors->get('other_land_type')" />
                                     </div>
                                 </div>
                                 <div class="flex mt-5">

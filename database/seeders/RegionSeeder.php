@@ -31,7 +31,9 @@ class RegionSeeder extends Seeder
             ->mapWithKeys(fn ($k) => [$k[0] => $k[1]]);
         $t = fn ($k, $r = '') => Str::of($translations->get($k))->remove($r, false)->trim();
 
-        DB::transaction(function () use ($all, $t) {
+        $keyed_zones = json_decode(file_get_contents(__DIR__.'/business_zones.json'));
+
+        DB::transaction(function () use ($all, $keyed_zones, $t) {
             foreach ($all as $key => [, $region_name, $district_name, $township_name]) {
                 printf("seed: %s\n", implode(' | ', [$key, $region_name, $district_name, $township_name]));
 
@@ -42,6 +44,13 @@ class RegionSeeder extends Seeder
                     ['name' => $t($region_name)],
                     ['name_mm' => $region_name],
                 );
+
+                foreach ($keyed_zones?->$region_name ?? [] as $zone) {
+                    $region->business_zones()->firstOrCreate(
+                        ['name' => $zone->name],
+                        ['name_mm' => $zone->nameMM],
+                    );
+                }
 
                 if (! $district_name) {
                     continue;

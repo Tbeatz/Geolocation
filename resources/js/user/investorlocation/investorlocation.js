@@ -20,18 +20,25 @@ $(document).ready(function () {
         var regionId = $(this).val();
         if (regionId) {
             $.ajax({
-                url: "/district/" + regionId,
+                url: "/district_businesszone/" + regionId,
                 type: "GET",
                 dataType: "json",
                 success: function (data) {
                     $('#district_id').empty();
                     $('#district_id').append('<option value="">Select a District</option>');
-                    $.each(data, function (key, value) {
+                    $('#businesszone_id').empty();
+                    $('#businesszone_id').append('<option value="">Select a Business Zone</option>');
+                    $.each(data.district, function (key, value) {
                         var option = `<option value="${value.id}" ${profiles.district_id == value.id ? 'selected ' : ''}>${value.name}</option>`
                         $('#district_id').append(option);
-                        console.log(option);
+                        // console.log(option);
                     });
-                    $('#district_id').change();
+                    $.each(data.businesszone, function (key, value) {
+                        var businesszones = `<option value="${value.id}" ${profiles.businesszone_id == value.id ? 'selected ' : ''}>${value.name}</option>`;
+                        $('#businesszone_id').append(businesszones);
+                        // console.log(businesszones);
+                    });
+                    $('#district_id, #businesszone_id').change();
                 }
             });
         } else {
@@ -63,4 +70,16 @@ $(document).ready(function () {
             $('#township_id').append('<option value="">Select a Township</option>');
         }
     });
+    $('#landtype_id').change(function() {
+        var selectedOption = $(this).find(':selected');
+        if (selectedOption.hasClass('otherlandtype')) {
+            console.log(selectedOption);
+            $('#otherLandType').removeClass('hidden');
+            $('.other_land_type').prop('required', true);
+        } else {
+          $('#otherLandType').addClass('hidden');
+          $('.other_land_type').prop('required', false);
+          $('.other_land_type').val('');
+        }
+    }).change();
 });

@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             UserdataSeeder::class,
             UserSeeder::class,
             NationalitySeeder::class,
+            LandtypeSeeder::class,
         ]);
     }
 }
