@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\CapitalController;
 use App\Http\Controllers\CompanydetailController;
 use App\Http\Controllers\ContributionController;
@@ -69,16 +70,21 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'admin'])->group(function () {
     // Admin
+        //admindashboard
+    Route::get('/admindashboard',[AdminDashboardController::class, 'index'])->name('admindashboard');
+        //users
     Route::get('/users',[UserController::class, 'index'])->name('users');
     Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.approve');
     Route::delete('/users/{user}',[UserController::class, 'destroy'])->name('users.reject');
     Route::get('users-paginate',[UserController::class, 'paginate'])->name('users.paginate');
+        //userdata
     Route::resource('userdata', UserdataController::class)->parameters(['userdata' => "userdata"]);
+        //sector
     Route::get('/sectors/{sector}',[SectorController::class, 'edit'])->name('sector.edit');
     Route::post('/sectors/{sector}',[SectorController::class, 'update'])->name('sector.update');
     Route::get('/fetch-sectors',[SectorController::class, 'fetch'])->name('sector.fetch');
     Route::get('/sectors',[SectorController::class, 'index'])->name('sector');
-    //Map
+        //map
     Route::get('/map', [MapController::class, 'index'])->name('map');
     Route::get('/tsp', [MapController::class, 'township']);
     Route::get('/filter', [MapController::class, 'filtering']);

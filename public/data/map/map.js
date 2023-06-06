@@ -51,7 +51,7 @@ var factoryGroup = L.geoJSON({
         const { lat, lng } = layer.getLatLng();
         layer.bindPopup(`
         <div class="containerstyle">
-            <strong class="header">${feature.properties.name}</strong>
+            <strong class="header">${feature.properties.company_name}</strong>
             <img class="image" src="${feature.properties.image}"/>
             <table class="tb">
                 <tr>
@@ -60,12 +60,12 @@ var factoryGroup = L.geoJSON({
                 </tr>
                 <tr>
                     <td class="text">Area </td>
-                    <td>| ${feature.properties.businesstype}</td>
+                    <td>| ${feature.properties.land_area}</td>
                 </tr>
             </table>
             <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded detail">View More</button>
         </div>`)
-        layer.bindTooltip(feature.properties.name, {
+        layer.bindTooltip(feature.properties.company_name, {
             permanent: true,
             direction: 'top',
             offset: L.point(0, -15),
@@ -97,7 +97,7 @@ factoryGroup
             slideMenu.setContents(`
                 <img class="w-full h-auto" src="${e.layer.feature.properties.image}">
                 <div class="container content">
-                    <h3 class="uppercase font-arial mb-2 mt-2 font-semibold text-blue-600 text-lg">${e.layer.feature.properties.name}</h3>
+                    <h3 class="uppercase font-arial mb-2 mt-2 font-semibold text-blue-600 text-lg">${e.layer.feature.properties.company_name}</h3>
                     <p1 class= "font-arial mb-1 font-semibold text-gray-900 text-sm">${e.layer.feature.properties.sector} Sector</p1>
                     <p2 class= "font-arial font-semibold text-gray-900 text-sm">${e.layer.feature.properties.type} Investment</p2>
                     <table class="table-auto border-separate border-collapse mt-3">
@@ -107,7 +107,7 @@ factoryGroup
                                     <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                                 </svg>
                             </td>
-                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer.feature.properties.company_reg_no}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer.feature.properties.investor_phone}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 border-r-2">
@@ -115,7 +115,7 @@ factoryGroup
                                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
                                 </svg>
                             </td>
-                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer.feature.properties.businesstype}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer.feature.properties.investor_email}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 border-r-2">
@@ -123,7 +123,7 @@ factoryGroup
                                     <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z"/>
                                 </svg>
                             </td>
-                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer.feature.properties.contact}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer.feature.properties.zone}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 border-r-2">
@@ -132,7 +132,7 @@ factoryGroup
                                     <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z"/>
                                 </svg>
                             </td>
-                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer.feature.properties.contact}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer.feature.properties.land_type}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 border-r-2">
@@ -143,6 +143,7 @@ factoryGroup
                             <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${e.layer._latlng.lat}, ${e.layer._latlng.lng}</td>
                         </tr>
                     </table>
+                    <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 mt-4 rounded show_all_details" value=${e.layer.feature.properties.id}>Show All Details</button>
                 </div>`)
             // console.log('got clicked');
             slideMenu.show();
@@ -328,7 +329,7 @@ function backEventHandler() {
         specificMarker += `
             <div>
                 <div style="flex-direction: row; display:flex; align-items:center; margin:10px; background-color:white;">
-                    <button value="${filteredMarkers[i].feature.properties.id}" type="button" class="w-full font-arial bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 mx-2 rounded specificDetail">${filteredMarkers[i].feature.properties.name}, ${filteredMarkers[i].feature.properties.sector}, ${filteredMarkers[i].feature.properties.type}</button>
+                    <button value="${filteredMarkers[i].feature.properties.id}" type="button" class="w-full font-arial bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 mx-2 rounded specificDetail">${filteredMarkers[i].feature.properties.company_name}, ${filteredMarkers[i].feature.properties.sector}, ${filteredMarkers[i].feature.properties.type}</button>
                 </div>
             </div>`
     }
@@ -347,7 +348,7 @@ $(document).on('click', '.specificDetail', function () {
     slideMenu.setContents(`
         <img class="w-full h-auto" src="${matchedMarker.feature.properties.image}">
                 <div class="container content">
-                    <h3 class="uppercase font-arial mb-2 mt-2 font-semibold text-blue-600 text-xl">${matchedMarker.feature.properties.name}</h3>
+                    <h3 class="uppercase font-arial mb-2 mt-2 font-semibold text-blue-600 text-xl">${matchedMarker.feature.properties.company_name}</h3>
                     <p1 class= "font-arial mb-1 font-semibold text-gray-900 text-sm">${matchedMarker.feature.properties.sector} Sector</p1>
                     <p2 class= "font-arial font-semibold text-gray-900 text-sm">${matchedMarker.feature.properties.type} Investment</p2>
                     <table class="table-auto border-separate border-collapse mt-3">
@@ -357,7 +358,7 @@ $(document).on('click', '.specificDetail', function () {
                                     <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                                 </svg>
                             </td>
-                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker.feature.properties.company_reg_no}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker.feature.properties.investor_phone}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 border-r-2">
@@ -365,7 +366,7 @@ $(document).on('click', '.specificDetail', function () {
                                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
                                 </svg>
                             </td>
-                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker.feature.properties.businesstype}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker.feature.properties.investor_email}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 border-r-2">
@@ -373,7 +374,7 @@ $(document).on('click', '.specificDetail', function () {
                                     <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z"/>
                                 </svg>
                             </td>
-                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker.feature.properties.contact}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker.feature.properties.zone}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 border-r-2">
@@ -382,7 +383,7 @@ $(document).on('click', '.specificDetail', function () {
                                     <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z"/>
                                 </svg>
                             </td>
-                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker.feature.properties.contact}</td>
+                            <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker.feature.properties.land_type}</td>
                         </tr>
                         <tr>
                             <td class="px-4 py-2 border-r-2">
@@ -393,7 +394,8 @@ $(document).on('click', '.specificDetail', function () {
                             <td class="font-arial font-medium text-gray-900 text-sm px-4 py-2">${matchedMarker._latlng.lat}, ${matchedMarker._latlng.lng}</td>
                         </tr>
                     </table>
-                    <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 mt-4 rounded back">Back</button>
+                    <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 mt-4 rounded show_all_details" value=${matchedMarker.feature.properties.id}>Show All Details</button>
+                    <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 mt-1 rounded back">Back</button>
                 </div>
         `);
 });
@@ -558,5 +560,50 @@ $('#sel3').change(function () {
     } else {
         $('#sel4').empty();
         sel4.loadOptions();
+    }
+});
+
+//detail modal for factories
+$(document).on('click', '.show_all_details', function(e) {
+    e.stopPropagation();
+    const detail_factoryid = $(this).val();
+    let detail_factory;
+    factoryGroup.eachLayer(function(layer) {
+        if (layer.feature.properties.id == detail_factoryid) {
+            detail_factory = layer;
+        }
+    });
+    if (detail_factory) {
+        map.doubleClickZoom.disable();
+        $('#map-modal').on('click',function(e){
+            e.stopPropagation();
+        })
+        //open modal
+        $('#map-modal').show();
+        //close modal
+        $('#map_close, #map-close-btn').on('click', function(e){
+            e.stopPropagation();
+            $('#map-modal').hide();
+        });
+        $('#company_header').html(detail_factory.feature.properties.company_name + "'s Information")
+        $('#map_company_name').val(detail_factory.feature.properties.company_name);
+        $('#map_company_reg_no').val(detail_factory.feature.properties.company_reg_no);
+        $('#map_company_reg_date').val(detail_factory.feature.properties.company_reg_date);
+        $('#map_permit_no').val(detail_factory.feature.properties.permit_no);
+        $('#map_permit_date').val(detail_factory.feature.properties.permit_date);
+        $('#map_permit_type').val(detail_factory.feature.properties.permit_type);
+        $('#map_form_of_invest').val(detail_factory.feature.properties.form_of_invest);
+        $('#map_investor_name').val(detail_factory.feature.properties.investor_name);
+        $('#map_investor_phone').val(detail_factory.feature.properties.investor_phone);
+        $('#map_investor_email').val(detail_factory.feature.properties.investor_email);
+        $('#map_businesstype').val(detail_factory.feature.properties.businesstype);
+        $('#map_sector').val(detail_factory.feature.properties.sector);
+        $('#map_region').val(detail_factory.feature.properties.region);
+        $('#map_district').val(detail_factory.feature.properties.district);
+        $('#map_township').val(detail_factory.feature.properties.township);
+        $('#map_zone').val(detail_factory.feature.properties.zone);
+        $('#map_land_area').val(detail_factory.feature.properties.land_area);
+        $('#map_land_type').val(detail_factory.feature.properties.land_type);
+
     }
 });

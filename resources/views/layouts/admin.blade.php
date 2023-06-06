@@ -144,4 +144,5 @@
             </main>
         </div>
     </body>
+    @stack('adminmodal')
 </html>

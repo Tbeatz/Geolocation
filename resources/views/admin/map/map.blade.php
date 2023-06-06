@@ -95,6 +95,7 @@
                     </button>
                   </div>
             </div>
+                @include('admin.map.map_modal')
         </div>
     </div>
     <script src="/data/geofactory.js"></script>

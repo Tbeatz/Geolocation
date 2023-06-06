@@ -43,4 +43,10 @@ class Profile extends Model
     public function currency(){
         return $this->hasOne(Currency::class, 'id', 'currency_id');
     }
+    public function permit_type(){
+        return $this->hasOne(PermitType::class, 'id', 'permit_type_id');
+    }
+    public function form_of_invest(){
+        return $this->hasOne(FormOfInvest::class, 'id', 'form_of_invest_id');
+    }
 }

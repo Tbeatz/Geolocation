@@ -12,7 +12,7 @@ class MapController extends Controller
 {
     public function index(Request $request){
         if ($request->ajax()) {
-            $profiles = Profile::with('sector', 'townships', 'districts')->whereNotNull('geolocation')->get();
+            $profiles = Profile::with('sector', 'townships', 'districts', 'country', 'region', 'landtype', 'businesszone', 'commercial_country', 'currency', 'permit_type', 'form_of_invest')->whereNotNull('geolocation')->get();
             return $profiles;
         }
         $sectors = Sector::all();
