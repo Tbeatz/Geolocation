@@ -111,6 +111,7 @@
         <!-- lib js -->
         <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
         <script src="/lib/Leaflet.markercluster-1.4.1/dist/leaflet.markercluster-src.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
         {{-- <script src="/lib/Leaflet.markercluster-1.4.1/src/MarkerCluster.js"></script> --}}
         <script src="/lib/multiselect-dropdown.js"></script>
         <script src="/lib/leaflet.browser.print.min.js"></script>

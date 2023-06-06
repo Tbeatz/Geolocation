@@ -7,6 +7,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'resources/js/admin/admindashboard/admindashboard.js',
                 'resources/js/admin/sector/sector.js',
                 'resources/js/admin/userdata/userdata.js',
                 'resources/js/admin/userdata/userdata-edit.js',

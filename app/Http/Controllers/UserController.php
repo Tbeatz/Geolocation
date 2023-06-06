@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::where('is_admin', false)->with('profile')->paginate(5);
+        $users = User::where('is_admin', false)->where('active', false)->with('profile')->paginate(5);
         return view('admin.users.users', compact('users'));
     }
     public function update(User $user)
