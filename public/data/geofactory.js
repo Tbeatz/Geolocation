@@ -31,6 +31,7 @@ function geoajax() {
                         'permit_no': profile.permit_no,
                         'permit_date': profile.permit_date,
                         'permit_type': profile.permit_type.name,
+                        'formOfInvest': profile.form_of_invest_id,
                         'form_of_invest': profile.form_of_invest.name,
                         'investor_name': profile.investor_name,
                         'investor_phone': profile.investor_phone,

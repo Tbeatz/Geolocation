@@ -11,8 +11,9 @@
                         multiselect-select-all="true"
                         multiselect-max-items="1"
                     >
-                        <option value="Local">Local</option>
-                        <option value="Foreign">Foreign</option>
+                        @foreach ($formOfInvests as $formOfInvest)
+                            <option value="{{$formOfInvest->id}}">{{$formOfInvest->name}}</option>
+                        @endforeach
                     </select>
                     <label class="mx-1 font-semibold text-sm font-arial text-gray-700" for="">Sector</label>
                     <select class="multiSelect" id="sel2" multiple

@@ -8,11 +8,14 @@ var myChart2 = echarts.init(chartDom2);
 //investment type
 var localCount = 0;
 var foreignCount = 0;
+var jointventure = 0;
 companies_info.forEach(function(company) {
-  if (company.profile.type == false) {
+  if (company.profile.form_of_invest_id == 1) {
     localCount++;
-  } else if (company.profile.type == true) {
+  } else if (company.profile.form_of_invest_id == 2) {
     foreignCount++;
+  } else if (company.profile.form_of_invest_id == 4) {
+    jointventure++
   }
 });
 option = {
@@ -42,6 +45,7 @@ option = {
             data: [
                 { value: localCount, name: 'Local Company' },
                 { value: foreignCount, name: 'Foreign Company' },
+                { value: jointventure, name: 'Joint Venture Company' },
             ],
             emphasis: {
                 itemStyle: {
@@ -60,7 +64,7 @@ option = {
             }
         }
     ],
-    color: ['#16a34a', '#1d4ed8']
+    color: ['#16a34a', '#1d4ed8', '#c026d3']
 };
 //permit type
 var permit_MIC = 0
