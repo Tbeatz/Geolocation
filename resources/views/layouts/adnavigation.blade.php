@@ -27,6 +27,9 @@
                     <x-nav-link class="font-semibold font-arial" :href="route('sector')" :active="request()->routeIs('sector')">
                         {{ __('Sectors') }}
                     </x-nav-link>
+                    <x-nav-link class="font-semibold font-arial" :href="route('investorprofile')" :active="request()->routeIs('investorprofile')">
+                        {{ __('Investor Profile') }}
+                    </x-nav-link>
                 </div>
             </div>
 

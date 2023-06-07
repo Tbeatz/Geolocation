@@ -290,18 +290,6 @@ lineChartOption = {
             },
             data: [100, 200, 800, 770, 500, 600, 700, 1000]
         },
-        {
-            type: 'line',
-            datasetId: 'dataset_since_1950_of_france',
-            showSymbol: false,
-            encode: {
-                x: 'Year',
-                y: 'Income',
-                itemName: 'Year',
-                tooltip: ['Income']
-            },
-            data: [100, 200, 300, 400, 500, 600, 700, 800]
-        }
     ]
 };
 

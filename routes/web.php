@@ -10,6 +10,7 @@ use App\Http\Controllers\Profile\AvatarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserdataController;
 use App\Http\Controllers\GeolocationController;
+use App\Http\Controllers\InvestorprofileController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\SectorController;
 use Illuminate\Support\Facades\Route;
@@ -72,11 +73,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // Admin
         //admindashboard
     Route::get('/admindashboard',[AdminDashboardController::class, 'index'])->name('admindashboard');
+        //investorprofile
+    Route::get('/investorprofile',[InvestorprofileController::class, 'index'])->name('investorprofile');
+    Route::get('/investorprofile-paginate',[InvestorprofileController::class, 'paginate'])->name('investorprofile.paginate');
         //users
     Route::get('/users',[UserController::class, 'index'])->name('users');
     Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.approve');
     Route::delete('/users/{user}',[UserController::class, 'destroy'])->name('users.reject');
-    Route::get('users-paginate',[UserController::class, 'paginate'])->name('users.paginate');
+    Route::get('/users-paginate',[UserController::class, 'paginate'])->name('users.paginate');
         //userdata
     Route::resource('userdata', UserdataController::class)->parameters(['userdata' => "userdata"]);
         //sector
